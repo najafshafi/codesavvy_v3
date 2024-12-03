@@ -1,0 +1,242 @@
+{
+  "cards": [
+    {
+      "title": "PHP",
+      "backgroundColor": "#FFC0C7",
+      "description": "Server-side scripting language for dynamic web development.",
+      "buttonText": "Learn PHP",
+      "to": "/learning-php"
+    },
+    {
+      "title": "jQuery",
+      "backgroundColor": "#FFF4A3",
+      "description": "JavaScript library simplifying client-side scripting and DOM manipulation.",
+      "buttonText": "Learn jQuery",
+      "to": "/learning-jquery"
+    },
+    {
+      "title": "Java",
+      "backgroundColor": "#F3ECEA",
+      "description": "Versatile language for enterprise-level applications and Android development.",
+      "buttonText": "Learn Java",
+      "to": "/learning-java"
+    },
+    {
+      "title": "C++",
+      "backgroundColor": "#D9EEE1",
+      "description": "High-performance, programming language used for system software.",
+      "buttonText": "Learn C++",
+      "to": "/learning-c++"
+    },
+    {
+      "title": "Tailwind CSS",
+      "backgroundColor": "#96D4D4",
+      "description": "Utility-first CSS framework for rapid UI development and styling.",
+      "buttonText": "Learn Tailwind CSS",
+      "to": "/learning-tailwindcss"
+    },
+    {
+      "title": "Bootstrap",
+      "backgroundColor": "#E7E9EB",
+      "description": "Popular front-end framework for responsive and mobile-first web development.",
+      "buttonText": "Learn Bootstrap",
+      "to": "/learning-bootstrap"
+    },
+    {
+      "title": "R",
+      "backgroundColor": "#E7E9EB",
+      "description": "The best Language for statistical computing and data analysis.",
+      "buttonText": "Learn R",
+      "to": "/learning-r"
+    },
+    {
+      "title": "Kotlin",
+      "backgroundColor": "D9EEE1",
+      "description": "Modern language for Android app development and multi-platform projects.",
+      "buttonText": "Learn Kotlin",
+      "to": "/learning-kotlin"
+    },
+    {
+      "title": "Node.js",
+      "backgroundColor": "#96D4D4",
+      "description": "JavaScript runtime for building scalable network applications.",
+      "buttonText": "Node.js",
+      "to": "/learning-nodejs"
+    },
+    {
+      "title": "React",
+      "backgroundColor": "#FFF4A3",
+      "description": "JavaScript library for building user interfaces in web applications.",
+      "buttonText": "Learn React",
+      "to": "/learning-react"
+    },
+    {
+      "title": "JSON",
+      "backgroundColor": "#E7E9EB",
+      "description": "Lightweight data-interchange format used for data exchange..",
+      "buttonText": "Learn JSON",
+      "to": "/learning-json"
+    },
+    {
+      "title": "Vue",
+      "backgroundColor": "#E7E9EB",
+      "description": "Progressive JavaScript framework for building UIs and single-page applications.",
+      "buttonText": "LearnVue",
+      "to": "/learning-vue"
+    },
+    {
+      "title": "MySQL",
+      "backgroundColor": "#D9EEE1",
+      "description": "The Most Popular relational database management system.",
+      "buttonText": "Learn MySQL",
+      "to": "/learning-mysql"
+    },
+    {
+      "title": "XML",
+      "backgroundColor": "#96D4D4",
+      "description": "Markup language for documents that are both human-readable and machine-readable.",
+      "buttonText": "Learn XML",
+      "to": "/learning-xml"
+    },
+    {
+      "title": "Sass",
+      "backgroundColor": "#FFC0C7",
+      "description": "CSS extension language providing more features and flexibility.",
+      "buttonText": "Learn Sass",
+      "to": "/learning-sass"
+    },
+    {
+      "title": "RWD",
+      "backgroundColor": "#E7E9EB",
+      "description": "Approach to web design ensuring optimal viewing across devices.",
+      "buttonText": "Learn RWD",
+      "to": "/learning-rwd"
+    },
+    {
+      "title": "Canvas",
+      "backgroundColor": "#FFC0C7",
+      "description": "HTML element for drawing graphics and animations using JavaScript.",
+      "buttonText": "Learn Canvas",
+      "to": "/learning-canvas"
+    },
+    {
+      "title": "Rasberry Pi",
+      "backgroundColor": "#FFF4A3",
+      "description": "Single-board computer used for learning and prototyping IoT projects.",
+      "buttonText": "Learn Rasberry Pi",
+      "to": "/learning-rasberrypi"
+    },
+    {
+      "title": "Cyber Security",
+      "backgroundColor": "#E7E9EB",
+      "description": "Protection of systems, networks, and data from digital attacks.",
+      "buttonText": "Learn Cyber Security",
+      "to": "/learning-cybersecurity"
+    },
+    {
+      "title": "Git",
+      "backgroundColor": "#96D4D4",
+      "description": "Distributed version control system for tracking changes in source code.",
+      "buttonText": "Learn Git",
+      "to": "/learning-git"
+    },
+    {
+      "title": "Matlab Pilot",
+      "backgroundColor": "#FFC0C7",
+      "description": "High-level language and environment for numerical computing & app development.",
+      "buttonText": "Learn Matlab Pilot",
+      "to": "/learning-matlabpilot"
+    },
+    {
+      "title": "NumPy",
+      "backgroundColor": "#FFF4A3",
+      "description": "Library for numerical computing with Python, supporting large, multi-dimensional arrays.",
+      "buttonText": "Learn NumPy",
+      "to": "/learning-numpy"
+    },
+    {
+      "title": "Pandas",
+      "backgroundColor": "#E7E9EB",
+      "description": "The Data analysis and manipulation tool built on Python.",
+      "buttonText": "Learn Pandas",
+      "to": "/learning-pandas"
+    },
+    {
+      "title": "SciPy",
+      "backgroundColor": "#D9EEE1",
+      "description": "Library for scientific and technical computing with Python.",
+      "buttonText": "Learn SciPy",
+      "to": "/learning-scipy"
+    },
+    {
+      "title": "ASP",
+      "backgroundColor": "#96D4D4",
+      "description": "Framework for building dynamic web applications and services.",
+      "buttonText": "Learn ASP",
+      "to": "/learning-asp"
+    },
+    {
+      "title": "Angular JS",
+      "backgroundColor": "#FFC0C7",
+      "description": "JavaScript-based framework for single-page applications.",
+      "buttonText": "Learn Angular JS",
+      "to": "/learning-angularjs"
+    },
+    {
+      "title": "APP ML",
+      "backgroundColor": "#FFF4A3",
+      "description": "Field enabling computers to learn from data and make decisions.",
+      "buttonText": "Learn APP ML",
+      "to": "/learning-appml"
+    },
+    {
+      "title": "GO",
+      "backgroundColor": "#E7E9EB",
+      "description": "Efficient programming language by Google for building reliable and scalable software.",
+      "buttonText": "Learn GO",
+      "to": "/learning-go"
+    },
+    {
+      "title": "Typescript",
+      "backgroundColor": "#D9EEE1",
+      "description": "Typed superset of JavaScript for large-scale application development.",
+      "buttonText": "Learn Typescript",
+      "to": "/learning-typescript"
+    },
+    {
+      "title": "SiDjango",
+      "backgroundColor": "#96D4D4",
+      "description": "High-level Python web framework for rapid development and clean design.",
+      "buttonText": "Learn SiDjango",
+      "to": "/learning-sidjango"
+    },
+    {
+      "title": "MongoDB",
+      "backgroundColor": "#FFC0C7",
+      "description": "Document-oriented NoSQL database program for scalability and flexibility.",
+      "buttonText": "Learn MongoDB",
+      "to": "/learning-mongodb"
+    },
+    {
+      "title": "Data Science",
+      "backgroundColor": "#E7E9EB",
+      "description": "Interdisciplinary field extracting insights from data for decision-making.",
+      "buttonText": "Learn Data Science",
+      "to": "/learning-datascience"
+    },
+    {
+      "title": "PostgreSQL",
+      "backgroundColor": "#FFF4A3",
+      "description": "Open-source relational database system known for reliability and extensibility.",
+      "buttonText": "Learn PostgreSQL",
+      "to": "/learning-postgresql"
+    },
+    {
+      "title": "How To",
+      "backgroundColor": "#FFF4A3",
+      "description": "Multiple 'How To' to help you with your programming challenges",
+      "buttonText": "Learn How To",
+      "to": "/learning-howto"
+    }
+  ]
+}

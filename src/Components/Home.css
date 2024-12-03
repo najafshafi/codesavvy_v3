@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+.hero{
+width: 100vw;
+
+display: flex;
+justify-content: space-between;
+}
+
+.heroteo{
+width: 50vw;
+}
+
+.herotext{
+    width: 50vw;
+}
+
+
+.imagecontainer{
+    width: 100%; /* or any desired width */
+}
+.imagecontainer img{
+    width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+#l1 a{
+    color: aliceblue;
+    font-size: 15px;
+}
+#l1 a:hover{
+    background-color: black;
+} 
+#l2{
+    
+    font-size: 16px;
+    color: white;
+    font-family:'Kanit', sans-serif;
+}
+#l2:hover{
+    color: #DDF247;
+}
+
+.hero-ai{
+    margin-top: 100px;
+}
+.head1{
+    font-size: 80px;
+    margin: 50px;
+    color: #FF6868;
+    text-align: center;
+    font-family:'Kanit', sans-serif;
+    margin-top: 90px;
+}
+.para1{
+    margin-left: 10px;
+    color: #FF6868;
+    font-size: 16px;
+    font-family:'Aeonik', sans-serif;
+    text-align: center;
+}
+#bot1{
+    z-index: 1;
+}
+#bot1:hover{
+    background-color: green;
+}
+.carousel-image-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.social-icons{
+    display: flex;
+    gap: 10px;
+}
+  
+.icon{
+    font-size: 24px;
+    border-radius: 10px;
+}
+.icon:hover{
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    padding: 5px;
+}
+.buttons-container {
+    flex-wrap: wrap;
+}  
+.button-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+._links{
+    font-size: 12px;
+}
+._links:hover{
+    color:green;
+    text-decoration: underline green;
+}
+#btng button:hover{
+    background-color: green;
+}
+
+  
+
+.myButton{
+    outline: 2px solid #DDF247;
+    color: #DDF247;
+    font-weight: bold;
+
+}
+
+.myButton:hover{
+    background-color: #DDF247;
+    color: black;
+}
+
+.box_shape{
+    height: 100vh;
+}

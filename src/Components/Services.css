@@ -1,0 +1,24 @@
+._card1{
+    background-color: rgba(0, 0, 0, 0.112);
+}
+._card1:hover{
+    cursor: pointer;
+    background-color: black;
+}
+.social-icons1{
+    display: flex;
+    gap: 10px;
+    color: #fff;
+}
+#i1:hover{
+    color: #3b5998;
+}
+#i2:hover{
+    color: #dc2976;
+}
+#i3:hover{
+    color: #3b5998;
+}
+#i4:hover{
+    color: #99AAb5;
+}

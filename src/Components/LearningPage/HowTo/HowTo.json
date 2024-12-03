@@ -1,0 +1,175 @@
+{
+  "howto_tutorial": [
+    {
+      "title": "How to Create a Hello World Program in Python",
+      "content": "Writing and running a simple 'Hello, World!' program in Python.",
+      "code_example": "print('Hello, World!')"
+    },
+    {
+      "title": "How to Create a REST API with Node.js and Express",
+      "content": "Building a RESTful API using Node.js and Express framework.",
+      "code_example": "const express = require('express');\nconst app = express();\napp.get('/', (req, res) => {\n  res.send('Hello, World!');\n});\napp.listen(3000, () => {\n  console.log('Server is running on http://localhost:3000');\n});"
+    },
+
+    {
+      "title": "How to Write and Compile a Java Program",
+      "content": "Creating a Java program and compiling it using javac.",
+      "code_example": "public class HelloWorld {\n  public static void main(String[] args) {\n    System.out.println('Hello, World!');\n  }\n}"
+    },
+    {
+      "title": "How to Debug JavaScript in Visual Studio Code",
+      "content": "Setting up and using debugging features for JavaScript in Visual Studio Code.",
+      "code_example": "console.log('Debugging example');\n// Add breakpoints and inspect variables in VS Code debugger."
+    },
+    {
+      "title": "How to Create a Table in MySQL",
+      "content": "Creating a new table in MySQL database using SQL commands.",
+      "code_example": "CREATE TABLE users (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  username VARCHAR(50) NOT NULL,\n  email VARCHAR(100) NOT NULL\n);"
+    },
+    {
+      "title": "How to Insert Data into MongoDB",
+      "content": "Adding documents (data) to MongoDB collection using insert operations.",
+      "code_example": "db.users.insertOne({\n  username: 'john_doe',\n  email: 'john.doe@example.com'\n});"
+    },
+    {
+      "title": "How to Build a Docker Image",
+      "content": "Creating a Docker image using a Dockerfile.",
+      "code_example": "FROM node:14\nWORKDIR /app\nCOPY package.json ./\nRUN npm install\nCOPY . .\nCMD ['node', 'app.js']"
+    },
+    {
+      "title": "How to Deploy a Flask Application on Heroku",
+      "content": "Deploying a Python Flask web application to Heroku cloud platform.",
+      "code_example": "Create a Procfile:\nweb: gunicorn app:app\n\nDeploy using git:\n$ git add .\n$ git commit -m 'Initial commit'\n$ heroku login\n$ heroku create\n$ git push heroku master\n$ heroku ps:scale web=1"
+    },
+    {
+      "title": "How to Use Git and GitHub",
+      "content": "Basic commands and workflow for using Git version control and GitHub.",
+      "code_example": "git init\n\n# Add files\n$ git add .\n\n# Commit changes\n$ git commit -m 'Initial commit'\n\n# Push to remote repository\n$ git remote add origin <remote_repository_url>\n$ git push -u origin master"
+    },
+    {
+      "title": "How to Write a Unit Test in Python with pytest",
+      "content": "Writing and running unit tests using pytest framework in Python.",
+      "code_example": "import pytest\n\ndef add(a, b):\n    return a + b\n\ndef test_add():\n    assert add(2, 3) == 5\n    assert add(0, 0) == 0\n    assert add(-1, 1) == 0"
+    },
+    {
+      "title": "How to Create a Component in Angular",
+      "content": "Generating a new component in Angular using Angular CLI.",
+      "code_example": "ng generate component my-component"
+    },
+    {
+      "title": "How to Deploy a React App to GitHub Pages",
+      "content": "Deploying a React application to GitHub Pages for hosting.",
+      "code_example": "Add homepage field to package.json:\n\"homepage\": \"https://myusername.github.io/my-app\"\n\nInstall gh-pages package:\nnpm install gh-pages --save-dev\n\nAdd deploy script to package.json:\n\"scripts\": {\n  \"deploy\": \"gh-pages -d build\"\n}\n\nRun deploy script:\nnpm run deploy"
+    },
+    {
+      "title": "How to Generate a Scaffold in Ruby on Rails",
+      "content": "Creating a scaffold (CRUD interface) for a resource in Ruby on Rails application.",
+      "code_example": "rails generate scaffold Product name:string description:text price:decimal\nrake db:migrate"
+    },
+    {
+      "title": "How to Create a Simple Flutter App",
+      "content": "Creating a basic Flutter application with a stateless widget.",
+      "code_example": "import 'package:flutter/material.dart';\n\nvoid main() {\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(\n          title: Text('Hello, Flutter'),\n        ),\n        body: Center(\n          child: Text('Hello, World!'),\n        ),\n      ),\n    );\n  }\n}"
+    },
+    {
+      "title": "How to Train a Simple Neural Network with TensorFlow",
+      "content": "Creating and training a basic neural network model using TensorFlow.",
+      "code_example": "import tensorflow as tf\nfrom tensorflow.keras.models import Sequential\nfrom tensorflow.keras.layers import Dense\n\nmodel = Sequential([\n    Dense(units=64, activation='relu', input_shape=(784,)),\n    Dense(units=10, activation='softmax')\n])\n\nmodel.compile(optimizer='adam',\n              loss='sparse_categorical_crossentropy',\n              metrics=['accuracy'])\n\nmodel.fit(train_images, train_labels, epochs=10, batch_size=32)"
+    },
+    {
+      "title": "How to Create a 2D Game in Unity",
+      "content": "Building a simple 2D game using Unity game engine.",
+      "code_example": "// Example code for moving a player character\nvoid Update() {\n    float moveHorizontal = Input.GetAxis('Horizontal');\n    float moveVertical = Input.GetAxis('Vertical');\n    Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);\n    transform.position += movement * Time.deltaTime * speed;\n}"
+    },
+    {
+      "title": "How to Create a Console Application in C#",
+      "content": "Creating a basic console application using C# programming language.",
+      "code_example": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine('Hello, World!');\n    }\n}"
+    },
+    {
+      "title": "How to Create a Django Project",
+      "content": "Creating a new Django project with 'django-admin' command.",
+      "code_example": "django-admin startproject myproject"
+    },
+    {
+      "title": "How to Deploy a Laravel Application to Heroku",
+      "content": "Deploying a PHP Laravel application to Heroku cloud platform.",
+      "code_example": "Add Procfile in root directory:\nweb: vendor/bin/heroku-php-apache2 public/\n\nDeploy using git:\n$ git add .\n$ git commit -m 'Initial commit'\n$ heroku login\n$ heroku create\n$ git push heroku master\n$ heroku open"
+    },
+    {
+      "title": "How to Create a Sinatra Application",
+      "content": "Building a web application using Sinatra web framework in Ruby.",
+      "code_example": "require 'sinatra'\n\nget '/' do\n  'Hello, World!'\nend"
+    },
+    {
+      "title": "How to Create a Flask Application",
+      "content": "Writing a simple web application using Flask framework.",
+      "code_example": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef hello_world():\n    return 'Hello, World!'\n\nif __name__ == '__main__':\n    app.run()"
+    },
+    {
+      "title": "How to Write a Hello World Program in Rust",
+      "content": "Creating and running a 'Hello, World!' program in Rust.",
+      "code_example": "fn main() {\n    println!('Hello, World!');\n}"
+    },
+    {
+      "title": "How to Build a Java Project with Apache Maven",
+      "content": "Compiling and packaging a Java project using Apache Maven.",
+      "code_example": "mvn clean package"
+    },
+    {
+      "title": "How to Train a Neural Network with TensorFlow.js",
+      "content": "Training a simple neural network model using TensorFlow.js library.",
+      "code_example": "// Example of training a neural network\nconst model = tf.sequential();\nmodel.add(tf.layers.dense({units: 1, inputShape: [1]}));\nmodel.compile({loss: 'meanSquaredError', optimizer: 'sgd'});\n\nconst xs = tf.tensor2d([1, 2, 3, 4], [4, 1]);\nconst ys = tf.tensor2d([1, 3, 5, 7], [4, 1]);\n\nmodel.fit(xs, ys, {epochs: 10}).then(() => {\n  // Model trained\n});"
+    },
+    {
+      "title": "How to Create a React Native App",
+      "content": "Building a basic mobile app using React Native framework.",
+      "code_example": "// Example of a simple React Native app\nimport React from 'react';\nimport { Text, View, StyleSheet } from 'react-native';\n\nconst App = () => {\n  return (\n    <View style={styles.container}>\n      <Text>Hello, React Native!</Text>\n    </View>\n  );\n};\n\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    justifyContent: 'center',\n    alignItems: 'center',\n  },\n});\n\nexport default App;"
+    },
+    {
+      "title": "How to Create a RESTful API with Express.js",
+      "content": "Implementing a RESTful API server using Express.js framework in Node.js.",
+      "code_example": "const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n  res.send('Hello, World!');\n});\n\napp.listen(3000, () => {\n  console.log('Server is running on http://localhost:3000');\n});"
+    },
+    {
+      "title": "How to Use Jupyter Notebook",
+      "content": "Creating and running code cells in Jupyter Notebook for Python programming.",
+      "code_example": "print('Hello, Jupyter!')"
+    },
+    {
+      "title": "How to Send a POST Request in Postman",
+      "content": "Creating and sending a POST request to an API endpoint using Postman.",
+      "code_example": "Set request type to POST\nEnter API endpoint URL\nAdd request body (JSON, form-data, etc.)\nClick on Send"
+    },
+    {
+      "title": "How to Create a Virtual Environment in Python",
+      "content": "Creating isolated Python environments using virtualenv or venv.",
+      "code_example": "python -m venv myenv\nsource myenv/bin/activate\npip install package_name"
+    },
+    {
+      "title": "How to Write a Hello World Program in Go",
+      "content": "Creating and running a 'Hello, World!' program in Go.",
+      "code_example": "package main\n\nimport 'fmt'\n\nfunc main() {\n    fmt.Println('Hello, World!')\n}"
+    },
+    {
+      "title": "How to Run a Spark Job",
+      "content": "Submitting and running a Spark job on a cluster.",
+      "code_example": "spark-submit --class com.example.MyApp --master yarn --deploy-mode cluster myapp.jar"
+    },
+    {
+      "title": "How to Deploy a Node.js Application to AWS Lambda",
+      "content": "Deploying a serverless Node.js application to AWS Lambda.",
+      "code_example": "Create Lambda function in AWS Management Console\nUpload Node.js deployment package\nSet up triggers and permissions\nTest Lambda function"
+    },
+    {
+      "title": "How to Deploy a WAR File to Apache Tomcat",
+      "content": "Deploying a Java web application packaged as a WAR (Web ARchive) file to Apache Tomcat.",
+      "code_example": "Copy the WAR file to Tomcat's 'webapps' directory\nStart or restart Tomcat server\nAccess the application at http://localhost:8080/myapp"
+    },
+    {
+      "title": "How to Copy Your React Project",
+      "content": "Copying your React project directory to another location on your local machine.",
+      "code_example": "1. Open your terminal or command prompt.\n\n2. Navigate to the directory where your React project is currently located using the 'cd' command:\n   cd path/to/your/react/project\n\n3. Copy the entire project directory to a new location using the 'cp' command (on Unix-like systems) or 'xcopy' command (on Windows):\n   cp -r . /path/to/new/location\n   xcopy /s . \\path\\to\\new\\location\n\n   Replace '/path/to/new/location' or '\\path\\to\\new\\location' with the destination path where you want to copy your project.\n\n4. Once the copy process is complete, navigate to the new location where you copied your project:\n   cd /path/to/new/location\n   cd \\path\\to\\new\\location\n\n5. You should now see your React project files and directories copied to the new location."
+    }
+  ]
+}

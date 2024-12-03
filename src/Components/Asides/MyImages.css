@@ -1,0 +1,33 @@
+.Image_Container{
+    margin-top: 30px;
+    background-color: cyan;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow:scroll;
+    position: relative;
+}
+
+.MyImage{
+background-color: aqua;
+margin: 12px;
+height: 150px;
+width: 150px;
+object-fit: cover;
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+margin: 12px;
+height: 150px;
+width: 150px;
+}
+
+.btns:hover{
+    background-color: rgb(0, 205, 205);
+}

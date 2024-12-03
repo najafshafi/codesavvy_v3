@@ -1,0 +1,7 @@
+.myscreen{
+  height: calc(100vh - 65px);
+}
+
+.mycard{
+margin-bottom: 10px;
+}

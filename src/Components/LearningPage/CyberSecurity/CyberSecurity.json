@@ -1,0 +1,269 @@
+{
+  "cybersecurity_tutorial": [
+    {
+      "title": "Introduction to CyberSecurity",
+      "content": "Cyber security is the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information, extorting money from users, or interrupting normal business processes. Implementing effective cyber security measures is particularly challenging today because there are more devices than people, and attackers are becoming more innovative. Essential strategies in cyber security involve using a combination of tools, techniques, and processes designed to safeguard computer networks, devices, programs, and data from unauthorized access or damage. Cyber security spans multiple domains, including application security, information security, network security, disaster recovery, and end-user education. Each domain requires robust protocols and constant vigilance to counteract and mitigate the risks posed by cyber threats.",
+      "code_example": ""
+    },
+    {
+      "title": "Types of Cyber Attacks",
+      "content": "Common cyber attacks include malware, phishing, man-in-the-middle (MitM), and denial-of-service (DoS).",
+      "code_example": ""
+    },
+    {
+      "title": "Malware Analysis",
+      "content": "Malware analysis is the process of understanding the behavior and purpose of a suspicious file.",
+      "code_example": "import hashlib\n\nfile_path = 'path/to/file'\nhash_md5 = hashlib.md5()\nwith open(file_path, 'rb') as f:\n    for chunk in iter(lambda: f.read(4096), b''):\n        hash_md5.update(chunk)\nprint(hash_md5.hexdigest())"
+    },
+    {
+      "title": "Phishing Detection",
+      "content": "Phishing detection involves identifying fraudulent attempts to obtain sensitive information by disguising as a trustworthy entity.",
+      "code_example": "from email import message_from_string\n\nemail_content = 'raw email content'\nmsg = message_from_string(email_content)\nif 'phishing' in msg.get_payload():\n    print('Phishing email detected')"
+    },
+    {
+      "title": "Network Security",
+      "content": "Network security involves measures to protect data during their transmission across networks.",
+      "code_example": "import socket\n\ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\ns.bind(('localhost', 8080))\ns.listen(5)\nwhile True:\n    client, address = s.accept()\n    print(f'Connection from {address}')\n    client.send(b'Hello, you are connected')\n    client.close()"
+    },
+    {
+      "title": "Firewall Configuration",
+      "content": "A firewall monitors and controls incoming and outgoing network traffic based on predetermined security rules.",
+      "code_example": "sudo ufw allow 22/tcp\nsudo ufw allow 80/tcp\nsudo ufw enable\nsudo ufw status"
+    },
+    {
+      "title": "Intrusion Detection Systems",
+      "content": "An Intrusion Detection System (IDS) monitors network traffic for suspicious activity and issues alerts when such activity is discovered.",
+      "code_example": "from scapy.all import *\n\ndef detect_intrusion(packet):\n    if packet.haslayer(TCP) and packet[TCP].flags == 'S':\n        print('SYN Packet detected')\n\nsniff(prn=detect_intrusion)"
+    },
+    {
+      "title": "Encryption Techniques",
+      "content": "Encryption techniques secure data by converting it into an unreadable format, only accessible to those with the decryption key.",
+      "code_example": "from cryptography.fernet import Fernet\n\nkey = Fernet.generate_key()\ncipher_suite = Fernet(key)\ncipher_text = cipher_suite.encrypt(b'Hello, World!')\nplain_text = cipher_suite.decrypt(cipher_text)\nprint(plain_text)"
+    },
+    {
+      "title": "Public Key Infrastructure (PKI)",
+      "content": "PKI is a framework for managing digital certificates and public-key encryption.",
+      "code_example": ""
+    },
+    {
+      "title": "Secure Coding Practices",
+      "content": "Secure coding practices involve writing code with security in mind to prevent vulnerabilities.",
+      "code_example": "def get_user_input():\n    user_input = input('Enter input: ')\n    sanitized_input = user_input.replace('<', '&lt;').replace('>', '&gt;')\n    return sanitized_input"
+    },
+    {
+      "title": "SQL Injection Prevention",
+      "content": "SQL injection is a code injection technique that can destroy your database. Prevent it by using parameterized queries.",
+      "code_example": "import sqlite3\n\nconn = sqlite3.connect('example.db')\ncursor = conn.cursor()\nuser_id = 1\ncursor.execute('SELECT * FROM users WHERE id=?', (user_id,))\nrows = cursor.fetchall()\nprint(rows)"
+    },
+    {
+      "title": "Cross-Site Scripting (XSS) Prevention",
+      "content": "XSS attacks inject malicious scripts into content from otherwise trusted websites.",
+      "code_example": "def escape_html(text):\n    return text.replace('<', '&lt;').replace('>', '&gt;').replace('&', '&amp;').replace('\"', '&quot;')\n\nuser_input = '<script>alert(\"XSS\")</script>'\nsafe_input = escape_html(user_input)\nprint(safe_input)"
+    },
+    {
+      "title": "Password Security",
+      "content": "Ensure passwords are stored securely using hashing and salting.",
+      "code_example": "import bcrypt\n\npassword = b'supersecret'\nhashed = bcrypt.hashpw(password, bcrypt.gensalt())\nprint(hashed)\nif bcrypt.checkpw(password, hashed):\n    print('Password matches')"
+    },
+    {
+      "title": "Two-Factor Authentication (2FA)",
+      "content": "2FA adds an additional layer of security by requiring not only a password and username but also something that only the user has.",
+      "code_example": ""
+    },
+    {
+      "title": "Social Engineering",
+      "content": "Social engineering attacks manipulate individuals into divulging confidential information.",
+      "code_example": ""
+    },
+    {
+      "title": "Incident Response",
+      "content": "Incident response is a systematic approach to addressing and managing the aftermath of a security breach.",
+      "code_example": ""
+    },
+    {
+      "title": "Security Auditing",
+      "content": "Security auditing involves reviewing and examining security measures in place within an organization.",
+      "code_example": ""
+    },
+    {
+      "title": "Penetration Testing",
+      "content": "Penetration testing simulates cyberattacks to identify and fix security vulnerabilities.",
+      "code_example": "import subprocess\n\nsubprocess.run(['nmap', '-sP', '192.168.1.0/24'])"
+    },
+    {
+      "title": "Data Loss Prevention (DLP)",
+      "content": "DLP strategies ensure that sensitive data is not lost, misused, or accessed by unauthorized users.",
+      "code_example": ""
+    },
+    {
+      "title": "Cloud Security",
+      "content": "Cloud security involves protecting data, applications, and infrastructures in the cloud.",
+      "code_example": ""
+    },
+    {
+      "title": "Mobile Security",
+      "content": "Mobile security protects smartphones, tablets, and other mobile devices from threats.",
+      "code_example": ""
+    },
+    {
+      "title": "Zero Trust Architecture",
+      "content": "Zero trust architecture assumes that threats could be inside or outside the network and requires verification from everyone attempting to access resources.",
+      "code_example": ""
+    },
+    {
+      "title": "Threat Intelligence",
+      "content": "Threat intelligence involves gathering and analyzing information about potential or current attacks that threaten an organization.",
+      "code_example": ""
+    },
+    {
+      "title": "Cryptography",
+      "content": "Cryptography is the practice of securing information by converting it into a format that is unreadable without a decryption key.",
+      "code_example": "from Crypto.Cipher import AES\n\nkey = b'Sixteen byte key'\ncipher = AES.new(key, AES.MODE_EAX)\nciphertext, tag = cipher.encrypt_and_digest(b'Attack at dawn')\nprint(ciphertext)"
+    },
+    {
+      "title": "Digital Forensics",
+      "content": "Digital forensics involves uncovering and interpreting electronic data to preserve evidence in its most original form.",
+      "code_example": ""
+    },
+    {
+      "title": "Security Information and Event Management (SIEM)",
+      "content": "SIEM systems provide real-time analysis of security alerts generated by applications and network hardware.",
+      "code_example": ""
+    },
+    {
+      "title": "Security Operations Center (SOC)",
+      "content": "A SOC is a centralized unit that deals with security issues on an organizational and technical level.",
+      "code_example": ""
+    },
+    {
+      "title": "Vulnerability Management",
+      "content": "Vulnerability management is the process of identifying, evaluating, treating, and reporting security vulnerabilities in systems and software.",
+      "code_example": ""
+    },
+    {
+      "title": "Security Policy Development",
+      "content": "Security policy development involves creating guidelines for protecting an organization's IT assets.",
+      "code_example": ""
+    },
+    {
+      "title": "Compliance and Regulatory Requirements",
+      "content": "Compliance with regulatory requirements ensures that organizations follow legal standards for data protection and security.",
+      "code_example": ""
+    },
+    {
+      "title": "Cyber Threat Hunting",
+      "content": "Cyber threat hunting is the proactive search for threats within a network.",
+      "code_example": ""
+    },
+    {
+      "title": "Anomaly Detection",
+      "content": "Anomaly detection involves identifying unusual patterns that do not conform to expected behavior.",
+      "code_example": "import numpy as np\nfrom sklearn.ensemble import IsolationForest\n\nX = np.array([[1], [2], [2], [3], [10], [10], [100]])\nclf = IsolationForest().fit(X)\npreds = clf.predict(X)\nprint(preds)"
+    },
+    {
+      "title": "Security Awareness Training",
+      "content": "Security awareness training educates employees about security policies and procedures.",
+      "code_example": ""
+    },
+    {
+      "title": "Endpoint Security",
+      "content": "Endpoint security involves securing endpoints or entry points of end-user devices.",
+      "code_example": ""
+    },
+    {
+      "title": "Identity and Access Management (IAM)",
+      "content": "IAM ensures that the right individuals access the right resources at the right times for the right reasons.",
+      "code_example": ""
+    },
+    {
+      "title": "Password Management",
+      "content": "Password management involves securely handling and storing passwords.",
+      "code_example": ""
+    },
+    {
+      "title": "Application Security",
+      "content": "Application security focuses on measures to improve the security of applications.",
+      "code_example": ""
+    },
+    {
+      "title": "API Security",
+      "content": "API security involves securing application programming interfaces from attacks.",
+      "code_example": "from flask import Flask, request, jsonify\nfrom functools import wraps\n\napp = Flask(__name__)\n\nAPI_KEY = 'your_api_key'\n\ndef require_api_key(f):\n    @wraps(f)\n    def decorated_function(*args, **kwargs):\n        if request.headers.get('x-api-key') == API_KEY:\n            return f(*args, **kwargs)\n        else:\n            return jsonify({'message': 'Forbidden'}), 403\n    return decorated_function\n\n@app.route('/secure-data')\n@require_api_key\ndef secure_data():\n    return jsonify({'data': 'This is secured'})\n\nif __name__ == '__main__':\n    app.run()"
+    },
+    {
+      "title": "Blockchain Security",
+      "content": "Blockchain security involves measures to secure blockchain networks and applications.",
+      "code_example": ""
+    },
+    {
+      "title": "Security in DevOps",
+      "content": "Security in DevOps, also known as DevSecOps, integrates security practices within the DevOps process.",
+      "code_example": ""
+    },
+    {
+      "title": "Ransomware Prevention",
+      "content": "Ransomware prevention involves measures to protect against ransomware attacks, which encrypt and hold data hostage.",
+      "code_example": ""
+    },
+    {
+      "title": "Physical Security",
+      "content": "Physical security protects hardware, software, networks, and data from physical actions and events that could cause serious loss or damage.",
+      "code_example": ""
+    },
+    {
+      "title": "Security Risk Assessment",
+      "content": "A security risk assessment identifies and evaluates risks to information security.",
+      "code_example": ""
+    },
+    {
+      "title": "Supply Chain Security",
+      "content": "Supply chain security ensures the integrity and security of the supply chain in an organization.",
+      "code_example": ""
+    },
+    {
+      "title": "GDPR Compliance",
+      "content": "GDPR compliance involves adhering to regulations set by the General Data Protection Regulation (GDPR) to protect personal data.",
+      "code_example": ""
+    },
+    {
+      "title": "Cybersecurity Frameworks",
+      "content": "Cybersecurity frameworks provide a structured approach to securing an organization's IT infrastructure.",
+      "code_example": ""
+    },
+    {
+      "title": "Security Monitoring",
+      "content": "Security monitoring involves continuously observing and analyzing an organization’s network for signs of malicious activity.",
+      "code_example": ""
+    },
+    {
+      "title": "DNS Security",
+      "content": "DNS security protects the Domain Name System infrastructure from cyber threats.",
+      "code_example": ""
+    },
+    {
+      "title": "Web Security",
+      "content": "Web security involves protecting websites and web applications from cyber threats.",
+      "code_example": ""
+    },
+    {
+      "title": "Privacy Impact Assessment (PIA)",
+      "content": "A Privacy Impact Assessment evaluates the impact on privacy of a project, technology, or process.",
+      "code_example": ""
+    },
+    {
+      "title": "Threat Modeling",
+      "content": "Threat modeling identifies and mitigates potential security threats during the development phase of a project.",
+      "code_example": ""
+    },
+    {
+      "title": "Security in IoT",
+      "content": "Security in IoT involves protecting Internet of Things devices from cyber threats.",
+      "code_example": ""
+    },
+    {
+      "title": "Botnet Detection",
+      "content": "Botnet detection involves identifying networks of infected computers controlled by a malicious actor.",
+      "code_example": ""
+    }
+  ]
+}
