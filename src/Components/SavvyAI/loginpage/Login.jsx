@@ -8,34 +8,29 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:3003/api/login",
-        {
-          email,
-          password,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json", // Ensure content type is set to JSON
-          },
-          withCredentials: true,
-        }
-      );
-      console.log(response);
-      // Assuming the backend sends a JWT token in the response if successful
-      if (response.data.token) {
-        // Save JWT token in cookies
-        document.cookie = `token=${response.data.token}; path=/`;
+      const response = await axios.post("http://localhost:3003/api/login", {
+        email,
+        password,
+      });
 
-        // Redirect to dashboard
-        navigate("/savvy-ai");
+      const { token, user } = response.data;
+
+      if (token) {
+        // Save JWT token and user info to localStorage
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+
+        console.log("Token saved:", token); // Debug log to confirm
+        navigate("/"); // Redirect to the dashboard or home page
+      } else {
+        console.error("No token received from server!");
       }
     } catch (err) {
+      console.error("Login failed:", err);
       setError("Invalid credentials, please try again.");
     }
   };

@@ -6,17 +6,16 @@ import Footer from "./Footer";
 import LandingPage from './LandingPage';
 import Features from './Features';
 import CodeSavvyMarquee from "./CodeSavvyMarquee";
-import Color from "./Color";
 import Lectures from "./Lectures";
 import Workspace from './Workspace';
 const Home = ({ user }) => {
   return (
     <div className="bg-[#F4F4F4]">
-          <LandingPage />
-          <CodeSavvyMarquee />
-          <Features />
-          <Workspace />
-          
+      <LandingPage />
+      <CodeSavvyMarquee />
+      <Features />
+      <Workspace />
+
       <div className="container-fluid ">
         <div className="row"></div>
 
@@ -101,8 +100,8 @@ const Home = ({ user }) => {
       </div>
       <Lectures />
 
-      
-      <Footer/>
+
+      <Footer />
     </div>
   );
 };

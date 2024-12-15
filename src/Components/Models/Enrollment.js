@@ -22,15 +22,15 @@ const Enrollment = ({ children }) => {
                         <>
                             <ModalHeader className="flex flex-col gap-1">Enrollment</ModalHeader>
                             <ModalBody>
-                                <p> Ready to take your coding skills to the next level? Whether you're a beginner or looking to enhance your programming knowledge, our coding courses offer the perfect opportunity to learn at your own pace and unlock new career possibilities. </p> <p> Our curriculum is designed to guide you through every stage of learning, from the basics to advanced techniques. You'll gain hands-on experience with real-world projects, develop critical problem-solving skills, and become proficient in the most in-demand programming languages. </p> <p> Join our growing community of learners and get started today! Our expert instructors are here to support you every step of the way. Don't miss out on the chance to improve your coding abilities and open the door to exciting new opportunities. </p>
+                                <p> Ready to take your coding skills to the next level? Whether you're a beginner or looking to enhance your programming knowledge, our coding courses offer the perfect opportunity to learn at your own pace and unlock new career possibilities. </p> <p> Our curriculum is designed to guide you through every stage of learning, from the basics to advanced techniques. You'll gain hands-on experience with real-world projects, develop critical problem-solving skills, and become proficient in the most in-demand programming languages. </p>
                             </ModalBody>
                             <ModalFooter>
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     Close
                                 </Button>
-                                <Button color="primary" onPress={onClose}>
-                                    <Link className="nav-link" to="/learning">
-                                        Enroll
+                                <Button color="primary p-0" onPress={onClose}>
+                                    <Link className="nav-link " to="/learning">
+                                        <span className='p-4 bg-primary text-white'> Enroll </span>
                                     </Link>
 
                                 </Button>

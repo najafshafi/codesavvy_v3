@@ -25,6 +25,7 @@ const SignUp = () => {
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  // Validate email and password
   const validateEmail = value => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value);
   const validatePassword = value => value.length >= 6;
 
@@ -35,18 +36,25 @@ const SignUp = () => {
     e.preventDefault();
     setErrors({});
     try {
-      const res = await axios.post('http://localhost:5001/api/auth/signup', formData);
-      console.log(res.data); // handle token or response data
-      navigate('/'); // Redirect to home page
+      // Sending the signup request to the backend
+      const res = await axios.post('http://localhost:3003/api/signup', formData);
+
+      console.log(res.data); // You can handle token or response data if needed
+
+      // Navigate to login or home page after successful signup
+      navigate('/login'); // Or navigate('/home') if you want to log the user in right after signup
     } catch (err) {
+      // Handle error response
       if (err.response && err.response.data.errors) {
         const errorObj = {};
         err.response.data.errors.forEach(error => {
           errorObj[error.param] = error.msg;
         });
         setErrors(errorObj);
+      } else if (err.response && err.response.data.msg) {
+        setErrors({ general: err.response.data.msg }); // Handle general errors
       } else {
-        setErrors({ general: 'already exists' });
+        setErrors({ general: 'An unexpected error occurred. Please try again.' });
       }
     }
   };
@@ -61,7 +69,7 @@ const SignUp = () => {
           src="./images/loginlogo.png"
           alt="logo"
           style={{ height: "120px" }}
-        ></img>
+        />
         <h1 className="mt-5" style={{ fontFamily: "'Aeonik', sans-serif" }}>
           Sign Up
         </h1>
@@ -70,6 +78,7 @@ const SignUp = () => {
         </p>
         <div className="maincontainer">
           <Form onSubmit={onSubmit}>
+            {/* Name field */}
             <Form.Group controlId="formBasicName" className="mb-3">
               <Input
                 type="text"
@@ -86,6 +95,7 @@ const SignUp = () => {
               />
             </Form.Group>
 
+            {/* Email field */}
             <Form.Group controlId="formBasicEmail" className="mb-3">
               <Input
                 type="email"
@@ -102,6 +112,7 @@ const SignUp = () => {
               />
             </Form.Group>
 
+            {/* Password field */}
             <Form.Group controlId="formBasicPassword">
               <Input
                 label="Password"
@@ -128,8 +139,10 @@ const SignUp = () => {
               />
             </Form.Group>
 
-            {errors.general && <div className="text-red-500 text-sm">{`${email} ${errors.general}`}</div>}
+            {/* General error message */}
+            {errors.general && <div className="text-red-500 text-sm">{errors.general}</div>}
 
+            {/* Submit button */}
             <Button radius="full" color="success" className="mt-3 w-40" type="submit">
               Sign Up
             </Button>

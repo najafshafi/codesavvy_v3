@@ -51,7 +51,7 @@ import { useQuery } from "@tanstack/react-query";
 // Fetch chats from the backend using React Query
 const fetchChats = async () => {
   const response = await fetch("http://localhost:3003/api/chatlist", {
-    credentials: "include", // Include cookies for authentication
+    credentials: "include",
   });
 
   if (!response.ok) {
@@ -101,22 +101,36 @@ const ChatList = () => {
       <Link className="list2" to="/">
         Explore CodeSavvy AI
       </Link>
-      <Link className="list2" to="/login">
-        Login
-      </Link>
       <hr />
 
       <span className="title">RECENT CHATS</span>
-      <div className="list">
+      {/* <div className="list">
         {data?.length === 0 ? (
-          <p>No chats available</p> // Show a message if no chats are available
+          <p>No chats available</p> 
         ) : (
           data.map((chat) => (
             <Link to={`/dashboard/chats/${chat._id}`} key={chat._id}>
-              {getFirstText(chat)} {/* Display the first text of each chat */}
+              {getFirstText(chat)} 
             </Link>
           ))
         )}
+      </div> */}
+      <div className="list-container">
+        <div className="list">
+          {data?.length === 0 ? (
+            <p>No chats available</p> // Show a message if no chats are available
+          ) : (
+            data.map((chat) => (
+              <Link
+                to={`/dashboard/chats/${chat._id}`}
+                key={chat._id}
+                className="chat-link"
+              >
+                {getFirstText(chat)} {/* Display the first text of each chat */}
+              </Link>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );

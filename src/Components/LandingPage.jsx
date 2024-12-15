@@ -26,7 +26,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className="grid justify-center w-1/2 ">
+      <div className="grid justify-center">
         <Image
           src={"/Frame 1 (2).png"}
           width={0}

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Angular from './Angular.json';
 import Appml from './Appml.json';
 import Asp from './Asp.json';
@@ -88,8 +88,8 @@ const Page = () => {
   };
 
   const handleSidebarSelection = (question, index) => {
-    const topic = Array.isArray(files[selectedFile]) 
-      ? files[selectedFile][index] 
+    const topic = Array.isArray(files[selectedFile])
+      ? files[selectedFile][index]
       : null;
     setSelectedTopic(topic || {});
     setVisibleAnswer(null); // Reset the answer visibility when changing the question
@@ -107,9 +107,8 @@ const Page = () => {
           <button
             key={fileName}
             onClick={() => handleFileSelection(fileName)}
-            className={`px-4 py-1 rounded  ${
-              fileName === selectedFile ? "bg-[#DDF345] text-black" : "bg-gray-500"
-            }`}
+            className={`px-4 py-1 rounded  ${fileName === selectedFile ? "bg-[#DDF345] text-black" : "bg-gray-500"
+              }`}
           >
             {fileName}
           </button>
