@@ -119,12 +119,15 @@ import Loginpage from "./Components/SavvyAI/loginpage/Login";
 import DashboardPage from "./Components/SavvyAI/dashboardPage/DashboardPage";
 import ChatPage from "./Components/SavvyAI/chatPage/ChatPage";
 import DashboardLayout from "./Components/SavvyAI/dashboardLayout/DashboardLayout";
-
+import QuizList from "./Components/QuizGame/QuizList";
 // PrivateRoute component import
 import PrivateRoute from '../src/Auth/PrivateRoute';
 
 // React Query setup
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import CardQuiz from "./Components/QuizGame/CardQuiz";
+// import QuizAllData from "./Components/QuizGame/QuizAllData";
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -169,6 +172,11 @@ function App() {
             <Route path="/workspace" element={<PrivateRoute element={<Workspace />} user={user} />} />
             <Route path="/footer" element={<Footer />} />
             <Route path="/login-ai" element={<Loginpage />} />
+            {/* <Route path="/quiz" element={<QuizList />} /> */}
+            <Route path="/quiz" element={<QuizList />} />
+            <Route path="/quiz/:id" element={<CardQuiz />} />
+            {/* <Route path="/quiz/:id" element={<QuizAllData />} /> */}
+
 
             {/* Savvy AI Routes */}
             <Route element={<DashboardLayout />}>
