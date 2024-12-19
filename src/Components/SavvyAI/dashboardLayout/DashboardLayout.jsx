@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import "./dashboardLayout.css";
 import ChatList from "../chatList/ChatList";
-import DashboardPage from "../dashboardPage/DashboardPage";
 
 const DashboardLayout = () => {
   // const { user, loading } = useContext(AuthContext);

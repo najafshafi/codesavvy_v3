@@ -14,10 +14,12 @@ const QuizCard = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     width: '250px',
-    height: '350px',
+    height: '300px',
     margin: '20px',
+    padding: '20px',
     borderRadius: '10px',
-    boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+    boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.1)',
+    border: '1px solid #ddd',
     overflow: 'hidden',
     cursor: 'pointer',
     background: '#fff',
@@ -77,9 +79,34 @@ const QuizList = () => {
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                 {quizzes.map((quiz) => (
                     <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)}>
-                        <QuizImage src="https://via.placeholder.com/250x150.png?text=Coding" alt="Quiz Image" />
+                        <QuizImage src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY=" alt="Quiz Image" />
                         <QuizTitle>{quiz.title}</QuizTitle>
                         <DifficultyLevel>Difficulty: {quiz.difficulty}</DifficultyLevel>
+                        {/* <QuizTitle className='bg-blue-500 h-8 w-36 d-flex justify-center align-items-center text-white  '>Attempt Now</QuizTitle> */}
+                    </QuizCard>
+                ))}
+                {quizzes.map((quiz) => (
+                    <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)}>
+                        <QuizImage src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY=" alt="Quiz Image" />
+                        <QuizTitle>{quiz.title}</QuizTitle>
+                        <DifficultyLevel>Difficulty: {quiz.difficulty}</DifficultyLevel>
+                        {/* <QuizTitle className='bg-blue-500 h-8 w-36 d-flex justify-center align-items-center text-white  '>Attempt Now</QuizTitle> */}
+                    </QuizCard>
+                ))}
+                {quizzes.map((quiz) => (
+                    <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)}>
+                        <QuizImage src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY=" alt="Quiz Image" />
+                        <QuizTitle>{quiz.title}</QuizTitle>
+                        <DifficultyLevel>Difficulty: {quiz.difficulty}</DifficultyLevel>
+                        {/* <QuizTitle className='bg-blue-500 h-8 w-36 d-flex justify-center align-items-center text-white  '>Attempt Now</QuizTitle> */}
+                    </QuizCard>
+                ))}
+                {quizzes.map((quiz) => (
+                    <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)}>
+                        <QuizImage src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY=" alt="Quiz Image" />
+                        <QuizTitle>{quiz.title}</QuizTitle>
+                        <DifficultyLevel>Difficulty: {quiz.difficulty}</DifficultyLevel>
+                        {/* <QuizTitle className='bg-blue-500 h-8 w-36 d-flex justify-center align-items-center text-white  '>Attempt Now</QuizTitle> */}
                     </QuizCard>
                 ))}
             </div>

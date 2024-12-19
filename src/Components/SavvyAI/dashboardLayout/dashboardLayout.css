@@ -1,9 +1,10 @@
 .dashboardLayout {
+  
   background-color: #000000;
   color: white;
   display: flex;
   gap: 50px;
-  padding-top: 20px;
+  /* padding-top: 20px; */
   height: calc(100vh -90px); /* Full viewport height */
 
   .menu {

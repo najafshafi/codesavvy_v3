@@ -1,0 +1,25 @@
+.leaderboardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Takes full height of parent */
+  padding: 16px;
+  box-sizing: border-box;
+  background-color: lightgray; /* Optional background for leaderboard */
+  border-left: 1px solid #ddd; /* Optional border to separate sections */
+}
+
+.leaderboardTitle {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.leaderboardList {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevents scrolling */
+}
