@@ -106,6 +106,7 @@ import QueryDash from "./Components/SavvyAI/QueryDash";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import DefaultNavbar from "./Components/DefaultNavbar";
+import CodeGames from "./Components/codegames/page"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MantineProvider } from '@mantine/core';
 import { useState, useEffect } from "react";
@@ -170,6 +171,7 @@ function App() {
             <Route path="/login" element={<Login setUser={setUser} />} />
             <Route path="/learn-coding" element={<Cards />} />
             <Route path="/colorpicker" element={<ColorPicker />} />
+            <Route path="/coding-games" element={<CodeGames/>} />
             <Route path="/exercises" element={<Exercises />} />
             <Route path="/workspace" element={<PrivateRoute element={<Workspace />} user={user} />} />
             <Route path="/footer" element={<Footer />} />

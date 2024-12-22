@@ -121,6 +121,12 @@ export default function App() {
           </NavbarItem>
 
           <NavbarItem>
+            <Link to="/coding-games" className="nav-link">
+              Coding Games
+            </Link>
+          </NavbarItem>
+
+          <NavbarItem>
             <Enrollment>Learn Coding</Enrollment>
           </NavbarItem>
         </NavbarContent>
