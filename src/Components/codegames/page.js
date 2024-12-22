@@ -2,12 +2,21 @@ import { Image } from "@nextui-org/react";
 import React from "react";
 
 const page = () => {
-  return( 
-        <main className="p-10 z-50">
-            <div>
-              <Image src="https://static.nc-img.com/pp/cms/hero-domains/images/hero.506105b2726ead8364c67afef2e2bf81.svg" alt="Coding Ganes" width={1000} height={600}/>
-            </div>
-        </main>
+  return (
+    <main className="relative flex flex-col bg-[#f4f4f4]">
+      <div className="w-full h-full">
+        <div className="flex flex-col justify-center items-center">
+          <img
+            src="./PlayCodeMaster.png"
+            alt="Coding Games"
+            width={0}
+            height={0}
+            sizes="max-width: 2000px) 100vw, 2000px"
+            className="h-auto w-screen"
+          />
+        </div>
+      </div>
+    </main>
   );
 };
 

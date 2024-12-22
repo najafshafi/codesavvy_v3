@@ -54,7 +54,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative px-16 grid grid-cols-2 gap-4 h-[80vh]">
+    <div className="relative px-16 grid grid-cols-2 gap-4 h-[calc(100vh-200px)]">
       {/* Left Side: Monaco Editor */}
       <div className="relative w-full h-[60vh] grid self-center gap-0">
         {/* Language selection dropdown */}
@@ -80,7 +80,7 @@ export default function Home() {
         </div>
 
         <Editor
-          height="500px" // Set fixed height for stability
+          height="60vh" // Set fixed height for stability
           theme="vs-dark"
           saveViewState={true}
           path={file.name}
@@ -92,12 +92,12 @@ export default function Home() {
       </div>
 
       {/* Right Side: Output Window */}
-      <div className="relative w-full h-[60vh] grid self-center gap-0">
+      <div className="relative w-full h-[65vh] grid self-center gap-0">
         <div className="text-center text-3xl font-bold text-gray-800 mb-4 ">
           Output Window
         </div>
 
-        <div className="relative bg-gray-200 w-full h-[60vh] grid self-center gap-0 border-4 border-indigo-500 rounded-lg shadow-lg">
+        <div className="relative bg-gray-200 w-full h-[68.5vh] grid self-center gap-0 border-4 border-indigo-500 rounded-lg shadow-lg">
           <iframe
             title="output"
             srcDoc={`<html><body>${htmlCode}</body><style>${cssCode}</style><script>${jsCode}</script></html>`}

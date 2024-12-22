@@ -18,6 +18,10 @@
 }
 
  */
+ body{
+  background-color:#F4F4F4;
+  height: 100vh;
+ }
 
 .dashboardLayout {
   display: flex;
