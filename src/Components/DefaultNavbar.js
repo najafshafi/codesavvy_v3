@@ -121,7 +121,9 @@ export default function App() {
           </NavbarItem>
 
           <NavbarItem>
-            <Enrollment>Learn Coding</Enrollment>
+            <Enrollment className="nav-link">
+              Learn Coding
+            </Enrollment>
           </NavbarItem>
         </NavbarContent>
 

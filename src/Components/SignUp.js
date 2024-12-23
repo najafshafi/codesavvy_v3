@@ -39,7 +39,7 @@ const SignUp = () => {
       // Sending the signup request to the backend
       const res = await axios.post('http://localhost:3003/api/signup', formData);
 
-      console.log(res.data); // You can handle token or response data if needed
+      // console.log(res.data); 
 
       // Navigate to login or home page after successful signup
       navigate('/login'); // Or navigate('/home') if you want to log the user in right after signup

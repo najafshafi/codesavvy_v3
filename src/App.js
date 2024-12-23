@@ -175,7 +175,7 @@ function App() {
             <Route path="/footer" element={<Footer />} />
             <Route path="/login-ai" element={<Loginpage />} />
             {/* <Route path="/quiz" element={<QuizList />} /> */}
-            <Route path="/quiz" element={<QuizList />} />
+            <Route path="/quiz" element={<PrivateRoute element={<QuizList />} user={user} />} />
             {/* <Route path="/quiz/:id" element={<PrivateRoute element={<CardQuiz />} user={user} />} /> */}
             <Route path="/quiz/:id" element={<PrivateRoute element={<QuizDashboard />} user={user} />} />
 

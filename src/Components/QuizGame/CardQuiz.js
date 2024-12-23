@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axiosInstance from '../../Auth/axiosInstance';
 import { useParams } from 'react-router-dom';
 import './CardQuiz.css'; // Import external CSS
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
     const [quiz, setQuiz] = useState(null);
@@ -9,8 +11,7 @@ export default function App() {
     const [showAll, setShowAll] = useState(false);
     const [input, setInput] = useState('');
     const [score, setScore] = useState(100);
-    const [chances, setChances] = useState(3);
-    const [resultMessage, setResultMessage] = useState('');
+    const [chances, setChances] = useState(3)
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [totalScore, setTotalScore] = useState(0);  // Track total score for all questions
     const [totalGainedScore, setTotalGainedScore] = useState(0);  // Track gained score across questions
@@ -57,13 +58,13 @@ export default function App() {
 
     // Handle show answer for the current question
     const handleShowAnswer = () => {
-        // Show the answer for the current question
         setShowAll(true);
         setScore(0); // Set score to 0 for the current question
 
+
         if (currentQuestionIndex === quiz.questions.length - 1) {
             // If it's the last question, save the total gained score
-            setTotalGainedScore((prev) => prev + score); // Add the score of the last question
+            // setTotalGainedScore((prev) => prev + score); // Add the score of the last question
             handleSaveScore(); // Automatically save the score for the entire quiz
             setIsQuizComplete(true); // Mark quiz as complete
         }
@@ -78,7 +79,6 @@ export default function App() {
             setFlippedStates(new Array(quiz.questions[currentQuestionIndex + 1].solutionCharacters.length).fill(false)); // Reset flipped states
             setScore(100); // Reset score for the new question
             setChances(3); // Reset chances for the new question
-            setResultMessage(''); // Clear result message
             setInput(''); // Clear input field
         }
     };
@@ -87,15 +87,22 @@ export default function App() {
     const handleSubmit = () => {
         const actualWord = currentQuestion.solutionCharacters.join('').toLowerCase();
         if (input.toLowerCase() === actualWord) {
-            setResultMessage(`Correct! Your score: ${score.toFixed(1)}`); // Format score to 1 decimal place
             setTotalGainedScore((prev) => prev + score); // Add gained score for correct answer
+            toast.success(`Correct! Your score: ${score.toFixed(1)}`);
             setShowAll(true); // Show the answer for the current question
             setInput(''); // Clear the input field
 
             // If it's the last question, save the score and mark the quiz complete
             if (currentQuestionIndex === quiz.questions.length - 1) {
-                handleSaveScore(); // Automatically save the total score
-                setIsQuizComplete(true); // Mark quiz as complete
+
+                setTimeout(() => {
+                    const finalScores = totalGainedScore + score; // Include the score for the last question
+                    handleSaveScore(finalScores); // Save the score after the state updates
+                    setIsQuizComplete(true); // Mark quiz as complete
+                }, 0); // Ensure this happens after the score update
+
+                // handleSaveScore(); // Automatically save the total score
+                // setIsQuizComplete(true); // Mark quiz as complete
             } else {
                 // Move to the next question without showing its answer
                 setTimeout(() => {
@@ -107,11 +114,11 @@ export default function App() {
         } else {
             if (chances > 1) {
                 setChances((prev) => prev - 1);
-                setResultMessage(`Incorrect! ${chances - 1} chance(s) remaining.`);
+                toast.warning(`Incorrect! ${chances - 1} chance(s) remaining.`);
             } else {
                 setScore(0);
                 setChances(0); // No chances left
-                setResultMessage(`Incorrect! The correct answer was "${actualWord}".`);
+                toast.error(`Incorrect! The correct answer was "${actualWord}".`);
                 setShowAll(true); // Show the correct answer for the current question
 
                 // If it's the last question or chances are over, save the score and mark the quiz complete
@@ -138,20 +145,22 @@ export default function App() {
         ); // Reset flipped states for the next question
         setScore(100); // Reset score for the new question
         setChances(3); // Reset chances for the new question
-        setResultMessage(''); // Clear result message
     };
 
 
     // Automatically save the score after the last question or when chances are over
-    const handleSaveScore = () => {
-        const finalScore = totalGainedScore;  // Total score gained during the quiz
-        const totalPossibleScore = totalScore;  // Maximum possible score
+    const handleSaveScore = (finalScores) => {
+
         axiosInstance
-            .post('/score/save', { quizId: quiz._id, score: finalScore, totalScore: totalPossibleScore })
+            .post('/score/save', { quizId: quiz._id, score: finalScores })
             .then((response) => {
-                console.log('Score saved successfully:', response.data);
+                toast.success(`Score saved successfully!  ${finalScores}`);
+
             })
-            .catch((error) => console.error('Error saving score:', error));
+            .catch((error) => {
+                toast.error('Error saving score.');
+                console.error('Error saving score:', error);
+            });
     };
 
     return (
@@ -200,7 +209,7 @@ export default function App() {
             <button
                 className="button"
                 onClick={handleSubmit}
-                disabled={chances === 0 || score === 0 || isQuizComplete}  // Disable submit when quiz is complete
+                disabled={chances === 0 || showAll === true || isQuizComplete}  // Disable submit when quiz is complete
             >
                 Submit
             </button>
@@ -220,12 +229,11 @@ export default function App() {
             >
                 Next Question
             </button> */}
-            <div className="score">Score: {score.toFixed(1)} / 100</div>
+            <div className="score">Score: {score.toFixed(2)} / 100</div>
             <div className="score">Chances Left: {chances}</div>
             <div className="score">
-                Total Score: {totalGainedScore.toFixed(1)} / {totalScore.toFixed(1)}
+                Total Score: {totalGainedScore.toFixed(2)} / {totalScore.toFixed(2)}
             </div>
-            {resultMessage && <div className="result">{resultMessage}</div>}
         </div>
     );
 }

@@ -16,7 +16,7 @@ const DashboardLayout = () => {
   // if (loading) return <div>Loading...</div>;
 
   return (
-    <div className="dashboardLayout">
+    <div className="dashboardLayouts">
       <div className="menu">
         <ChatList />
       </div>
