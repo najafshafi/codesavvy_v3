@@ -74,11 +74,11 @@ const ChatPage = () => {
                   <div key={i}>
                     {/* Render message content based on the role */}
                     <div
-                      className={
+                      className={`
                         message.role === "user"
                           ? "message user"
                           : "message model"
-                      }
+                      `}
                     >
                       {message.parts.map((part, idx) => (
                         <div key={idx}>

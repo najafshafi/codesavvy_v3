@@ -5,7 +5,7 @@ import Leaderboard from "../Leaderboard/Leaderboard";
 
 const QuizDashboard = () => {
   return (
-    <div className="dashboardLayout ">
+    <div className="dashboardLayout">
       <div className="quiz">
         <Leaderboard />
       </div>

@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { NextUIProvider } from "@nextui-org/react";
 import theme from "./theme";
-import { Provider } from "./Components/ui/provider";
+import { Provider } from "./Components/ui/p";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -15,11 +15,11 @@ if (typeof process === "undefined") {
 
 root.render(
   <React.StrictMode>
-    <NextUIProvider>
-      <Provider value={theme}>
+    <Provider value={theme}>
+      <NextUIProvider>
         <App />
-      </Provider>
-    </NextUIProvider>
+      </NextUIProvider>
+    </Provider>
   </React.StrictMode>
 );
 
