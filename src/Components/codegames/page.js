@@ -1,4 +1,3 @@
-import { Image } from "@nextui-org/react";
 import React from "react";
 
 const page = () => {
@@ -7,7 +6,7 @@ const page = () => {
       <div className="w-full h-full">
         <div className="flex flex-col justify-center items-center">
           <img
-            src="./PlayCodeMaster.png"
+            src="./1.svg"
             alt="Coding Games"
             width={0}
             height={0}

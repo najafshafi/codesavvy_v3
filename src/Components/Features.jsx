@@ -4,14 +4,13 @@ import { IoIosDesktop } from "react-icons/io";
 import { IoExtensionPuzzleOutline } from "react-icons/io5";
 import { IoBookOutline } from "react-icons/io5";
 
-
 // Feature details array
 const features = [
   {
     id: 1,
     title: "Learning",
     description: `Access a wide range of learning materials to enhance your skills.`,
-    image: <IoBookOutline size={40}/>,
+    image: <IoBookOutline size={40} />,
   },
   {
     id: 2,

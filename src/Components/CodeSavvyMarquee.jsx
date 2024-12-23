@@ -11,7 +11,13 @@ const CodeSavvyMarquee = () => {
         direction="right"
         speed={80}
       >
-        <Image className="mx-5" src={"/codesavvy.png"} width={198} height={106} alt="Logo" />
+        <Image
+          className="mx-5"
+          src={"/codesavvy.png"}
+          width={198}
+          height={106}
+          alt="Logo"
+        />
       </Marquee>
     </div>
   );

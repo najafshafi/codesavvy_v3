@@ -3,11 +3,11 @@ import "./Home.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import LandingPage from './LandingPage';
-import Features from './Features';
+import LandingPage from "./LandingPage";
+import Features from "./Features";
 import CodeSavvyMarquee from "./CodeSavvyMarquee";
 import Lectures from "./Lectures";
-import Workspace from './Workspace';
+import Workspace from "./Workspace";
 const Home = ({ user }) => {
   return (
     <div className="bg-[#F4F4F4]">
@@ -99,7 +99,6 @@ const Home = ({ user }) => {
         </div>
       </div>
       <Lectures />
-
 
       <Footer />
     </div>
