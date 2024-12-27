@@ -1,69 +1,66 @@
-#logo{
-    text-decoration: none;
+#logo {
+  text-decoration: none;
 }
-#links a{
-    text-decoration: none;
-    color: black;
-    height: 100%;
-    border-radius: 10px;
-    font-size: 15px;
+#links a {
+  text-decoration: none;
+  color: black;
+  height: 100%;
+  border-radius: 10px;
+  font-size: 15px;
 }
-#links a:hover{
-    background-color: green;
-    color: aliceblue;
+#links a:hover {
+  background-color: green;
+  color: aliceblue;
 }
-#bt{
-    text-decoration: none;
-    color: black;
-    height: 100%;
-    border-radius: 10px;
-    margin-top: 5px;
-    font-size: 15px;
+#bt {
+  text-decoration: none;
+  color: black;
+  height: 100%;
+  border-radius: 10px;
+  margin-top: 5px;
+  font-size: 15px;
 }
-#bt:hover{
-    background-color: gray;
-    color: black;
+#bt:hover {
+  background-color: gray;
+  color: black;
 }
-#btn{
-    border-radius: 30px;
+#btn {
+  border-radius: 30px;
 }
-#btn1{
-    border-radius: 30px;
-    background-color: aliceblue;
-    color: black;
+#btn1 {
+  border-radius: 30px;
+  background-color: aliceblue;
+  color: black;
 }
-#btn1:hover{
-    background-color: green;
-    color: aliceblue;
+#btn1:hover {
+  background-color: green;
+  color: aliceblue;
 }
-.icons{
-    color: green;
+.icons {
+  color: green;
 }
-#cont{
-    background-color: #282A35;
-}
-
-.bg-body-tertiary{
-    height: 70px;
+#cont {
+  background-color: #282a35;
 }
 
-
-
-.mybar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Ensure it appears above other content */
-    width: 100%; /* Ensure it spans the full width */
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); /* Optional: Add a shadow for better visibility */
+.bg-body-tertiary {
+  height: 70px;
 }
 
+.mybar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure it appears above other content */
+  width: 100%; /* Ensure it spans the full width */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+}
 
-.mybuton{
-    text-decoration: none;
-    color: greenyellow;
+.mybuton {
+  text-decoration: none;
+  color: greenyellow;
 }
 
 /* 
@@ -73,12 +70,14 @@
 } */
 
 img.flex.object-cover.w-full.h-full.transition-opacity.\!duration-500.opacity-0.data-\[loaded\=true\]\:opacity-100 {
-    opacity: 1 !important;
+  opacity: 1 !important;
 }
-
 
 .ring-default {
-    --tw-ring-opacity: 1;
-    --tw-ring-color: #def248;
+  --tw-ring-opacity: 1;
+  --tw-ring-color: #def248;
 }
 
+ul {
+  padding-left: 0.5rem !important;
+}
