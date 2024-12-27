@@ -1,40 +1,40 @@
-'use client'
+"use client";
 import React, { useState } from "react";
-import Angular from './Angular.json';
-import Appml from './Appml.json';
-import Asp from './Asp.json';
-import Bootstrap from './Bootstrap.json';
-import Cp from './Cpp.json';
-import Canvas from './Canvas.json';
-import Css from './Css.json';
-import DataScience from './Datascience.json';
-import Django from './Django.json';
-import Git from './Git.json';
-import Go from './Go.json';
-import Html from './Html.json';
-import Java from './Java.json';
-import Javascript from './Jaavscript.json';
-import Jquery from './JQuery.json';
-import Kotlin from './Kotlin.json';
-import Matlab from './MatlabPilot.json';
-import Mongo from './Mongodb.json';
-import Mysql from './Mysql.json';
-import Nodejs from './Node.json';
-import Numpy from './Numpy.json';
-import Php from './Php.json';
-import PostgreSQL from './Postgresql.json';
-import Python from './Python.json';
-import R from './R.json';
-import Rasberry from './Rasberry.json';
-import ReactJSON from './React.json';
-import Rwd from './Rwd.json';
-import Sass from './Sass.json';
-import Scipy from './Scipy.json';
-import Sidjango from './SiDjango.json';
-import TailwindCSS from './Tailwindcss.json';
-import Typescript from './Typescript.json';
-import Vue from './Vue.json';
-import XML from './Xml.json';
+import Angular from "./Angular.json";
+import Appml from "./Appml.json";
+import Asp from "./Asp.json";
+import Bootstrap from "./Bootstrap.json";
+import Cp from "./Cpp.json";
+import Canvas from "./Canvas.json";
+import Css from "./Css.json";
+import DataScience from "./Datascience.json";
+import Django from "./Django.json";
+import Git from "./Git.json";
+import Go from "./Go.json";
+import Html from "./Html.json";
+import Java from "./Java.json";
+import Javascript from "./Jaavscript.json";
+import Jquery from "./JQuery.json";
+import Kotlin from "./Kotlin.json";
+import Matlab from "./MatlabPilot.json";
+import Mongo from "./Mongodb.json";
+import Mysql from "./Mysql.json";
+import Nodejs from "./Node.json";
+import Numpy from "./Numpy.json";
+import Php from "./Php.json";
+import PostgreSQL from "./Postgresql.json";
+import Python from "./Python.json";
+import R from "./R.json";
+import Rasberry from "./Rasberry.json";
+import ReactJSON from "./React.json";
+import Rwd from "./Rwd.json";
+import Sass from "./Sass.json";
+import Scipy from "./Scipy.json";
+import Sidjango from "./SiDjango.json";
+import TailwindCSS from "./Tailwindcss.json";
+import Typescript from "./Typescript.json";
+import Vue from "./Vue.json";
+import XML from "./Xml.json";
 
 const files = {
   Angular,
@@ -75,7 +75,7 @@ const files = {
 };
 
 const Page = () => {
-  const [selectedFile, setSelectedFile] = useState('Angular'); // Default to Angular file
+  const [selectedFile, setSelectedFile] = useState("Angular"); // Default to Angular file
   const [selectedTopic, setSelectedTopic] = useState(
     Array.isArray(files[selectedFile]) ? files[selectedFile][0] : {} // Default to first topic or empty object
   );
@@ -103,16 +103,21 @@ const Page = () => {
     <div className="relative flex flex-col border-8 border-gray-800 overflow-hidden bg-[#f4f4f4]">
       {/* Top Bar */}
       <div className="bg-gray-800 text-white p-3 flex justify-start space-x-2 overflow-x-auto LearnTopbar">
-        {Object.keys(files).slice(0, 50).map((fileName) => (
-          <button
-            key={fileName}
-            onClick={() => handleFileSelection(fileName)}
-            className={`px-4 py-1 rounded  ${fileName === selectedFile ? "bg-[#DDF345] text-black" : "bg-gray-500"
+        {Object.keys(files)
+          .slice(0, 50)
+          .map((fileName) => (
+            <button
+              key={fileName}
+              onClick={() => handleFileSelection(fileName)}
+              className={`px-4 py-1 rounded  ${
+                fileName === selectedFile
+                  ? "bg-[#DDF345] text-black"
+                  : "bg-gray-500"
               }`}
-          >
-            {fileName}
-          </button>
-        ))}
+            >
+              {fileName}
+            </button>
+          ))}
       </div>
 
       <div className="flex flex-1 flex-col md:flex-row">
@@ -120,7 +125,8 @@ const Page = () => {
         <div className="w-full md:w-64 bg-gray-800 text-white p-4 overflow-y-scroll h-[80vh] LearnSidebar">
           <h2 className="text-xl font-bold mb-4">{selectedFile} Topics</h2>
           <ul className="space-y-2">
-            {Array.isArray(files[selectedFile]) && files[selectedFile].length > 0 ? (
+            {Array.isArray(files[selectedFile]) &&
+            files[selectedFile].length > 0 ? (
               files[selectedFile].map((topic, index) => (
                 <li
                   key={index}
@@ -147,14 +153,19 @@ const Page = () => {
                 {visibleAnswer === null ? (
                   <button
                     className="text-blue-500 hover:underline"
-                    onClick={() => toggleAnswerVisibility(selectedTopic.question)}
+                    onClick={() =>
+                      toggleAnswerVisibility(selectedTopic.question)
+                    }
                   >
                     Show Answer
                   </button>
                 ) : (
                   <>
                     <pre className="bg-gray-900 text-white p-4 rounded-md overflow-x-auto">
-                      <code>{selectedTopic.solution || "// No code example available"}</code>
+                      <code>
+                        {selectedTopic.solution ||
+                          "// No code example available"}
+                      </code>
                     </pre>
                     <button
                       className="text-blue-500 hover:underline mt-2"

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import './TimeApp.css';
+import React, { useState, useEffect } from "react";
+import "./TimeApp.css";
 
 const TimeApp = () => {
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
-  const [minutes, setMinutes] = useState('');
+  const [minutes, setMinutes] = useState("");
   const [remainingTime, setRemainingTime] = useState(0);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const TimeApp = () => {
         if (timeRemaining <= 0) {
           clearInterval(intervalId);
           setTimerRunning(false);
-          alert('Time is up!');
+          alert("Time is up!");
         }
         setRemainingTime(timeRemaining);
       }, 1000);
@@ -30,7 +30,7 @@ const TimeApp = () => {
 
   const handleSetTimer = () => {
     if (!minutes || isNaN(minutes) || minutes <= 0) {
-      alert('Please enter a valid number of minutes.');
+      alert("Please enter a valid number of minutes.");
       return;
     }
 
@@ -43,14 +43,12 @@ const TimeApp = () => {
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60000);
     const seconds = Math.floor((time % 60000) / 1000);
-    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
   return (
     <div className="timer-app">
-
       <div className="timer-input">
-
         <button onClick={handleSetTimer}>Set Timer </button>
 
         <input
@@ -60,15 +58,12 @@ const TimeApp = () => {
           onChange={(e) => setMinutes(e.target.value)}
         />
 
-
         {timerRunning && (
           <div className="timer">
             <p>Time remaining: {formatTime(remainingTime)}</p>
           </div>
         )}
       </div>
-
-
     </div>
   );
 };

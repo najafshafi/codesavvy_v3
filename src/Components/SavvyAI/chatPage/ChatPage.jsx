@@ -69,24 +69,26 @@ const ChatPage = () => {
           {isPending
             ? "Loading..."
             : error
-            ? "Something went wrong!"
-            : data?.history?.map((message, i) => (
-                <div key={i}>
-                  {/* Render message content based on the role */}
-                  <div
-                    className={
-                      message.role === "user" ? "message user" : "message model"
-                    }
-                  >
-                    {message.parts.map((part, idx) => (
-                      <div key={idx}>
-                        {/* Render the text of the message */}
-                        <Markdown>{part.text}</Markdown>
-                      </div>
-                    ))}
+              ? "Something went wrong!"
+              : data?.history?.map((message, i) => (
+                  <div key={i}>
+                    {/* Render message content based on the role */}
+                    <div
+                      className={`
+                        message.role === "user"
+                          ? "message user"
+                          : "message model"
+                      `}
+                    >
+                      {message.parts.map((part, idx) => (
+                        <div key={idx}>
+                          {/* Render the text of the message */}
+                          <Markdown>{part.text}</Markdown>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
 
           {/* NewPrompt component to handle new messages */}
           {data && <NewPrompt data={data} />}

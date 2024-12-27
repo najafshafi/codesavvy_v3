@@ -1,14 +1,13 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { Checkbox, Input } from "@nextui-org/react";
-import EmailIcon from '@mui/icons-material/Email';
+import EmailIcon from "@mui/icons-material/Email";
 import { Link, useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import Cookies from "js-cookie";
-import { useDisclosure } from '@mantine/hooks';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-
+import { useDisclosure } from "@mantine/hooks";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
@@ -18,15 +17,19 @@ const Login = ({ setUser }) => {
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const navigate = useNavigate();
 
-  const validateEmail = value => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value);
-  const validatePassword = value => value.length >= 6;
+  const validateEmail = (value) =>
+    /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value);
+  const validatePassword = (value) => value.length >= 6;
 
   const isEmailInvalid = useMemo(() => email && !validateEmail(email), [email]);
-  const isPasswordInvalid = useMemo(() => password && !validatePassword(password), [password]);
+  const isPasswordInvalid = useMemo(
+    () => password && !validatePassword(password),
+    [password]
+  );
 
   // Auto-login if the user is already logged in
   useEffect(() => {
-    const savedUser = localStorage.getItem('user');
+    const savedUser = localStorage.getItem("user");
     if (savedUser) {
       setUser(JSON.parse(savedUser));
       navigate("/"); // Redirect to home page if already logged in
@@ -57,14 +60,17 @@ const Login = ({ setUser }) => {
         localStorage.setItem("user", JSON.stringify(response.data.user));
 
         Cookies.set("token", response.data.token, { expires: 1, path: "/" });
-        Cookies.set("user", JSON.stringify(response.data.user), { expires: 1, path: "/" });
+        Cookies.set("user", JSON.stringify(response.data.user), {
+          expires: 1,
+          path: "/",
+        });
 
         setUser(response.data.user); // Set the user in state
         navigate("/"); // Redirect to home page
         onOpenChange(false); // Close modal if used
       }
     } catch (err) {
-      setErrors({ general: 'Invalid credentials, please try again.' });
+      setErrors({ general: "Invalid credentials, please try again." });
     }
   };
   return (
@@ -78,7 +84,9 @@ const Login = ({ setUser }) => {
         <form onSubmit={handleSubmit}>
           <Input
             autoFocus
-            endContent={<EmailIcon className="text-2xl text-default-400 pointer-events-none" />}
+            endContent={
+              <EmailIcon className="text-2xl text-default-400 pointer-events-none" />
+            }
             label="Email"
             placeholder="Enter your email"
             variant="bordered"
@@ -86,7 +94,9 @@ const Login = ({ setUser }) => {
             onChange={(e) => setEmail(e.target.value)}
             isInvalid={isEmailInvalid || !!errors.email}
             color={isEmailInvalid || errors.email ? "danger" : "default"}
-            errorMessage={isEmailInvalid ? "Please enter a valid email" : errors.email}
+            errorMessage={
+              isEmailInvalid ? "Please enter a valid email" : errors.email
+            }
             className="mb-3"
           />
           <div className="relative">
@@ -108,23 +118,32 @@ const Login = ({ setUser }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               isInvalid={isPasswordInvalid || !!errors.password}
-              color={isPasswordInvalid || errors.password ? "danger" : "default"}
-              errorMessage={isPasswordInvalid ? "Password must be at least 6 characters" : errors.password}
+              color={
+                isPasswordInvalid || errors.password ? "danger" : "default"
+              }
+              errorMessage={
+                isPasswordInvalid
+                  ? "Password must be at least 6 characters"
+                  : errors.password
+              }
             />
           </div>
-          {errors.general && <div className="text-red-500 text-sm">{errors.general}</div>}
+          {errors.general && (
+            <div className="text-red-500 text-sm">{errors.general}</div>
+          )}
           <div className="flex py-2 px-1 justify-between gap-5">
-            <Checkbox
-              classNames={{ label: "text-small" }}
-              className="w-80"
-            >
+            <Checkbox classNames={{ label: "text-small" }} className="w-80">
               Remember me
             </Checkbox>
             <Link color="primary" href="#" size="md">
               {/* Forgot password? */}
             </Link>
           </div>
-          <Button className="mt-3 w-48 align-content-center" variant="primary" type="submit">
+          <Button
+            className="mt-3 w-48 align-content-center"
+            variant="primary"
+            type="submit"
+          >
             Login
           </Button>
         </form>
