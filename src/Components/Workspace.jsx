@@ -18,7 +18,7 @@ const Workspace = () => {
       </div>
 
       <div className="grid w-1/2 gap-10 justify-center h-fit px-16">
-        <h1 className="text-5xl">Code, Collaborate, Create</h1>
+        <h1 className="text-5xl">Code, Execute, Excel</h1>
         <p className="text-lg">
           Build, test, and refine projects seamlessly in a collaborative
           environment, empowering you to create, launch, and improve new
