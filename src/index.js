@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { NextUIProvider } from "@nextui-org/react";
 import theme from "./theme";
-import { Provider } from "./Components/ui/p";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -15,11 +15,11 @@ if (typeof process === "undefined") {
 
 root.render(
   <React.StrictMode>
-    <Provider value={theme}>
+    <ChakraProvider value={theme}>
       <NextUIProvider>
         <App />
       </NextUIProvider>
-    </Provider>
+    </ChakraProvider>
   </React.StrictMode>
 );
 

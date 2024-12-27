@@ -73,6 +73,8 @@ const NewPrompt = ({ data }) => {
       add(data.history[0].parts[0].text, true);
     }
     hasRun.current = true;
+
+    // eslint-disable-next-line
   }, [data]);
 
   return (

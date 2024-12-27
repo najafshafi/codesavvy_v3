@@ -4,7 +4,7 @@ const theme = createSystem(defaultConfig, {
   theme: {
     tokens: {
       config: {
-        initialColorMode: { value: "dark" },
+        initialColorMode: { value: "light" },
         useSystemColorMode: { value: false },
       },
     },
