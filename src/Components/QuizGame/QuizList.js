@@ -64,6 +64,7 @@ const QuizList = () => {
       .then((response) => {
         setQuizzes(response.data);
         setLoading(false);
+
       })
       .catch((error) => {
         console.error("Error fetching quizzes:", error);
