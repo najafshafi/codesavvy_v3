@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../../Auth/axiosInstance";
 import { styled } from "@stitches/react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
+import "./QuizList.css"
 
 const PageContainer = styled("div", {
   display: "flex",
@@ -9,7 +10,6 @@ const PageContainer = styled("div", {
   alignItems: "center",
   padding: "20px",
 });
-
 const QuizCard = styled("div", {
   display: "flex",
   flexDirection: "column",
@@ -69,47 +69,79 @@ const QuizList = () => {
         setLoading(false);
       });
   }, []);
+  
+const InfoText = styled('p', {
+    fontSize: '14px',
+    fontWeight: '400',
+    color: '#555',
+    margin: '5px 0',
+});
+
+const QuizList = () => {
+    const [quizzes, setQuizzes] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+
+    const handleQuizClick = (quizId) => {
+        navigate(`/quiz/${quizId}`); // Navigate to the quiz detail page
+    };
+
+    useEffect(() => {
+        axiosInstance.get('quiz/allquiz')
+            .then(response => {
+                setQuizzes(response.data);
+                console.log()  // This should include attempts and scores
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error("Error fetching quizzes:", error);
+                setLoading(false);
+            });
+    }, []);
 
   if (loading) {
     return <PageContainer>Loading quizzes...</PageContainer>;
   }
+    return (
+        <PageContainer>
+            <h2>All Quizzes</h2>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+                {quizzes.map((quiz) => (
+                    <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)} style={{ position: 'relative' }}>
+                        {/* Badge with the number of questions */}
+                        <div className="badge">
 
-  return (
-    <>
-      <div className="flex flex-col justify-center items-center">
-        <img
-          src="./2.svg"
-          alt="Coding Games"
-          width={0}
-          height={0}
-          sizes="max-width: 2000px) 100vw, 2000px"
-          className="h-auto w-screen"
-        />
-      </div>
-      <PageContainer className="pt-5">
-        <h2>All Quizzes</h2>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
-          {quizzes.map((quiz) => (
-            <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)}>
-              <QuizImage
-                src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY="
-                alt="Quiz Image"
-              />
-              <QuizTitle>{quiz.title}</QuizTitle>
-              <DifficultyLevel>Difficulty: {quiz.difficulty}</DifficultyLevel>
-              {/* <QuizTitle className='bg-blue-500 h-8 w-36 d-flex justify-center align-items-center text-white  '>Attempt Now</QuizTitle> */}
-            </QuizCard>
-          ))}
-        </div>
-      </PageContainer>
-    </>
-  );
+                        </div>
+                        <div className="badges">
+                            <span>Points: {quiz.questionsLength * 100}</span>
+                        </div>
+
+                        <QuizImage
+                            src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY="
+                            alt="Quiz Image"
+                        />
+                        <QuizTitle>{quiz.title}</QuizTitle>
+                        <InfoText>
+                            Topics: <span className="topics">{quiz.category || "General"}</span>
+                        </InfoText>
+                        <div className="Wardflex">
+                            <InfoText>
+                                <span className="diff">Difficulty:</span> {quiz.difficulty}
+                            </InfoText>
+                            <div>
+                                <InfoText>Total Questions: {quiz.questionsLength}</InfoText>
+                                <InfoText>Scored: {quiz.score} / {quiz.questionsLength * 100} </InfoText>
+                                <InfoText>Attempts: {quiz.attempts}</InfoText>
+
+                            </div>
+                        </div>
+                    </QuizCard>
+                ))}
+            </div>
+        </PageContainer>
+
+
+    );
 };
 
 export default QuizList;
