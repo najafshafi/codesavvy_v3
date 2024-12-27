@@ -126,6 +126,7 @@ import PrivateRoute from "../src/Auth/PrivateRoute";
 // React Query setup
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import QuizDashboard from "./Components/QuizGame/QuizDashboard/QuizDashboard";
+import QuizAllData from "./Components/QuizGame/QuizAllData";
 
 const queryClient = new QueryClient();
 
@@ -180,6 +181,7 @@ function App() {
             <Route path="/login-ai" element={<Loginpage />} />
             {/* <Route path="/quiz" element={<QuizList />} /> */}
             <Route path="/quiz" element={<PrivateRoute element={<QuizList />} user={user} />} />
+            <Route path="/quiza" element={<PrivateRoute element={<QuizAllData />} user={user} />} />
             {/* <Route path="/quiz/:id" element={<PrivateRoute element={<CardQuiz />} user={user} />} /> */}
             <Route
               path="/quiz/:id"

@@ -42,11 +42,6 @@ const QuizTitle = styled("h3", {
   margin: "10px 0",
 });
 
-const DifficultyLevel = styled("p", {
-  fontSize: "14px",
-  fontWeight: "500",
-  color: "#555",
-});
 
 const QuizList = () => {
 
@@ -85,7 +80,7 @@ const QuizList = () => {
     const navigate = useNavigate();
 
     const handleQuizClick = (quizId) => {
-      navigate(`/quiz/${quizId}`); // Navigate to the quiz detail page
+      navigate(`/quiz/${quizId}`);
     };
 
     useEffect(() => {
@@ -110,7 +105,6 @@ const QuizList = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           {quizzes.map((quiz) => (
             <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)} style={{ position: 'relative' }}>
-              {/* Badge with the number of questions */}
               <div className="badge">
 
               </div>
@@ -118,10 +112,10 @@ const QuizList = () => {
                 <span>Points: {quiz.questionsLength * 100}</span>
               </div>
 
-              <QuizImage
+              {/* <QuizImage
                 src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY="
                 alt="Quiz Image"
-              />
+              /> */}
               <QuizTitle>{quiz.title}</QuizTitle>
               <InfoText>
                 Topics: <span className="topics">{quiz.category || "General"}</span>
