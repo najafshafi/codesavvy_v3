@@ -13,8 +13,8 @@ const PageContainer = styled("div", {
 const QuizCard = styled("div", {
   display: "flex",
   flexDirection: "column",
-  width: "250px",
-  height: "300px",
+  width: "300px",
+  height: "350px",
   margin: "20px",
   padding: "20px",
   borderRadius: "10px",
@@ -42,104 +42,106 @@ const QuizTitle = styled("h3", {
   margin: "10px 0",
 });
 
+const DifficultyLevel = styled("p", {
+  fontSize: "14px",
+  fontWeight: "500",
+  color: "#555",
+});
+
+// const QuizList = () => {
+//   const [quizzes, setQuizzes] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const navigate = useNavigate(); // Initialize navigate hook
+
+//   const handleQuizClick = (quizId) => {
+//     navigate(`/quiz/${quizId}`); // This should navigate to /quiz/{quizId}
+//   };
+
+//   useEffect(() => {
+//     axiosInstance
+//       .get("quiz/allquiz")
+//       .then((response) => {
+//         setQuizzes(response.data);
+//         setLoading(false);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching quizzes:", error);
+//         setLoading(false);
+//       });
+//   }, []);
+
+const InfoText = styled('p', {
+  fontSize: '14px',
+  fontWeight: '400',
+  color: '#555',
+  margin: '5px 0',
+});
 
 const QuizList = () => {
-
   const [quizzes, setQuizzes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); // Initialize navigate hook
+  const navigate = useNavigate();
 
   const handleQuizClick = (quizId) => {
-    navigate(`/quiz/${quizId}`); // This should navigate to /quiz/{quizId}
+    navigate(`/quiz/${quizId}`); // Navigate to the quiz detail page
   };
 
   useEffect(() => {
-    axiosInstance
-      .get("quiz/allquiz")
-      .then((response) => {
+    axiosInstance.get('quiz/allquiz')
+      .then(response => {
         setQuizzes(response.data);
+        console.log()  // This should include attempts and scores
         setLoading(false);
-
       })
-      .catch((error) => {
+      .catch(error => {
         console.error("Error fetching quizzes:", error);
         setLoading(false);
       });
   }, []);
 
-  const InfoText = styled('p', {
-    fontSize: '14px',
-    fontWeight: '400',
-    color: '#555',
-    margin: '5px 0',
-  });
+  if (loading) {
+    return <PageContainer>Loading quizzes...</PageContainer>;
+  }
+  return (
+    <PageContainer>
+      <h2>All Quizzes</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {quizzes.map((quiz) => (
+          <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)} style={{ position: 'relative' }}>
+            <div className="badge">
 
-  const QuizList = () => {
-    const [quizzes, setQuizzes] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
+            </div>
+            <div className="badges">
+              <span>Points: {quiz.questionsLength * 100}</span>
+            </div>
 
-    const handleQuizClick = (quizId) => {
-      navigate(`/quiz/${quizId}`);
-    };
-
-    useEffect(() => {
-      axiosInstance.get('quiz/allquiz')
-        .then(response => {
-          setQuizzes(response.data);
-          console.log()  // This should include attempts and scores
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error("Error fetching quizzes:", error);
-          setLoading(false);
-        });
-    }, []);
-
-    if (loading) {
-      return <PageContainer>Loading quizzes...</PageContainer>;
-    }
-    return (
-      <PageContainer>
-        <h2>All Quizzes</h2>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-          {quizzes.map((quiz) => (
-            <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)} style={{ position: 'relative' }}>
-              <div className="badge">
-
-              </div>
-              <div className="badges">
-                <span>Points: {quiz.questionsLength * 100}</span>
-              </div>
-
-              {/* <QuizImage
-                src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY="
-                alt="Quiz Image"
-              /> */}
-              <QuizTitle>{quiz.title}</QuizTitle>
+            <QuizImage
+              src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY="
+              alt="Quiz Image"
+            />
+            <QuizTitle>{quiz.title}</QuizTitle>
+            <InfoText>
+              Topics: <span className="topics">{quiz.category || "General"}</span>
+            </InfoText>
+            <div className="Wardflex">
               <InfoText>
-                Topics: <span className="topics">{quiz.category || "General"}</span>
+                <span className="diff">Difficulty:</span> {quiz.difficulty}
               </InfoText>
-              <div className="Wardflex">
-                <InfoText>
-                  <span className="diff">Difficulty:</span> {quiz.difficulty}
-                </InfoText>
-                <div>
-                  <InfoText>Total Questions: {quiz.questionsLength}</InfoText>
-                  <InfoText>Scored: {quiz.score} / {quiz.questionsLength * 100} </InfoText>
-                  <InfoText>Attempts: {quiz.attempts}</InfoText>
+              <div>
+                <InfoText>Total Questions: {quiz.questionsLength}</InfoText>
+                <InfoText>Scored: {quiz.score} / {quiz.questionsLength * 100} </InfoText>
+                <InfoText>Attempts: {quiz.attempts}</InfoText>
 
-                </div>
               </div>
-            </QuizCard>
-          ))}
-        </div>
-      </PageContainer>
+            </div>
+          </QuizCard>
+        ))}
+      </div>
+    </PageContainer>
 
 
-    );
-  };
+  );
 };
-export default QuizList;
 
+export default QuizList;
 
