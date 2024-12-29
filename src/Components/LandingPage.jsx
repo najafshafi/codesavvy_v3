@@ -8,20 +8,20 @@ const carouselData = [
     title: "Welcome to CodeSavvy",
     description:
       "Empowering the next generation of innovators through inclusive computer science education.",
-    imgSrc: "/heroHome1.png",
+    imgSrc: "/heroHome4.svg",
     btnText: "Get Started",
     btnLink: "#marquee",
-    btnColor: "#3e324f",
+    btnColor: "#52c254",
   },
   {
     id: 2,
     title: "Interactive Quizzes and Exercises",
     description:
       "Enhance your coding skills with our engaging quizzes and hands-on exercises designed for all levels.",
-    imgSrc: "/heroHome4.svg",
+    imgSrc: "/heroHome1.png",
     btnText: "Start Learning",
     btnLink: "/learning",
-    btnColor: "#52c254",
+    btnColor: "#3e324f",
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const LandingPage = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % carouselData.length);
-    }, 5000); // Auto-scroll every 5 seconds
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -66,19 +66,17 @@ const LandingPage = () => {
             <Carousel.Item key={item.id}>
               <div className="flex h-screen justify-between p-10">
                 <div className="flex flex-col gap-10 w-[45%] justify-center">
-                  <h1 className="text-5xl">{item.title}</h1>
-                  <p className="text-lg">{item.description}</p>
+                  <h1 className="text-3xl md:text-4xl">{item.title}</h1>
+                  <p className="text-base md:text-lg">{item.description}</p>
                   <div className="flex gap-3">
                     <a href={item.btnLink}>
                       <button
                         id="herobtn"
-                        className="relative px-4 py-3 w-fit gap-5 text-nowrap text-white overflow-hidden flex justify-between items-center group uppercase"
+                        className="relative px-4 py-3 w-fit gap-5 text-white overflow-hidden flex justify-between items-center uppercase hover:scale-110 transition-all duration-300 ease-in-out"
                         style={{ backgroundColor: item.btnColor }}
                       >
-                        <span className="group-hover:text-black">
-                          {item.btnText}
-                        </span>
-                        <BsArrowUpRight className="xl:text-xl text-sm size-5 xl:size-6" />
+                        <span className="">{item.btnText}</span>
+                        <BsArrowUpRight className="xl:text-xl text-sm" />
                       </button>
                     </a>
                   </div>
@@ -88,6 +86,7 @@ const LandingPage = () => {
                     src={item.imgSrc}
                     width={500}
                     height={500}
+                    // style={{ width: "500px", height: "auto" }}
                     style={{ height: "500px", width: "auto" }}
                     alt="Carousel Item"
                   />

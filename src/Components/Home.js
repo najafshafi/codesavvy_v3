@@ -66,13 +66,13 @@ const Home = ({ user }) => {
                 className="text-center my-5"
                 style={{ fontSize: "2.8vw", fontFamily: "'Pacifico', cursive" }}
               >
-                Code Game
+                Code Games
               </h1>
               <p
                 className="text-center"
                 style={{ fontSize: "1.0vw", fontFamily: "'Pacifico', cursive" }}
               >
-                Help the Lynx collect pine cones
+              Learn Coding concepts while playing games
               </p>
               <img
                 src="./images/game.png"

@@ -25,7 +25,7 @@ const Workspace = () => {
           campaigns without needing support from your product team.
         </p>
         {/* Button */}
-        <button className="relative px-4 py-3 w-fit gap-5 bg-black text-white overflow-hidden flex justify-between items-center group uppercase animate-tilt-in-bottom-3">
+        <button className="relative px-4 py-3 w-fit gap-5 bg-black text-white overflow-hidden flex justify-between items-center group uppercase hover:scale-110 transition-all duration-300 ease-in-out">
           <Link to="/workspace">Try It Yourself</Link>
           <BsArrowUpRight className="xl:text-xl text-sm group-hover:animate-slideAndReset size:5 xl:size-6" />
         </button>

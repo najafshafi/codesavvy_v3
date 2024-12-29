@@ -165,6 +165,7 @@ export default function App() {
 
     return (
         <div className="app-container">
+            
             <h4 className="question-title mb-5">
                 Question {currentQuestionIndex + 1}: {quiz.questions[currentQuestionIndex].question}
             </h4>
