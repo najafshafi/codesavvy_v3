@@ -13,7 +13,6 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import { User } from "@nextui-org/react";
-import Enrollment from "./Models/Enrollment";
 import MainLogo from "../MainLogo.png";
 import "./DefaultNavbar.css";
 import { Link } from "react-router-dom";
@@ -21,7 +20,11 @@ import SignInModel from "./Models/SignInModel";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import AxiosInstance from "../Auth/axiosInstance";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SmartToyIcon from "@mui/icons-material/SmartToy"; // AI Icon
+
+
+
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -36,6 +39,8 @@ export default function App() {
       setUser(JSON.parse(savedUser)); // Set user data from localStorage
     }
   }, []);
+
+
 
   const handleLogout = async () => {
     try {
@@ -74,11 +79,6 @@ export default function App() {
         </NavbarBrand>
 
         <NavbarContent className="hidden sm:flex gap-4 mt-3" justify="center">
-          {/* <Button className="bg-white" color="primary" variant="faded" onClick={() => { changetheme() }}>
-            <Link to="/savvyai" className="nav-link">
-              <span> Try SavvyAI</span>
-            </Link>
-          </Button> */}
           <Button
             style={{
               background: "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)",
@@ -117,35 +117,52 @@ export default function App() {
             </Link>
           </NavbarItem>
 
-          <NavbarItem>
-            <Link to="/exercises" className="nav-link">
-              Exercises
-            </Link>
-          </NavbarItem>
 
-          {/* <NavbarItem>
-            <Link to="/colorpicker" className="nav-link">
-              Color Picker
-            </Link>
-          </NavbarItem> */}
+
           <NavbarItem>
             <Link to="/quiz" className="nav-link">
               Quiz
             </Link>
           </NavbarItem>
-
-          <NavbarItem>
-            <Link to="/coding-games" className="nav-link">
-              Coding Games
-            </Link>
-          </NavbarItem>
-
-          <NavbarItem>
+          {/* <NavbarItem>
             <Enrollment className="nav-link">
               Learn Coding
             </Enrollment>
-          </NavbarItem>
+          </NavbarItem> */}
+
+
+          <Dropdown placement="bottom-start">
+            <DropdownTrigger>
+              <Button>   Learn Coding  <ArrowDropDownIcon style={{ fontSize: "1.5rem" }} /></Button>
+            </DropdownTrigger>
+            <DropdownMenu aria-label="User Actions" variant="flat">
+              <DropdownItem  >
+                <Link to="/exercises" className="nav-link">
+                  Exercises
+                </Link>
+
+              </DropdownItem>
+              <DropdownItem  >
+                <Link to="/learning" className="nav-link">
+                  Learn Coding
+                </Link>
+              </DropdownItem>
+              <DropdownItem  >
+                <Link to="/coding-games" className="nav-link">
+                  Coding Games
+                </Link>
+
+              </DropdownItem>
+              {/* <DropdownItem
+              >
+                <Link to="/quiz" className="nav-link">
+                  Quiz
+                </Link>
+              </DropdownItem> */}
+            </DropdownMenu>
+          </Dropdown>
         </NavbarContent>
+
 
         <NavbarContent justify="end" className="mt-3 ">
           {user ? (
@@ -200,3 +217,11 @@ export default function App() {
     </div>
   );
 }
+
+
+
+
+
+
+
+

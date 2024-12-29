@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css'; // Import the styles
 const QuizDashboard = () => {
     return (
         <div className="dashboardLayout">
+            
             <div className="quiz">
                 <Leaderboard />
             </div>

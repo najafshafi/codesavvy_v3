@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../../Auth/axiosInstance";
 import { styled } from "@stitches/react";
-import { useNavigate } from 'react-router-dom';
-import "./QuizList.css"
+import { useNavigate } from "react-router-dom";
+import "./QuizList.css";
 
 const PageContainer = styled("div", {
   display: "flex",
@@ -10,11 +10,12 @@ const PageContainer = styled("div", {
   alignItems: "center",
   padding: "20px",
 });
+
 const QuizCard = styled("div", {
   display: "flex",
   flexDirection: "column",
-  width: "250px",
-  height: "300px",
+  width: "300px",
+  height: "350px",
   margin: "20px",
   padding: "20px",
   borderRadius: "10px",
@@ -30,10 +31,22 @@ const QuizCard = styled("div", {
   },
 });
 
+const QuizImageWrapper = styled("div", {
+  position: "relative",
+  width: "100%",
+  height: "150px",
+  backgroundColor: "#f0f0f0", // Placeholder background
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
+
 const QuizImage = styled("img", {
   width: "100%",
   height: "150px",
   objectFit: "cover",
+  opacity: 0,
+  transition: "opacity 0.5s ease-in-out",
 });
 
 const QuizTitle = styled("h3", {
@@ -42,10 +55,11 @@ const QuizTitle = styled("h3", {
   margin: "10px 0",
 });
 
-const DifficultyLevel = styled("p", {
+const InfoText = styled("p", {
   fontSize: "14px",
-  fontWeight: "500",
+  fontWeight: "400",
   color: "#555",
+  margin: "5px 0",
 });
 
 // const QuizList = () => {
@@ -83,7 +97,7 @@ const QuizList = () => {
   const navigate = useNavigate();
 
   const handleQuizClick = (quizId) => {
-    navigate(`/quiz/${quizId}`); // Navigate to the quiz detail page
+    navigate(`/quiz/${quizId}`);
   };
 
   useEffect(() => {
@@ -102,44 +116,69 @@ const QuizList = () => {
   if (loading) {
     return <PageContainer>Loading quizzes...</PageContainer>;
   }
+
   return (
-    <PageContainer>
-      <h2>All Quizzes</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-        {quizzes.map((quiz) => (
-          <QuizCard key={quiz._id} onClick={() => handleQuizClick(quiz._id)} style={{ position: 'relative' }}>
-            <div className="badge">
-
-            </div>
-            <div className="badges">
-              <span>Points: {quiz.questionsLength * 100}</span>
-            </div>
-
-            <QuizImage
-              src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY="
-              alt="Quiz Image"
-            />
-            <QuizTitle>{quiz.title}</QuizTitle>
-            <InfoText>
-              Topics: <span className="topics">{quiz.category || "General"}</span>
-            </InfoText>
-            <div className="Wardflex">
-              <InfoText>
-                <span className="diff">Difficulty:</span> {quiz.difficulty}
-              </InfoText>
-              <div>
-                <InfoText>Total Questions: {quiz.questionsLength}</InfoText>
-                <InfoText>Scored: {quiz.score} / {quiz.questionsLength * 100} </InfoText>
-                <InfoText>Attempts: {quiz.attempts}</InfoText>
-
-              </div>
-            </div>
-          </QuizCard>
-        ))}
+    <>
+      <div className="relative w-full">
+        <img
+          // src="./2.png"
+          src="./4.png"
+          // src="./6.png"
+          // src="./8.png"
+          alt="QUIZ"
+          className="h-auto w-full object-cover"
+        />
       </div>
-    </PageContainer>
+      <PageContainer>
+        <h2 className="text-4xl uppercase m-5">
+          All{" "}
+          <span className="font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            Quizzes
+          </span>
+        </h2>
 
-
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          {quizzes.map((quiz) => (
+            <QuizCard
+              key={quiz._id}
+              onClick={() => handleQuizClick(quiz._id)}
+              style={{ position: "relative" }}
+            >
+              <QuizImageWrapper>
+                <QuizImage
+                  src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY="
+                  alt="Quiz Image"
+                  onLoad={(e) => (e.target.style.opacity = 1)}
+                />
+              </QuizImageWrapper>
+              <QuizTitle>{quiz.title}</QuizTitle>
+              <InfoText>
+                Topics:{" "}
+                <span className="topics">{quiz.category || "General"}</span>
+              </InfoText>
+              <div className="Wardflex">
+                <InfoText>
+                  <span className="diff">Difficulty:</span> {quiz.difficulty}
+                </InfoText>
+                <div>
+                  <InfoText>Total Questions: {quiz.questionsLength}</InfoText>
+                  <InfoText>
+                    Scored: {quiz.score} / {quiz.questionsLength * 100}{" "}
+                  </InfoText>
+                  <InfoText>Attempts: {quiz.attempts}</InfoText>
+                </div>
+              </div>
+            </QuizCard>
+          ))}
+        </div>
+      </PageContainer>
+    </>
   );
 };
 
