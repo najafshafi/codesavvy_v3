@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./newPrompt.css";
 import Markdown from "react-markdown";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import arrow from "../dashboardPage/arrow.png";
 
 const NewPrompt = ({ data }) => {
   const [question, setQuestion] = useState("");
@@ -91,7 +92,7 @@ const NewPrompt = ({ data }) => {
         <input id="file" type="file" multiple={false} hidden />
         <input type="text" name="text" placeholder="Ask anything..." />
         <button>
-          <img src="/arrow.png" alt="" />
+          <img src={arrow} alt="" />
         </button>
       </form>
     </>

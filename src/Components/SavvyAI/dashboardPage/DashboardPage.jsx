@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./dashboardPage.css";
 
 // Import images
-import logo from "./logo.png";
+// import logo from "./logo.png";
 import chat from "./chat.png";
 import image from "./image.png";
 import arrow from "./arrow.png";
@@ -43,7 +43,7 @@ const DashboardPage = () => {
     <div className="dashboardPage">
       <div className="texts">
         <div className="logo">
-          <img src={logo} height={"50px"} alt="Logo" />
+          {/* <img src={logo} height={"50px"} alt="Logo" /> */}
           <h1>Code Savvy</h1>
         </div>
         <div className="options">

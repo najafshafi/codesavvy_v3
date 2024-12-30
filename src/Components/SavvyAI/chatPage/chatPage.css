@@ -4,8 +4,8 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  background-color: #11101b;
-  color: white;
+  background-color: #e0e0e0;
+  color: rgb(0, 0, 0);
   .wrapper {
     flex: 1;
     overflow: scroll;
@@ -25,11 +25,12 @@
       }
 
       .message {
-        padding: 20px;
+        padding: 15px;
 
         &.user {
-          background-color: #2c2937;
-          border-radius: 20px;
+          background-color: #190073b7;
+          color: white;
+          border-radius: 10px;
           max-width: 80%;
           align-self: flex-end;
         }

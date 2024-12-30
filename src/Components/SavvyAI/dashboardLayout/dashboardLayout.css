@@ -1,6 +1,6 @@
 .dashboardLayouts {
-  background-color: #000000;
-  color: white;
+  background-color:  #eaeaea;
+  color: black;
   display: flex;
   gap: 50px;
   /* padding-top: 20px; */
@@ -18,7 +18,7 @@
 
   .content {
     flex: 4;
-    background-color: #12101b;
+    background-color: #e0e0e0;
     overflow-y: auto; /* Makes the content scrollable */
     height: calc(
       100vh - 64px
