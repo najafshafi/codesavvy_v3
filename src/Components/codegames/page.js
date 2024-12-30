@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./pagess.css";
 const Page = () => {
   const codegames = [
     {
@@ -68,24 +68,43 @@ const Page = () => {
   ];
 
   return (
-    <main className="">
+    <main className="ggame">
       {/* Header Section */}
       <div className="w-full">
-        <img
+        {/* <img
           // src="./1.png"
           src="./3.png"
           // src="./5.png"
           // src="./7.png"
           alt="Coding Games"
           className="h-auto w-full object-cover"
-        />
+        /> */}
       </div>
 
       <div className="flex flex-col justify-center items-center p-3">
+        {/* <img
+        // src="./1.png"
+        src="./3.png"
+        // src="./5.png"
+        // src="./7.png"
+        alt="Coding Games"
+        className="h-auto w-82 object-cover"
+        style={{ width: "0rem;" }}
+      /> */}
+        {/* <img
+          // src="./1.png"
+          src="./3.png"
+          // src="./5.png"
+          // src="./7.png"
+          alt="Coding Games"
+          className="h-auto w-82 object-cover"
+          style={{ width: "50rem" }} // Correctly set the width
+        /> */}
+
         <h2 className="text-4xl uppercase m-5">
-          All{" "}
+
           <span className="font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            Games
+            All{" "}  Games
           </span>
         </h2>
 
@@ -95,7 +114,7 @@ const Page = () => {
             <div
               key={item.id}
               style={{ boxShadow: "2px 2px 2px rgba(0, 0, 0, 0.1)" }}
-              className="flex flex-col bg-white w-[300px] h-[350px] justify-between m-5 rounded-lg border border-[#ddd] overflow-hidden text-center transform hover:scale-105 transition-transform duration-300"
+              className="flex flex-col bg-white w-[300px] h-[350px] justify-between m-4 rounded-lg border border-[#ddd] overflow-hidden text-center transform hover:scale-105 transition-transform duration-300"
             >
               <img
                 src={item.imgurl}
