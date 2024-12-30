@@ -45,7 +45,7 @@
     border-radius: 10px;
 
     &:hover {
-      background-color: #2c2937;
+      background-color: #bcbcbc8b;
     }
   }
 
@@ -96,7 +96,7 @@
   }
 
   .list::-webkit-scrollbar-thumb {
-    background-color: #d0ff158c; /* Scrollbar color */
+    background-color: #190073b7; /* Scrollbar color */
     border-radius: 4px;
   }
 

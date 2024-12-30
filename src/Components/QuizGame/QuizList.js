@@ -104,9 +104,9 @@ const QuizList = () => {
       </div>
       <PageContainer>
         <h2 className="text-4xl uppercase m-5">
-          All{" "}
+
           <span className="font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            Quizzes
+            All{" "}  Quizzes
           </span>
         </h2>
 

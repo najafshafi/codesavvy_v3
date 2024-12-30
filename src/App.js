@@ -182,6 +182,11 @@ function App() {
             {/* <Route path="/quiz" element={<QuizList />} /> */}
             <Route path="/quiz" element={<PrivateRoute element={<QuizList />} user={user} />} />
             <Route path="/quiza" element={<PrivateRoute element={<QuizAllData />} user={user} />} />
+
+
+
+
+
             {/* <Route path="/quiz/:id" element={<PrivateRoute element={<CardQuiz />} user={user} />} /> */}
             <Route
               path="/quiz/:id"
@@ -206,6 +211,7 @@ function App() {
           </Routes>
         </Router>
       </QueryClientProvider>
+
     </AuthProvider>
   );
 }

@@ -1,3 +1,7 @@
+body {
+  background-color: #f1f2f5;
+}
+
 /* App Container */
 .app-container {
   height: 90vh;
@@ -14,6 +18,8 @@
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
+
+  
 }
 
 /* Box for quiz items */
