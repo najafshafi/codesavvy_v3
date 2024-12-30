@@ -111,7 +111,7 @@ const Page = () => {
               onClick={() => handleFileSelection(fileName)}
               className={`px-4 py-1 rounded  ${
                 fileName === selectedFile
-                  ? "bg-[#DDF345] text-black"
+                  ? "bg-[#1691FF]"
                   : "bg-gray-500"
               }`}
             >

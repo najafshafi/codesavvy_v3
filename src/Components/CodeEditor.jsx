@@ -32,7 +32,7 @@ const CodeEditor = () => {
           onMount={onMount}
           value={value}
           onChange={(value) => setValue(value)}
-          className="border rounded-md"
+          className="border-2 border-gray-600 rounded-md"
         />
       </div>
       <Output editorRef={editorRef} language={language} />

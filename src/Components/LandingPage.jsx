@@ -72,7 +72,7 @@ const LandingPage = () => {
                 <div className="flex flex-col gap-10 w-[45%] justify-center">
                   <h1 className="text-3xl md:text-5xl">
                     {item.title}{" "}
-                    <span className=" font-bold bg-gradient-to-r from-[#DDF345] via-lime-300 to-lime-500 bg-clip-text text-transparent">
+                    <span className=" font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
                       {item.subtitle}
                     </span>
                   </h1>

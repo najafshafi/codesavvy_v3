@@ -1,6 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Loading from "../Loading"; // Your loading component
 import "./pagess.css";
+
 const Page = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Create a function to handle image load completion
+    const handleLoad = () => {
+      setLoading(false); // Set loading to false after everything is loaded
+    };
+
+    // Load all images and wait for them to finish loading
+    const images = document.querySelectorAll("img");
+    let loadedImagesCount = 0;
+
+    const imageLoadHandler = () => {
+      loadedImagesCount++;
+      if (loadedImagesCount === images.length) {
+        handleLoad();
+      }
+    };
+
+    images.forEach((img) => {
+      if (img.complete) {
+        imageLoadHandler();
+      } else {
+        img.addEventListener("load", imageLoadHandler);
+      }
+    });
+
+    // Cleanup event listeners when component unmounts
+    return () => {
+      images.forEach((img) => {
+        img.removeEventListener("load", imageLoadHandler);
+      });
+    };
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   const codegames = [
     {
       id: 1,
@@ -68,44 +109,21 @@ const Page = () => {
   ];
 
   return (
-    <main className="ggame">
+    <main className="">
       {/* Header Section */}
       <div className="w-full">
-        {/* <img
-          // src="./1.png"
-          src="./3.png"
-          // src="./5.png"
-          // src="./7.png"
+        <img
+          src="./3.svg"
           alt="Coding Games"
-          loading="eager"
+          loading="lazy"
           className="h-auto w-full object-cover"
-        /> */}
+        />
       </div>
 
       <div className="flex flex-col justify-center items-center p-3">
-        {/* <img
-        // src="./1.png"
-        src="./3.png"
-        // src="./5.png"
-        // src="./7.png"
-        alt="Coding Games"
-        className="h-auto w-82 object-cover"
-        style={{ width: "0rem;" }}
-      /> */}
-        {/* <img
-          // src="./1.png"
-          src="./3.png"
-          // src="./5.png"
-          // src="./7.png"
-          alt="Coding Games"
-          className="h-auto w-82 object-cover"
-          style={{ width: "50rem" }} // Correctly set the width
-        /> */}
-
         <h2 className="text-4xl uppercase m-5">
-
           <span className="font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            All{" "}  Games
+            All Games
           </span>
         </h2>
 
@@ -125,14 +143,14 @@ const Page = () => {
               <div className="flex flex-col gap-1 p-3">
                 <h2 className="text-lg font-bold">{item.name}</h2>
                 <p className="text-gray-700">{item.description}</p>
-                <button
-                  className=" px-4 py-2 border-2 rounded-lg border-[#128FFF] text-[#128FFF]"
-                  as="button"
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block px-4 py-2 border-2 rounded-lg border-[#128FFF] text-[#128FFF] text-center"
                 >
-                  <a href={item.url} target="_blank" rel="noreferrer">
-                    Play Game
-                  </a>
-                </button>
+                  Play Game
+                </a>
               </div>
             </div>
           ))}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axiosInstance from "../../Auth/axiosInstance";
 import { styled } from "@stitches/react";
+import Loading from "../Loading";
 
 // Styled Components
 const QuizContainer = styled("div", {
@@ -32,12 +33,6 @@ const DifficultyLevel = styled("div", {
   fontWeight: "bold",
   color: "#007BFF",
   marginBottom: "20px",
-});
-
-const Loading = styled("div", {
-  fontSize: "1.5rem",
-  fontWeight: "bold",
-  color: "#777",
 });
 
 const Error = styled("div", {
@@ -71,7 +66,7 @@ export default function QuizAllData() {
   }, [id]); // Re-run when 'id' changes
 
   if (loading) {
-    return <Loading>Loading Quiz...</Loading>;
+    return <Loading />;
   }
 
   if (error) {

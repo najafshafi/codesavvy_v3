@@ -10,7 +10,7 @@ const Lectures = () => {
         <h1 className="text-5xl">Get up and running fast together</h1>
         <div className="flex justify-between gap-10">
           <div className="space-y-4">
-            <BsSoundwave className="text-[#9CA930] size-7" />
+            <BsSoundwave className="text-cyan-400 size-7" />
             <h1 className="text-3xl">University</h1>
             <p className="text-lg">
               Browse hundreds of in-depth courses, and guides to get up and
@@ -18,7 +18,7 @@ const Lectures = () => {
             </p>
           </div>
           <div className="space-y-4">
-            <IoLogoGitlab className="text-[#9CA930] size-7" />
+            <IoLogoGitlab className="text-cyan-400 size-7" />
             <h1 className="text-3xl">Showcase</h1>
             <p className="text-lg">
               Get inspired by the incredible websites built by members of the
@@ -31,9 +31,9 @@ const Lectures = () => {
       <div className="flex justify-center w-[40%]">
         <Image
           className=""
-          src={"/Programming-amico.png"}
-          width={400}
-          height={400}
+          src={"/heroHome2.png"}
+          width={450}
+          height={450}
           alt="logo"
         />
       </div>
