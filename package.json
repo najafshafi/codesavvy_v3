@@ -51,6 +51,7 @@
     "react-time-picker": "^7.0.0",
     "react-toastify": "^11.0.2",
     "react-type-animation": "^3.2.0",
+    "sass": "^1.83.0",
     "styled-components": "^6.1.11",
     "web-vitals": "^2.1.4"
   },

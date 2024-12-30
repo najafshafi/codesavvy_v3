@@ -84,12 +84,12 @@ const InfoText = styled("p", {
 //       });
 //   }, []);
 
-const InfoText = styled('p', {
-  fontSize: '14px',
-  fontWeight: '400',
-  color: '#555',
-  margin: '5px 0',
-});
+// const InfoText = styled('p', {
+//   fontSize: '14px',
+//   fontWeight: '400',
+//   color: '#555',
+//   margin: '5px 0',
+// });
 
 const QuizList = () => {
   const [quizzes, setQuizzes] = useState([]);
@@ -120,20 +120,20 @@ const QuizList = () => {
   return (
     <>
       <div className="relative w-full">
-        <img
+        {/* <img
           // src="./2.png"
           src="./4.png"
           // src="./6.png"
           // src="./8.png"
           alt="QUIZ"
           className="h-auto w-full object-cover"
-        />
+        /> */}
       </div>
       <PageContainer>
         <h2 className="text-4xl uppercase m-5">
-          All{" "}
+
           <span className="font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            Quizzes
+            All{" "}  Quizzes
           </span>
         </h2>
 
