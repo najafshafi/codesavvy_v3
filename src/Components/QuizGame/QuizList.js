@@ -62,35 +62,6 @@ const InfoText = styled("p", {
   margin: "5px 0",
 });
 
-// const QuizList = () => {
-//   const [quizzes, setQuizzes] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const navigate = useNavigate(); // Initialize navigate hook
-
-//   const handleQuizClick = (quizId) => {
-//     navigate(`/quiz/${quizId}`); // This should navigate to /quiz/{quizId}
-//   };
-
-//   useEffect(() => {
-//     axiosInstance
-//       .get("quiz/allquiz")
-//       .then((response) => {
-//         setQuizzes(response.data);
-//         setLoading(false);
-//       })
-//       .catch((error) => {
-//         console.error("Error fetching quizzes:", error);
-//         setLoading(false);
-//       });
-//   }, []);
-
-const InfoText = styled('p', {
-  fontSize: '14px',
-  fontWeight: '400',
-  color: '#555',
-  margin: '5px 0',
-});
-
 const QuizList = () => {
   const [quizzes, setQuizzes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -101,20 +72,21 @@ const QuizList = () => {
   };
 
   useEffect(() => {
-    axiosInstance.get('quiz/allquiz')
-      .then(response => {
+    axiosInstance
+      .get("quiz/allquiz")
+      .then((response) => {
         setQuizzes(response.data);
-        console.log()  // This should include attempts and scores
+        console.log(); // This should include attempts and scores
         setLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error fetching quizzes:", error);
         setLoading(false);
       });
   }, []);
 
   if (loading) {
-    return <PageContainer>Loading quizzes...</PageContainer>;
+    return (<PageContainer>Loading quizzes...</PageContainer>)
   }
 
   return (
@@ -126,6 +98,7 @@ const QuizList = () => {
           // src="./6.png"
           // src="./8.png"
           alt="QUIZ"
+          loading="eager"
           className="h-auto w-full object-cover"
         />
       </div>
@@ -183,4 +156,3 @@ const QuizList = () => {
 };
 
 export default QuizList;
-

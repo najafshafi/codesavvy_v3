@@ -20,11 +20,8 @@ import SignInModel from "./Models/SignInModel";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import AxiosInstance from "../Auth/axiosInstance";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SmartToyIcon from "@mui/icons-material/SmartToy"; // AI Icon
-
-
-
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -40,25 +37,14 @@ export default function App() {
     }
   }, []);
 
-
-
   const handleLogout = async () => {
     try {
-      // Make a request to the backend to clear the cookie
       await AxiosInstance.post("/logout");
-
-      // Remove the token and user from localStorage
       localStorage.removeItem("token");
       localStorage.removeItem("user");
-
-      // Remove the token and user from cookies
       Cookies.remove("token");
       Cookies.remove("user");
-
-      // Refresh the page to ensure everything is reset
       window.location.reload();
-
-      // Redirect to the login page
       navigate("/");
     } catch (error) {
       console.error("Logout error:", error);
@@ -112,57 +98,44 @@ export default function App() {
           </Button>
 
           <NavbarItem>
-            <Link to="/WorkSpace" className="nav-link">
+            <Link to="/WorkSpace" className="nav-link hover-active-link">
               WorkSpace
             </Link>
           </NavbarItem>
 
-
-
           <NavbarItem>
-            <Link to="/quiz" className="nav-link">
+            <Link to="/quiz" className="nav-link hover-active-link">
               Quiz
             </Link>
           </NavbarItem>
-          {/* <NavbarItem>
-            <Enrollment className="nav-link">
-              Learn Coding
-            </Enrollment>
-          </NavbarItem> */}
-
 
           <Dropdown placement="bottom-start">
-            <DropdownTrigger>
-              <Button>   Learn Coding  <ArrowDropDownIcon style={{ fontSize: "1.5rem" }} /></Button>
+            <DropdownTrigger className="self-bottom hover-active-link">
+              <span>
+                {" "}
+                Learn Coding{" "}
+                <ArrowDropDownIcon style={{ fontSize: "1.5rem" }} />
+              </span>
             </DropdownTrigger>
             <DropdownMenu aria-label="User Actions" variant="flat">
-              <DropdownItem  >
+              <DropdownItem className="hover-active-link">
                 <Link to="/exercises" className="nav-link">
                   Exercises
                 </Link>
-
               </DropdownItem>
-              <DropdownItem  >
+              <DropdownItem className="hover-active-link">
                 <Link to="/learning" className="nav-link">
                   Learn Coding
                 </Link>
               </DropdownItem>
-              <DropdownItem  >
+              <DropdownItem className="hover-active-link">
                 <Link to="/coding-games" className="nav-link">
                   Coding Games
                 </Link>
-
               </DropdownItem>
-              {/* <DropdownItem
-              >
-                <Link to="/quiz" className="nav-link">
-                  Quiz
-                </Link>
-              </DropdownItem> */}
             </DropdownMenu>
           </Dropdown>
         </NavbarContent>
-
 
         <NavbarContent justify="end" className="mt-3 ">
           {user ? (
@@ -174,7 +147,7 @@ export default function App() {
                       isBordered: true,
                       src: "https://mighty.tools/mockmind-api/content/human/41.jpg",
                     }}
-                    className="transition-transform opacity-1  w-56"
+                    className="transition-transform opacity-1 w-56"
                     name={user.name}
                     description={user.email}
                   />
@@ -204,7 +177,7 @@ export default function App() {
                     changetheme();
                   }}
                 >
-                  <Link className="mybuton" to="/signup">
+                  <Link className="mybuton hover-active-link" to="/signup">
                     Sign up
                   </Link>
                 </Button>
@@ -217,11 +190,3 @@ export default function App() {
     </div>
   );
 }
-
-
-
-
-
-
-
-

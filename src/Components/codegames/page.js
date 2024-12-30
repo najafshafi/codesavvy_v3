@@ -77,6 +77,7 @@ const Page = () => {
           // src="./5.png"
           // src="./7.png"
           alt="Coding Games"
+          loading="eager"
           className="h-auto w-full object-cover"
         />
       </div>
