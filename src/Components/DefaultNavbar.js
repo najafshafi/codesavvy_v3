@@ -98,14 +98,14 @@ export default function App() {
           </Button>
 
           <NavbarItem>
-            <Link to="/WorkSpace" className="nav-link hover-active-link">
-              WorkSpace
+            <Link to="/post" className="nav-link">
+              PostCommunity
             </Link>
           </NavbarItem>
 
           <NavbarItem>
-            <Link to="/quiz" className="nav-link hover-active-link">
-              Quiz
+            <Link to="/WorkSpace" className="nav-link">
+              WorkSpace
             </Link>
           </NavbarItem>
 
@@ -118,7 +118,14 @@ export default function App() {
               </span>
             </DropdownTrigger>
             <DropdownMenu aria-label="User Actions" variant="flat">
-              <DropdownItem className="hover-active-link">
+              <DropdownItem  >
+                <Link to="/quiz" className="nav-link">
+                  Quiz
+                </Link>
+
+              </DropdownItem>
+
+              <DropdownItem  >
                 <Link to="/exercises" className="nav-link">
                   Exercises
                 </Link>
@@ -133,6 +140,13 @@ export default function App() {
                   Coding Games
                 </Link>
               </DropdownItem>
+
+              {/* <DropdownItem
+              >
+                <Link to="/quiz" className="nav-link">
+                  Quiz
+                </Link>
+              </DropdownItem> */}
             </DropdownMenu>
           </Dropdown>
         </NavbarContent>
