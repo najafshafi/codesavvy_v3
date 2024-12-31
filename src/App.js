@@ -28,9 +28,17 @@ import PrivateRoute from "../src/Auth/PrivateRoute";
 
 // React Query setup
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; // Version 1
+// import { QueryClient as OldQueryClient, QueryClientProvider as OldQueryClientProvider } from '@tanstack/react-query'; // Version 2
+
 import QuizDashboard from "./Components/QuizGame/QuizDashboard/QuizDashboard";
 import QuizAllData from "./Components/QuizGame/QuizAllData";
 
+// import PostLayout from "./Components/PostCommunity/PostLayout";
+// import ApplicationPage from "./Components/PostCommunity/ApplicationPage";
+import QueryPost from "./Components/PostCommunity/QueryPost";
+
+// const queryClientV2 = new OldQueryClient(); // For react-query
 const queryClient = new QueryClient();
 
 function App() {
@@ -59,6 +67,7 @@ function App() {
 
   return (
     <AuthProvider>
+
       <QueryClientProvider client={queryClient}>
         <Router>
           <DefaultNavbar setUser={setUser} user={user} />
@@ -87,7 +96,15 @@ function App() {
             <Route path="/quiza" element={<PrivateRoute element={<QuizAllData />} user={user} />} />
 
 
+            <Route
+              path="/post"
+              element={<QueryPost />}
+            />
 
+            {/* <Route path="/apply/:postId" element={<PrivateRoute element={<ApplicationPage />} user={user} />} /> */}
+
+            {/* <Route path="/post" element={<PostLayout />} />
+            <Route path="/apply/:postId" element={<ApplicationPage />} /> */}
 
 
             {/* <Route path="/quiz/:id" element={<PrivateRoute element={<CardQuiz />} user={user} />} /> */}
@@ -115,7 +132,9 @@ function App() {
         </Router>
       </QueryClientProvider>
 
-    </AuthProvider>
+
+
+    </AuthProvider >
   );
 }
 
