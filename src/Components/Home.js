@@ -8,12 +8,12 @@ import Features from "./Features";
 import CodeSavvyMarquee from "./CodeSavvyMarquee";
 import Lectures from "./Lectures";
 import Workspace from "./Workspace";
-import Timer from "./Timer";
+// import Timer from "./Timer";
 
 const Home = ({ user }) => {
   return (
     <div className="bg-[#F4F4F4]">
-      <Timer />
+      {/* <Timer /> */}
       <LandingPage />
       <CodeSavvyMarquee />
       <Features />

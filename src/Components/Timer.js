@@ -104,7 +104,7 @@ const Timer = () => {
             : "-translate-x-[1000px] transition-transform duration-500 ease-in-out"
         }`}
       >
-        <div className="border-2 bg-gray-600/60 p-4">
+        <div className="border-2 bg-gray-600/80 p-4">
           <div className="input-field flex gap-3 justify-start mb-4">
             <input
               type="number"
