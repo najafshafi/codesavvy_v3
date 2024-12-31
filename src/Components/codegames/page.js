@@ -68,10 +68,10 @@ const Page = () => {
   ];
 
   return (
-    <main className="ggame">
+    <main className="">
       {/* Header Section */}
       <div className="w-full">
-        {/* <img
+        <img
           // src="./1.png"
           src="./3.png"
           // src="./5.png"
@@ -79,33 +79,13 @@ const Page = () => {
           alt="Coding Games"
           loading="eager"
           className="h-auto w-full object-cover"
-        /> */}
+        />
       </div>
 
       <div className="flex flex-col justify-center items-center p-3">
-        {/* <img
-        // src="./1.png"
-        src="./3.png"
-        // src="./5.png"
-        // src="./7.png"
-        alt="Coding Games"
-        className="h-auto w-82 object-cover"
-        style={{ width: "0rem;" }}
-      /> */}
-        {/* <img
-          // src="./1.png"
-          src="./3.png"
-          // src="./5.png"
-          // src="./7.png"
-          alt="Coding Games"
-          className="h-auto w-82 object-cover"
-          style={{ width: "50rem" }} // Correctly set the width
-        /> */}
-
         <h2 className="text-4xl uppercase m-5">
-
           <span className="font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            All{" "}  Games
+            All Games
           </span>
         </h2>
 
