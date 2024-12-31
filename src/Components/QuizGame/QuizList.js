@@ -3,6 +3,7 @@ import axiosInstance from "../../Auth/axiosInstance";
 import { styled } from "@stitches/react";
 import { useNavigate } from "react-router-dom";
 import "./QuizList.css";
+import Loading from "../Loading";
 
 const PageContainer = styled("div", {
   display: "flex",
@@ -76,37 +77,33 @@ const QuizList = () => {
       .get("quiz/allquiz")
       .then((response) => {
         setQuizzes(response.data);
-        console.log(); // This should include attempts and scores
-        setLoading(false);
+        setLoading(false); // Stop loading after data is fetched
       })
       .catch((error) => {
         console.error("Error fetching quizzes:", error);
-        setLoading(false);
+        setLoading(false); // Stop loading even if there's an error
       });
   }, []);
 
+  // Show loading component while quizzes are being fetched
   if (loading) {
-    return (<PageContainer>Loading quizzes...</PageContainer>)
+    return <Loading />;
   }
 
   return (
     <>
       <div className="relative w-full">
         <img
-          // src="./2.png"
-          src="./4.png"
-          // src="./6.png"
-          // src="./8.png"
+          src="./4.svg"
           alt="QUIZ"
-          loading="eager"
+          loading="lazy"
           className="h-auto w-full object-cover"
         />
       </div>
       <PageContainer>
         <h2 className="text-4xl uppercase m-5">
-
           <span className="font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            All{" "}  Quizzes
+            All Quizzes
           </span>
         </h2>
 

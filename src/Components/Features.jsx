@@ -32,7 +32,7 @@ function FeatureCard({ id, title, description, image, isActive }) {
     <div
       className={`flex flex-col gap-5 items-start justify-center p-5 w-72 h-72 text-2xl rounded-xl font-bold transition-transform duration-300 ${
         isActive
-          ? "transform scale-110 shadow-md shadow-[#DDF345] bg-white border-2 text-gray-600 border-[#DDF345]"
+          ? "transform scale-110 shadow-md shadow-[#1691FF] bg-white border-2 text-gray-600 border-[#1691FF]"
           : "opacity-70 bg-white filter grayscale text-gray-600"
       }`}
     >
@@ -70,7 +70,7 @@ export default function Features() {
               key={feature.id}
               onClick={() => setVisibleCard(feature.id)}
               className={`px-7 py-1 rounded-full transition-colors duration-200 ${
-                visibleCard === feature.id ? "bg-[#DDF345]" : "bg-gray-200"
+                visibleCard === feature.id ? "bg-[#1691FF]" : "bg-gray-200"
               }`}
             ></button>
           ))}

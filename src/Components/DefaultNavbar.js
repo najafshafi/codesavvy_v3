@@ -56,7 +56,7 @@ export default function App() {
   }
 
   return (
-    <div className="mybar">
+    <div className="mybar z-40">
       <Navbar>
         <NavbarBrand justify="start">
           <Link className="nav-link" to="/">

@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { NextUIProvider } from "@nextui-org/react";
 import theme from "./theme";
 import { ChakraProvider } from "@chakra-ui/react";
+import Timer from "./Components/Timer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -18,6 +19,7 @@ root.render(
     <ChakraProvider value={theme}>
       <NextUIProvider>
         <App />
+        <Timer />
       </NextUIProvider>
     </ChakraProvider>
   </React.StrictMode>

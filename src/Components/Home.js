@@ -8,14 +8,16 @@ import Features from "./Features";
 import CodeSavvyMarquee from "./CodeSavvyMarquee";
 import Lectures from "./Lectures";
 import Workspace from "./Workspace";
+// import Timer from "./Timer";
+
 const Home = ({ user }) => {
   return (
     <div className="bg-[#F4F4F4]">
+      {/* <Timer /> */}
       <LandingPage />
       <CodeSavvyMarquee />
       <Features />
       <Workspace />
-
       <div className="container-fluid ">
         <div className="row"></div>
 
@@ -72,7 +74,7 @@ const Home = ({ user }) => {
                 className="text-center"
                 style={{ fontSize: "1.0vw", fontFamily: "'Pacifico', cursive" }}
               >
-              Learn Coding concepts while playing games
+                Learn Coding concepts while playing games
               </p>
               <img
                 src="./images/game.png"
