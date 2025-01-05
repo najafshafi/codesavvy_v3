@@ -44,13 +44,25 @@
   width: 4px;
 }
 
-
 .LearnTopbar::-webkit-scrollbar{
   width: 0px;
   height: 0px;
+
 }
 *::-webkit-scrollbar-thumb {
   border: 0px solid;
   border-radius: 40px;
   background-color: #1691FF;
+}
+
+.avatarScroll::-webkit-scrollbar{
+  height: 4px;
+}
+
+.avatarScroll::-webkit-scrollbar-track{
+  background:lightgray;
+}
+
+.avatarScroll::-webkit-scrollbar-thumb{
+  background-image: linear-gradient(to right, #007BFF, rgba(196,7,185));
 }

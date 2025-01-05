@@ -1,0 +1,50 @@
+/* .dashboardLayout {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  background-color: white;
+  color: black;
+
+  .board {
+    flex: 0.8;
+
+    background-color: tomato;
+  }
+
+  .quiz {
+    flex: 0.2;
+    position: sticky;
+  }
+}
+
+ */
+.dashboardLayout {
+  display: flex;
+  flex-direction: row; /* Horizontal layout */
+  background-color: white; /* Optional styling */
+  color: black; /* Optional styling */
+}
+
+.quiz {
+  margin-top: 60px;
+  flex: 0.2; /* Occupies 20% of the width */
+  position: fixed; /* Fixes leaderboard on the right side */
+  right: 0; /* Positions leaderboard to the right */
+  top: 90px;
+  margin-right: 100px;
+  width: 20vw;
+  display: flex; /* For centering leaderboard content */
+  justify-content: center; /* Horizontally centers content */
+  align-items: center; /* Vertically centers content */
+  box-sizing: border-box; /* Ensures padding/border are included in dimensions */
+}
+
+.board {
+  flex: 0.8; /* Occupies 80% of the width */
+  display: flex; /* Centers the quiz content */
+  justify-content: center; /* Horizontally centers content */
+  align-items: center; /* Vertically centers content */
+  /* background-color: tomato; */
+  padding: 16px; /* Adds breathing space for the quiz content */
+  box-sizing: border-box; /* Ensures consistent padding and borders */
+}
