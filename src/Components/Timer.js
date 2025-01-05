@@ -92,13 +92,13 @@ const Timer = () => {
     <>
       <button
         onClick={handleSetShow}
-        className="fixed bottom-12 left-3 w-14 h-14 text-center rounded-full bg-[#1691FF] border border-[#1901FF] text-white z-30"
+        className="fixed bottom-12 left-3 w-20 h-20 text-center text-lg rounded-full bg-[#1691FF] border border-[#1901FF] text-white z-40"
       >
         Timer
       </button>
 
       <div
-        className={`max-w-6xl fixed z-20 bottom-3 left-20 flex flex-col shadow-lg ${
+        className={`max-w-6xl fixed z-30 bottom-0 left-24 flex flex-col shadow-lg ${
           isShow
             ? "translate-x-0 transition-transform duration-500 ease-in-out"
             : "-translate-x-[1000px] transition-transform duration-500 ease-in-out"

@@ -1,14 +1,15 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
-// PrivateRoute component to check if the user is authenticated
-const PrivateRoute = ({ element, user, ...rest }) => {
-    if (!user) {
-        // If no user is found (not logged in), redirect to login
-        return <Navigate to="/login" />;
-    }
+const PrivateRoute = ({ element, user }) => {
+  const location = useLocation();
 
-    // Otherwise, render the passed element
-    return element;
+  if (!user) {
+    // Redirect to login if the user is not authenticated
+    return <Navigate to="/login" state={{ from: location }} />;
+  }
+
+  // Render the protected component
+  return element;
 };
 
 export default PrivateRoute;
