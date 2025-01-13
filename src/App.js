@@ -102,7 +102,7 @@ function App() {
               element={<PrivateRoute element={<QueryDash />} user={user} />}
             />
 
-<Route
+            <Route
               path="/savvyai"
               element={<PrivateRoute element={<QueryDash2 />} user={user} />}
             />
@@ -123,9 +123,9 @@ function App() {
               path="/profile/workspace"
               element={<PrivateRoute element={<Workspace />} user={user} />}
             />
-             <Route
+            <Route
               path="/workspace"
-              element={<PrivateRoute element={<Workspace />} user={user} />}
+              element={<PrivateRoute element={<Workspace2 />} user={user} />}
             />
             <Route path="/footer" element={<Footer />} />
             <Route path="/login-ai" element={<Loginpage />} />
@@ -161,7 +161,9 @@ function App() {
 
             <Route
               path="/quiz/:id"
-              element={<PrivateRoute element={<QuizDashboard2 />} user={user} />}
+              element={
+                <PrivateRoute element={<QuizDashboard2 />} user={user} />
+              }
             />
 
             <Route element={<DashboardLayout />}>

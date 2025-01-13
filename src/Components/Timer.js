@@ -92,7 +92,7 @@ const Timer = () => {
     <>
       <button
         onClick={handleSetShow}
-        className="fixed bottom-12 left-3 w-20 h-20 text-center text-lg rounded-full bg-[#1691FF] border border-[#1901FF] text-white z-40"
+        className="fixed bottom-12 left-3 w-16 h-16 text-center rounded-full bg-[#1691FF] border border-[#1901FF] text-white z-40"
       >
         Timer
       </button>

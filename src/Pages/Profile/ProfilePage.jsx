@@ -192,8 +192,11 @@ const ProfilePage = () => {
             </div>
           </div>
 
+
+
+          {/* WARNING MESSAGE */}
           <div
-            className={` ${isClose ? " translate-x-[1000px] transition-transform duration-250 " : " translate-x-0 "} absolute top-0 right-0 w-2/5 md:w-1/3 lg:w-[30%] bg-[#1691FF]/85 text-white p-2 rounded-md shadow-md z-30`}
+            className={` ${isClose ? " translate-x-[1000px] transition-transform duration-250 " : " translate-x-0 "} absolute top-0 right-0 w-2/5 md:w-2/5 lg:w-[30%] bg-[#1691FF]/85 text-white p-2 rounded-md shadow-md z-30`}
           >
             <div className="flex justify-between">
               <h4>Note!</h4>

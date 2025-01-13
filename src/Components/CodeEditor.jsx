@@ -20,12 +20,12 @@ const CodeEditor = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 p-4">
-      <div className="w-full md:w-1/2">
+    <div className="flex flex-col lg:flex-row gap-4 p-4 w-full">
+      <div className="w-full lg:w-1/2">
         <LanguageSelector language={language} onSelect={onSelect} />
         <Editor
           options={{ minimap: { enabled: false } }}
-          height="75vh"
+          height="65vh"
           theme="vs-light"
           language={language}
           defaultValue={CODE_SNIPPETS[language]}

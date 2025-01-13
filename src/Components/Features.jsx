@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoIosDesktop } from "react-icons/io";
 import { IoExtensionPuzzleOutline } from "react-icons/io5";
 import { IoBookOutline } from "react-icons/io5";
@@ -26,28 +26,18 @@ const features = [
   },
 ];
 
-// Card component
-function FeatureCard({ id, title, description, image, isActive }) {
-  return (
-    <div
-      className={`flex flex-col gap-5 items-start justify-center p-5 w-72 h-72 text-2xl rounded-xl font-bold transition-transform duration-300 ${
-        isActive
-          ? "transform scale-110 shadow-md shadow-[#1691FF] bg-white border-2 text-gray-600 border-[#1691FF]"
-          : "opacity-70 bg-white filter grayscale text-gray-600"
-      }`}
-    >
-      <span className="text-4xl">{image}</span>
-      <h2 className="text-3xl">
-        {id}. {title} {/* Added spacing and formatting for id and title */}
-      </h2>
-      <span className="text-sm">{description}</span>
-    </div>
-  );
-}
-
+// Main Component
 export default function Features() {
-  // State to track which card is highlighted
   const [visibleCard, setVisibleCard] = useState(1);
+
+  // Automatically change the visible card every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleCard((prev) => (prev === features.length ? 1 : prev + 1));
+    }, 3000);
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
 
   // Reorder features array so that the selected card comes first
   const reorderedFeatures = [
@@ -56,39 +46,46 @@ export default function Features() {
   ];
 
   return (
-    <div className="relative flex flex-col py-20 md:flex-row items-center justify-between space-y-4 md:space-y-0 overflow-x-hidden">
-      {/* First Div: Header, Description, and Buttons */}
-      <div className="w-[40%] space-y-10 p-16">
-        <h1 className="text-5xl">Our Features Special For You</h1>
-        <p className="text-gray-600 text-lg">
-          Explore our unique features by clicking on the buttons below.
-        </p>
-        {/* Buttons to control which card is highlighted */}
-        <div className="flex space-x-4">
-          {features.map((feature) => (
-            <button
+    <div className="flex items-center justify-center ">
+      <div className="relative max-w-7xl flex flex-col items-center justify-between lg:flex-row overflow-x-hidden px-8 md:px-16 py-16 gap-12">
+        {/* Header, Description, and Buttons */}
+        <div className="sm:w-full md:w-2/3 lg:w-2/5 space-y-5 lg:text-left smd:text-center sm:text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold">
+            Our Features Special For You
+          </h2>
+          <p className="text-gray-600 text-base smd:text-lg">
+            Explore our unique features by clicking on the buttons below.
+          </p>
+          <div className="flex space-x-3 justify-center lg:justify-start">
+            {features.map((feature) => (
+              <button
+                key={feature.id}
+                onClick={() => setVisibleCard(feature.id)}
+                className={`w-12 h-2 rounded-lg transition-colors duration-200 ${
+                  visibleCard === feature.id ? "bg-[#1691FF]" : "bg-gray-300"
+                }`}
+              ></button>
+            ))}
+          </div>
+        </div>
+
+        {/* Cards Section */}
+        <div className="flex lg:w-2/3 translate-x-64 smd:translate-x-48 space-x-6 overflow-visible">
+          {reorderedFeatures.map((feature, index) => (
+            <div
               key={feature.id}
-              onClick={() => setVisibleCard(feature.id)}
-              className={`px-7 py-1 rounded-full transition-colors duration-200 ${
-                visibleCard === feature.id ? "bg-[#1691FF]" : "bg-gray-200"
+              className={`flex flex-col gap-7 items-start justify-center p-5 w-60 h-72 md:w-72 md:h-72 text-2xl rounded-xl font-bold transition-transform duration-300 ${
+                index === 0
+                  ? "transform scale-110 shadow-md shadow-[#1691FF] bg-white border-2 text-gray-600 border-[#1691FF]"
+                  : "opacity-70 bg-white filter grayscale text-gray-600"
               }`}
-            ></button>
+            >
+              <span className="text-4xl">{feature.image}</span>
+              <h2 className="text-3xl">{feature.title}</h2>
+              <span className="text-sm">{feature.description}</span>
+            </div>
           ))}
         </div>
-      </div>
-
-      {/* Second Div: Cards */}
-      <div className="absolute -right-[20vw] w-[70%] flex space-x-10 p-16 overflow-visible">
-        {reorderedFeatures.map((feature) => (
-          <FeatureCard
-            key={feature.id}
-            id={feature.id}
-            title={feature.title}
-            description={feature.description}
-            image={feature.image}
-            isActive={visibleCard === feature.id}
-          />
-        ))}
       </div>
     </div>
   );

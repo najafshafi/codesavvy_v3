@@ -21,7 +21,6 @@ import SignInModel from "./Models/SignInModel";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import AxiosInstance from "../Auth/axiosInstance";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SmartToyIcon from "@mui/icons-material/SmartToy"; // AI Icon
 import Sidebar from "../Pages/Profile/Sidebar";
 
@@ -52,7 +51,7 @@ export default function App({ avatar, setAvatar }) {
       case "SavvyAIDashboardPage":
         return <DashboardPage />;
       case "SavvyAIPage":
-        return <QueryDash />;
+        return <DashboardPage />;
       case "PostPage":
         return <QueryPost />;
       case "WorkspacePage":
@@ -151,7 +150,7 @@ export default function App({ avatar, setAvatar }) {
                 }}
               >
                 <Link
-                  to="/savvyai"
+                  to="/dashboard"
                   className="nav-link"
                   style={{
                     textDecoration: "none",
@@ -178,46 +177,24 @@ export default function App({ avatar, setAvatar }) {
                   WorkSpace
                 </Link>
               </NavbarItem>
+
+              <NavbarItem className="hover-active-link">
+                <Link to="/learning" className="nav-link">
+                  Tutorials
+                </Link>
+              </NavbarItem>
+
+              <NavbarItem>
+                <Link to="/exercises" className="nav-link">
+                  Exercises
+                </Link>
+              </NavbarItem>
+
               <NavbarItem className="hover-active-link">
                 <Link to="/coding-games" className="nav-link">
                   Coding Games
                 </Link>
               </NavbarItem>
-
-              <Dropdown placement="bottom-start">
-                <DropdownTrigger className="self-bottom hover-active-link">
-                  <span>
-                    {" "}
-                    Learn Coding{" "}
-                    <ArrowDropDownIcon style={{ fontSize: "1.5rem" }} />
-                  </span>
-                </DropdownTrigger>
-                <DropdownMenu aria-label="User Actions" variant="flat">
-                  {/* <DropdownItem>
-                    <Link to="/quiz" className="nav-link">
-                      Quiz
-                    </Link>
-                  </DropdownItem> */}
-
-                  <DropdownItem>
-                    <Link to="/exercises" className="nav-link">
-                      Exercises
-                    </Link>
-                  </DropdownItem>
-                  <DropdownItem className="hover-active-link">
-                    <Link to="/learning" className="nav-link">
-                      Tutorials
-                    </Link>
-                  </DropdownItem>
-
-                  {/* <DropdownItem
-              >
-                <Link to="/quiz" className="nav-link">
-                  Quiz
-                </Link>
-              </DropdownItem> */}
-                </DropdownMenu>
-              </Dropdown>
             </NavbarContent>
 
             <NavbarContent justify="end" className="mt-3 ">
@@ -302,6 +279,14 @@ export default function App({ avatar, setAvatar }) {
                 </div>
               </NavbarBrand>
 
+              <NavbarContent justify="center" className="mt-3">
+                <div className="lg:hidden block">
+                  <Link className="nav-link" to="/">
+                    <img className="size-8" src={MainLogo} alt="Logo" />
+                  </Link>
+                </div>
+              </NavbarContent>
+
               <NavbarContent justify="end" className="mt-3 ">
                 {user ? (
                   <div className="flex items-center gap-4 ">
@@ -370,7 +355,7 @@ export default function App({ avatar, setAvatar }) {
 
           {/* Sidebar */}
           <aside
-            className={`fixed top-[4rem] left-0 w-[15rem] xl:w-[17rem] 2xl:w-[19rem] h-[calc(100vh-4rem)] lg:h-[calc(100vh-3rem)] shadow-[rgba(0,_0,_0,_0.4)_0px_4px_8px] bg-[#FFFFFF0A] z-30 border-t-4 border-[#1691FF] transform ${
+            className={`fixed top-[4rem] left-0 w-[15rem] xl:w-[17rem] 2xl:w-[19rem] h-[calc(100vh-4rem)] lg:h-[calc(100vh-3rem)] shadow-[rgba(0,_0,_0,_0.4)_0px_4px_8px] bg-white z-30 border-t-4 border-[#1691FF] transform ${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"
             } transition-transform lg:translate-x-0`}
           >

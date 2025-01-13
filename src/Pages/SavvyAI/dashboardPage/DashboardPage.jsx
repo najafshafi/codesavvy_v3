@@ -2,9 +2,6 @@ import React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import "./dashboardPage.css";
-
-// Import images
-// import logo from "./logo.png";
 import chat from "./chat.png";
 import image from "./image.png";
 import arrow from "./arrow.png";
@@ -43,10 +40,9 @@ const DashboardPage = () => {
     <div className="dashboardPage">
       <div className="texts">
         <div className="logo">
-          {/* <img src={logo} height={"50px"} alt="Logo" /> */}
           <h1>Code Savvy</h1>
         </div>
-        <div className="options">
+        {/* <div className="options">
           <div className="option">
             <img src={chat} alt="Chat Icon" />
             <span>Create a New Chat</span>
@@ -59,7 +55,7 @@ const DashboardPage = () => {
             <img src={chat} alt="Help Icon" />
             <span>Help me with my Code</span>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="formContainer">
         <form onSubmit={handleSubmit}>

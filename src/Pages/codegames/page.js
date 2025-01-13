@@ -77,8 +77,7 @@ const Page = () => {
     {
       id: 5,
       name: "RodoCodo",
-      description:
-        "Engaging coding game teaching kids programming basics through simple challenges.",
+      description: "Engaging coding game teaching kids programming basics.",
       imgurl: "/rodocodoss.png",
       url: "https://game.rodocodo.com/hour-of-code/",
     },
@@ -86,7 +85,7 @@ const Page = () => {
       id: 6,
       name: "Scratch",
       description:
-        "Create interactive games, animations, and stories with visual programming blocks.",
+        "Create interactive games, animations, & stories with programming blocks.",
       imgurl: "/Sratchscreenshot.png",
       url: "https://scratch.mit.edu/projects/editor/?tutorial=getStarted",
     },
@@ -94,7 +93,7 @@ const Page = () => {
       id: 7,
       name: "Tynker",
       description:
-        "Learn coding with creative activities that build programming and problem-solving skills.",
+        "Learn coding with creative activities that build problem-solving skills.",
       imgurl: "/Tynkerss.png",
       url: "https://www.tynker.com/dashboard/student/?obd=1",
     },
@@ -102,21 +101,30 @@ const Page = () => {
       id: 8,
       name: "Code Combat",
       description:
-        "Solve puzzles and learn coding languages through adventurous programming quests.",
+        "Solve puzzles & coding languages through programming quests.",
       imgurl: "/CloseCombatss.png",
       url: "https://codecombat.com/play",
     },
   ];
 
   return (
-    <main className="">
+    <main className="bg-[#F4F4F4]">
       {/* Header Section */}
-      <div className="w-full">
+      <div className="w-full hidden md:block">
         <img
           src="./3.svg"
           alt="Coding Games"
           loading="lazy"
           className="h-auto w-full object-cover"
+        />
+      </div>
+
+      <div className="w-full block md:hidden">
+        <img
+          src="./3.svg"
+          alt="Coding Games"
+          loading="lazy"
+          className="h-[300px] sm:h-auto w-full object-cover object-right"
         />
       </div>
 
@@ -132,24 +140,33 @@ const Page = () => {
           {codegames.map((item) => (
             <div
               key={item.id}
-              style={{ boxShadow: "2px 2px 2px rgba(0, 0, 0, 0.1)" }}
-              className="flex flex-col bg-white w-[300px] h-[350px] justify-between m-4 rounded-lg border border-[#ddd] overflow-hidden text-center transform hover:scale-105 transition-transform duration-300"
+              className="relative flex flex-col border-1 border-blue-500 w-72 md:w-80 rounded-xl bg-white text-gray-700 shadow-md mx-4 my-14 group transform transition-transform duration-500 hover:scale-95"
             >
-              <img
-                src={item.imgurl}
-                alt={item.name}
-                className="w-full h-[150px] object-cover"
-              />
-              <div className="flex flex-col gap-1 p-3">
-                <h2 className="text-lg font-bold">{item.name}</h2>
-                <p className="text-gray-700">{item.description}</p>
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block px-4 py-2 border-2 rounded-lg border-[#128FFF] text-[#128FFF] text-center"
-                >
-                  Play Game
+              {/* Image Section with Zoom Effect */}
+              <div className="relative mx-4 -mt-10 h-40 overflow-hidden rounded-xl border-2 border-black">
+                <img
+                  src={item.imgurl}
+                  alt={item.name}
+                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110 "
+                />
+              </div>
+
+              {/* Card Content */}
+              <div className="p-6">
+                <h5 className="mb-2 text-xl font-semibold leading-snug text-blue-gray-900">
+                  {item.name}
+                </h5>
+                <p className="text-base font-light leading-relaxed text-inherit">
+                  {item.description}
+                </p>
+              </div>
+
+              {/* Button Section */}
+              <div className="p-6 pt-0 flex justify-center">
+                <a href={item.url} target="_blank" rel="noopener noreferrer">
+                  <button class="w-[200px] bg-white text-blue-500 hover:text-white border-1 border-blue-500 h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-300 before:to-blue-500 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0">
+                    Play Game
+                  </button>
                 </a>
               </div>
             </div>
