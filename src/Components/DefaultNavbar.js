@@ -150,7 +150,7 @@ export default function App({ avatar, setAvatar }) {
                 }}
               >
                 <Link
-                  to="/dashboard"
+                  to="/savvyai"
                   className="nav-link"
                   style={{
                     textDecoration: "none",
@@ -235,6 +235,16 @@ export default function App({ avatar, setAvatar }) {
                         onPress={handleLogout}
                       >
                         Logout
+                      </DropdownItem>
+
+                      <DropdownItem key="Primary" color="danger">
+                        <Link
+                          to={{
+                            pathname: "/themes",
+                          }}
+                        >
+                          Themes
+                        </Link>
                       </DropdownItem>
                     </DropdownMenu>
                   </Dropdown>

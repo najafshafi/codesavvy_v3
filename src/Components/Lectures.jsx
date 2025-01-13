@@ -15,7 +15,7 @@ const Lectures = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* University Section */}
-            <div className="flex flex-col items-center lg:items-start space-y-4">
+            <div className="flex flex-col lg:w-2/3 items-center lg:items-start space-y-4">
               <BsSoundwave className="text-cyan-400 text-3xl" />
               <h3 className="text-xl font-semibold">University</h3>
               <p className="text-sm sm:text-base text-justify">
@@ -25,7 +25,7 @@ const Lectures = () => {
             </div>
 
             {/* Showcase Section */}
-            <div className="flex flex-col items-center lg:items-start space-y-4">
+            <div className="flex flex-col lg:w-2/3 items-center lg:items-start space-y-4">
               <IoLogoGitlab className="text-cyan-400 text-3xl" />
               <h3 className="text-xl font-semibold">Showcase</h3>
               <p className="text-sm sm:text-base text-justify">
