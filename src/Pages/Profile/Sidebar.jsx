@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillRobot } from "react-icons/ai";
 import { AiFillWechat } from "react-icons/ai";
-import { FaCode } from "react-icons/fa";
+import { FaCode, FaHome } from "react-icons/fa";
 import { MdQuiz } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 
@@ -21,6 +21,7 @@ const Sidebar = ({ setPage, currentPage }) => {
   return (
     <div className="p-3 text-white space-y-10 mt-10">
       <div className="flex flex-col gap-3 xl:gap-5">
+        
         {sidebarItems.map((item, index) => (
           <div
             key={index}

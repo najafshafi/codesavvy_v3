@@ -3,3 +3,67 @@
     background-image: url('./game.png');
     object-fit: cover;
   } */
+
+
+  /* From Uiverse.io by JaydipPrajapati1910 */ 
+.button {
+  width: 230px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0px 15px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #128FFF;
+  color: #128FFF;
+  position: relative;
+  cursor: pointer;
+  font-weight: 900;
+  transition-duration: .2s;
+}
+
+.game path {
+  color: white;
+}
+
+.button .arrow {
+  position: absolute;
+  right: 0;
+  padding: 0px 5px;
+  width: 30px;
+  height: 100%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #128FFF;
+  color:white;
+  transition-duration: .2s;
+}
+
+.button:hover .arrow {
+  animation: slide-right .6s ease-out both;
+}
+/* arrow animation */
+@keyframes slide-right {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.button:active {
+  transform: translate(1px , 1px);
+  transition-duration: .2s;
+}

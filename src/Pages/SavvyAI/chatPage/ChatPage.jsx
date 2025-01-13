@@ -3,49 +3,6 @@ import NewPrompt from "../newPrompt/NewPrompt";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
 import Markdown from "react-markdown";
-// const ChatPage = () => {
-//   const path = useLocation().pathname;
-//   const chatId = path.split("/").pop();
-
-//   const { isPending, error, data } = useQuery({
-//     queryKey: ["chat", chatId],
-//     queryFn: () =>
-//       fetch(`http://localhost:3000/api/chats/${chatId}`, {
-//         credentials: "include",
-//       }).then((res) => res.json()),
-//   });
-
-//   console.log(data);
-
-//   return (
-//     <div className="chatPage">
-//       <div className="wrapper">
-//         <div className="chat">
-//           {isPending
-//             ? "Loading..."
-//             : error
-//             ? "Something went wrong!"
-//             : data?.history?.map((message, i) => (
-//                 <>
-//                   {message.img && true}
-//                   <div
-//                     className={
-//                       message.role === "user" ? "message user" : "message"
-//                     }
-//                     key={i}
-//                   >
-//                     <Markdown>{message.parts[0].text}</Markdown>
-//                   </div>
-//                 </>
-//               ))}
-
-//           {data && <NewPrompt data={data} />}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
 const ChatPage = () => {
   const path = useLocation().pathname;
   const chatId = path.split("/").pop(); // Extract chatId from URL

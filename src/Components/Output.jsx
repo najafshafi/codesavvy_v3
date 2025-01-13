@@ -47,19 +47,19 @@ const Output = ({ editorRef, language }) => {
   };
 
   return (
-    <div className="w-full md:w-1/2">
-      {/* <div className="flex gap-4"> */}
-        <button
-          onClick={runCode}
-          disabled={isLoading}
-          className="mb-4 px-4 py-2 text-white bg-green-600 hover:bg-green-700 rounded-md disabled:bg-gray-400"
-        >
-          {isLoading ? "Running..." : "Run Code"}
-        </button>
+    <div className="w-full lg:w-1/2">
+      <button
+        onClick={runCode}
+        disabled={isLoading}
+        className="w-[150px] bg-slate-900 h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]"
+      >
+        {isLoading ? "Running..." : "Run Code"}
+      </button>
+
       {/* </div> */}
       <div
         id="output-container"
-        className={`h-[75vh] overflow-y-auto p-4 bg-white/45 border-2 rounded-md ${
+        className={`h-[65vh] overflow-y-auto p-4 bg-white/45 border-2 rounded-md ${
           isError ? "border-red-500 text-red-600" : "border-gray-600"
         }`}
       >

@@ -5,37 +5,47 @@ import { IoLogoGitlab } from "react-icons/io5";
 
 const Lectures = () => {
   return (
-    <div className="relative flex justify-between items-center p-16 py-20 bg-white">
-      <div className="flex flex-col justify-between w-[40%] gap-10">
-        <h1 className="text-5xl">Get up and running fast together</h1>
-        <div className="flex justify-between gap-10">
-          <div className="space-y-4">
-            <BsSoundwave className="text-cyan-400 size-7" />
-            <h1 className="text-3xl">University</h1>
-            <p className="text-lg">
-              Browse hundreds of in-depth courses, and guides to get up and
-              running fast
-            </p>
-          </div>
-          <div className="space-y-4">
-            <IoLogoGitlab className="text-cyan-400 size-7" />
-            <h1 className="text-3xl">Showcase</h1>
-            <p className="text-lg">
-              Get inspired by the incredible websites built by members of the
-              community
-            </p>
+    <div className="flex justify-center items-center bg-white">
+      <div className="relative flex flex-col-reverse justify-between lg:flex-row max-w-7xl gap-10 px-6 sm:px-10 lg:px-16 py-10 lg:py-16">
+        {/* Text Section */}
+        <div className="flex flex-col justify-evenly gap-8 w-full md:w-[75%] lg:w-1/2 text-center lg:text-left">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold lg:text-left">
+            Get up and running fast together
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* University Section */}
+            <div className="flex flex-col items-center lg:items-start space-y-4">
+              <BsSoundwave className="text-cyan-400 text-3xl" />
+              <h3 className="text-xl font-semibold">University</h3>
+              <p className="text-sm sm:text-base text-justify">
+                Browse hundreds of in-depth courses, and guides to get up and
+                running fast.
+              </p>
+            </div>
+
+            {/* Showcase Section */}
+            <div className="flex flex-col items-center lg:items-start space-y-4">
+              <IoLogoGitlab className="text-cyan-400 text-3xl" />
+              <h3 className="text-xl font-semibold">Showcase</h3>
+              <p className="text-sm sm:text-base text-justify">
+                Get inspired by the incredible websites built by members of the
+                community.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex justify-center w-[40%]">
-        <Image
-          className=""
-          src={"/heroHome2.png"}
-          width={450}
-          height={450}
-          alt="logo"
-        />
+        {/* Image Section */}
+        <div className="flex justify-center w-full lg:w-[45%]">
+          <Image
+            src="/heroHome2.png"
+            width={450}
+            height={450}
+            className="rounded-lg w-[500px] h-auto"
+            alt="logo"
+          />
+        </div>
       </div>
     </div>
   );
