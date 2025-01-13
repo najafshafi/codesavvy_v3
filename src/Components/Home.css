@@ -47,7 +47,7 @@ width: 50vw;
     font-family:'Kanit', sans-serif;
 }
 #l2:hover{
-    color: #DDF247;
+    color: #1691FF;
 }
 
 .hero-ai{
@@ -118,14 +118,14 @@ width: 50vw;
   
 
 .myButton{
-    outline: 2px solid #DDF247;
-    color: #DDF247;
+    outline: 2px solid #1691FF;
+    color: #1691FF;
     font-weight: bold;
 
 }
 
 .myButton:hover{
-    background-color: #DDF247;
+    background-color: #1691FF;
     color: black;
 }
 
