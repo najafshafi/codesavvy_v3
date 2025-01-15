@@ -48,6 +48,7 @@ import CodeGames from "./Pages/codegames/page";
 // ------------------------------------------------- CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { ThemeProvider } from "./context/themeContext";
 
 const queryClient = new QueryClient();
 
@@ -85,115 +86,128 @@ function App() {
   }
 
   return (
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <Router>
-          <DefaultNavbar
-            setUser={setUser}
-            user={user}
-            avatar={avatar}
-            setAvatar={setAvatar}
-          />
-          <Routes>
-            <Route path="/" element={<Home user={user} />} />
-            <Route path="/login" element={<Login setUser={setUser} />} />
-            <Route
-              path="/profile/savvyai"
-              element={<PrivateRoute element={<QueryDash />} user={user} />}
+    <ThemeProvider>
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <Router>
+            <DefaultNavbar
+              setUser={setUser}
+              user={user}
+              avatar={avatar}
+              setAvatar={setAvatar}
             />
-
-            <Route
-              path="/savvyai"
-              element={<PrivateRoute element={<QueryDash2 />} user={user} />}
-            />
-            <Route
-              path="/profile/settings"
-              element={
-                <PrivateRoute element={<Profile user={user} />} user={user} />
-              }
-            />
-            <Route path="/getCertified" element={<GetCertified />} />
-            <Route path="/signUp" element={<SignUp />} />
-            <Route path="/login" element={<Login setUser={setUser} />} />
-            <Route path="/learn-coding" element={<Cards />} />
-            <Route path="/colorpicker" element={<ColorPicker />} />
-            <Route path="/coding-games" element={<CodeGames />} />
-            <Route path="/exercises" element={<Exercises />} />
-            <Route
-              path="/profile/workspace"
-              element={<PrivateRoute element={<Workspace />} user={user} />}
-            />
-            <Route
-              path="/workspace"
-              element={<PrivateRoute element={<Workspace2 />} user={user} />}
-            />
-            <Route path="/footer" element={<Footer />} />
-            <Route path="/login-ai" element={<Loginpage />} />
-            <Route path="/login-ai" element={<Loginpage2 />} />
-            <Route
-              path="/profile/quiz"
-              element={<PrivateRoute element={<QuizList />} user={user} />}
-            />
-            <Route
-              path="/quiz"
-              element={<PrivateRoute element={<QuizList2 />} user={user} />}
-            />
-            <Route
-              path="/profile/quiza"
-              element={<PrivateRoute element={<QuizAllData />} user={user} />}
-            />
-            <Route
-              path="/quiza"
-              element={<PrivateRoute element={<QuizAllData2 />} user={user} />}
-            />
-            <Route
-              path="/profile/post"
-              element={<PrivateRoute element={<QueryPost />} user={user} />}
-            />
-            <Route
-              path="/post"
-              element={<PrivateRoute element={<QueryPost2 />} user={user} />}
-            />
-            <Route
-              path="/profile/quiz/:id"
-              element={<PrivateRoute element={<QuizDashboard />} user={user} />}
-            />
-
-            <Route
-              path="/quiz/:id"
-              element={
-                <PrivateRoute element={<QuizDashboard2 />} user={user} />
-              }
-            />
-
-            <Route element={<DashboardLayout />}>
-              <Route path="/profile/dashboard" element={<DashboardPage />} />
-              <Route path="/dashboard" element={<DashboardPage2 />} />
+            <Routes>
+              <Route path="/" element={<Home user={user} />} />
+              <Route path="/login" element={<Login setUser={setUser} />} />
               <Route
-                path="/profile/dashboard/chats/:id"
-                element={<ChatPage />}
+                path="/profile/savvyai"
+                element={<PrivateRoute element={<QueryDash />} user={user} />}
               />
-              <Route path="/dashboard/chats/:id" element={<ChatPage2 />} />
 
               <Route
-                path="/quiz/:id"
+                path="/savvyai"
+                element={<PrivateRoute element={<QueryDash2 />} user={user} />}
+              />
+              <Route
+                path="/profile/settings"
+                element={
+                  <PrivateRoute element={<Profile user={user} />} user={user} />
+                }
+              />
+              <Route path="/getCertified" element={<GetCertified />} />
+              <Route path="/signUp" element={<SignUp />} />
+              <Route path="/login" element={<Login setUser={setUser} />} />
+              <Route path="/learn-coding" element={<Cards />} />
+              <Route path="/colorpicker" element={<ColorPicker />} />
+              <Route path="/coding-games" element={<CodeGames />} />
+              <Route path="/exercises" element={<Exercises />} />
+              <Route
+                path="/profile/workspace"
+                element={<PrivateRoute element={<Workspace />} user={user} />}
+              />
+              <Route
+                path="/workspace"
+                element={<PrivateRoute element={<Workspace2 />} user={user} />}
+              />
+              <Route path="/footer" element={<Footer />} />
+              <Route path="/login-ai" element={<Loginpage />} />
+              <Route path="/login-ai" element={<Loginpage2 />} />
+              <Route
+                path="/profile/quiz"
+                element={<PrivateRoute element={<QuizList />} user={user} />}
+              />
+              <Route
+                path="/quiz"
+                element={<PrivateRoute element={<QuizList2 />} user={user} />}
+              />
+              <Route
+                path="/profile/quiza"
+                element={<PrivateRoute element={<QuizAllData />} user={user} />}
+              />
+              <Route
+                path="/quiza"
+                element={
+                  <PrivateRoute element={<QuizAllData2 />} user={user} />
+                }
+              />
+              <Route
+                path="/profile/post"
+                element={
+                  <PrivateRoute
+                    element={<QueryPost user={user} />}
+                    user={user}
+                  />
+                }
+              />
+              <Route
+                path="/post"
+                element={<PrivateRoute element={<QueryPost2 />} user={user} />}
+              />
+              <Route
+                path="/profile/quiz/:id"
                 element={
                   <PrivateRoute element={<QuizDashboard />} user={user} />
                 }
               />
-            </Route>
-            <Route
-              path="/learning"
-              element={
-                <MantineProvider>
-                  <Learning />
-                </MantineProvider>
-              }
-            />
-          </Routes>
-        </Router>
-      </QueryClientProvider>
-    </AuthProvider>
+
+              <Route
+                path="/quiz/:id"
+                element={
+                  <PrivateRoute element={<QuizDashboard2 />} user={user} />
+                }
+              />
+
+              <Route path="postLayout" />
+
+              <Route element={<DashboardLayout />}>
+                <Route path="/profile/dashboard" element={<DashboardPage />} />
+                <Route path="/dashboard" element={<DashboardPage2 />} />
+                <Route
+                  path="/profile/dashboard/chats/:id"
+                  element={<ChatPage />}
+                />
+                <Route path="/dashboard/chats/:id" element={<ChatPage2 />} />
+
+                <Route
+                  path="/quiz/:id"
+                  element={
+                    <PrivateRoute element={<QuizDashboard />} user={user} />
+                  }
+                />
+              </Route>
+              <Route
+                path="/learning"
+                element={
+                  <MantineProvider>
+                    <Learning />
+                  </MantineProvider>
+                }
+              />
+            </Routes>
+          </Router>
+        </QueryClientProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

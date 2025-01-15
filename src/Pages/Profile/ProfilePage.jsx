@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Cropper from "react-easy-crop";
 import getCroppedImg from "./GetCroppedImg";
 import { MdClose, MdEdit } from "react-icons/md";
+import { useTheme } from "../../context/themeContext";
 
 const avatars = [
   "https://mighty.tools/mockmind-api/content/human/41.jpg",
@@ -21,6 +22,156 @@ const avatars = [
   "https://mighty.tools/mockmind-api/content/cartoon/17.jpg",
   "https://mighty.tools/mockmind-api/content/cartoon/8.jpg",
 ];
+
+const themes = [
+  {
+    name: "Light Theme",
+    colors: {
+      primary: "#e2effb",
+      secondary: "#acd2f4",
+      gradColor1: "#00F2FE",
+      gradColor2: "#4FACFE",
+      gradColor3: "#248ae4",
+      theme: "#4FACFE", // Matches the primary gradient
+      fontFamily: "Roboto, 'Helvetica Neue', Arial, sans-serif",
+    },
+  },
+  {
+    name: "Green Theme",
+    colors: {
+      primary: "#E8F5E9", // Light green background
+      secondary: "#A5D6A7", // Pastel green accent
+      gradColor1: "#66BB6A", // Vibrant green gradient start
+      gradColor2: "#43A047", // Rich green gradient end
+      gradColor3: "#2E7D32", // Deep green accent
+      theme: "#66BB6A", // Matches the primary gradient
+      fontFamily: "'Poppins', sans-serif",
+    },
+  },
+  {
+    name: "Brown Theme",
+    colors: {
+      primary: "#FAF4EB", // Beige background
+      secondary: "#D7CCC8", // Soft brown accent
+      gradColor1: "#BCAAA4", // Earthy brown gradient start
+      gradColor2: "#8D6E63", // Warm brown gradient end
+      gradColor3: "#5D4037", // Dark brown for contrast
+      theme: "#8D6E63", // Matches the primary gradient
+      fontFamily: "'Georgia', serif",
+    },
+  },
+  {
+    name: "Retro Theme",
+    colors: {
+      primary: "#FFF8E1", // Creamy retro background
+      secondary: "#FFECB3", // Soft yellow accent
+      gradColor1: "#FF8A80", // Retro orange-pink gradient start
+      gradColor2: "#FF5252", // Vibrant red gradient end
+      gradColor3: "#FF1744", // Bold red accent
+      theme: "#FF8A80", // Matches the primary gradient
+      fontFamily: "'Courier New', monospace",
+    },
+  },
+];
+
+function ThemeBtn() {
+  const { switchTheme } = useTheme();
+
+  // Define an array of theme objects (each with a name and a value)
+  const themes = [
+    { name: "Default", value: "light", color: "#1691FF" },
+    { name: "Brown", value: "brown", color: "#654321" },
+    { name: "Green", value: "green", color: "#38A169" },
+    { name: "Retro", value: "retro", color: "#fdf1d6" },
+  ];
+
+  return (
+    <div className="flex flex-col justify-start items-center">
+      <div className="grid grid-cols-3 gap-4 w-full items-center justify-center ">
+        {themes.map((theme, index) => (
+          // <button
+          //   key={index}
+          //   className="w-full px-6 py-3 text-white"
+          //   style={{ backgroundColor: theme.color }}
+          //   onClick={() => switchTheme(theme.value)}
+          // >
+          //   {theme.name}
+          // </button>
+
+          <button
+            key={index}
+            onClick={() => switchTheme(theme.value)}
+            class={`w-[150px] bg-black h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-${theme.gradColor1} before:to-${theme.gradColor2} before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]`}
+          >
+            {theme.name}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const Card = ({ theme }) => {
+  const { colors } = theme;
+  const { switchTheme } = useTheme(); // Access theme switch function
+
+  return (
+    <div className="card font-sans" style={{ fontFamily: colors.fontFamily }}>
+      <div className="title text-center" style={{ color: colors.third }}>
+        <p className="heading font-bold p-4 tracking-[7px] text-[1.5rem] relative">
+          {theme.name}
+        </p>
+      </div>
+      <div className="wrapper w-fulltext-sm">
+        {Object.keys(colors).map((key, index) => {
+          if (key !== "fontFamily") {
+            const colorName = key.charAt(0).toUpperCase() + key.slice(1);
+            return (
+              <div
+                key={index}
+                className="color p-[10px] [20px] flex justify-between"
+                style={{
+                  backgroundColor: colors[key],
+                  color: colors.textColor1,
+                  borderRadius:
+                    index === 0
+                      ? "5px 5px 0 0"
+                      : index === 5
+                        ? "0 0 5px 5px"
+                        : "0",
+                }}
+              >
+                {colorName}
+                <span className="hex text-end font-mono uppercase">
+                  {colors[key]}
+                </span>
+              </div>
+            );
+          }
+          return null;
+        })}
+      </div>
+
+      {/* Dynamic button to change theme */}
+      <div className="flex justify-center mt-2">
+        <button
+          className="w-full px-6 py-3 text-white grayscale hover:grayscale-0 rounded-full m-2"
+          style={{ backgroundColor: colors.theme }}
+          onClick={() => switchTheme(theme.name.toLowerCase())}
+        >
+          Change to {theme.name}
+        </button>
+      </div>
+
+      {/* <button
+        onClick={() => switchTheme(theme.name.toLowerCase())}
+        class={`w-10/12 bg-black h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[${colors.gradColor1}] before:to-[${colors.gradColor2}] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]`}
+      >
+        {theme.name}
+      </button> */}
+    </div>
+  );
+};
 
 const ProfilePage = () => {
   const location = useLocation();
@@ -116,7 +267,7 @@ const ProfilePage = () => {
       <div className="w-full flex flex-col justify-between p-5 overflow-x-hidden">
         <div className="flex flex-col items-center justify-center">
           <div
-            className="flex items-center gap-7 bg-blue-500 rounded-l-full w-full shadow-md bg-contain bg-no-repeat bg-right"
+            className="flex items-center gap-7 bg-theme rounded-l-full w-full shadow-md bg-contain bg-no-repeat bg-right"
             style={{ backgroundImage: 'url("/randomShape.svg")' }}
           >
             <div className="relative">
@@ -127,7 +278,7 @@ const ProfilePage = () => {
               />
               <div className="absolute bottom-0 right-2">
                 <label htmlFor="avatar-upload" className="cursor-pointer">
-                  <MdEdit className="text-3xl p-2 bg-slate-400 hover:bg-slate-600 text-white rounded-full" />
+                  <MdEdit className="text-3xl p-2 bg-textColor2 hover:bg-textColor1 text-Primary rounded-full" />
                 </label>
                 <input
                   id="avatar-upload"
@@ -149,22 +300,22 @@ const ProfilePage = () => {
                   />
                   <button
                     onClick={handleSaveName}
-                    className="bg-green-700 text-white px-4 py-2 rounded"
+                    className="bg-green-700 text-Primary px-4 py-2 rounded"
                   >
                     Save
                   </button>
                 </div>
               ) : (
-                <div className="flex items-center gap-2 text-white">
+                <div className="flex items-center gap-2 text-Primary">
                   <h2 className="text-3xl font-semibold">
                     Welcome, {editableName}
                   </h2>
                   <button onClick={handleEditName} className="">
-                    <MdEdit className="text-xl text-white hover:text-gray-50" />
+                    <MdEdit className="text-xl text-Primary hover:text-gray-50" />
                   </button>
                 </div>
               )}
-              <h4 className="text-lg text-white">
+              <h4 className="text-lg text-Primary">
                 Email: {currentUser?.email}
               </h4>
             </div>
@@ -176,7 +327,7 @@ const ProfilePage = () => {
             <p className="text-xl">
               Select One of the images below to set new Avatar
             </p>
-            <div className="overflow-x-auto flex gap-4 avatarScroll w-10/12">
+            <div className="overflow-x-auto flex gap-4 avatarScroll">
               {avatars.map((avatar, index) => (
                 <img
                   src={avatar}
@@ -184,7 +335,7 @@ const ProfilePage = () => {
                   onClick={() => handleAvatarSelect(avatar)}
                   className={`w-28 h-28 object-cover border-4 rounded-full my-2 ${
                     selectedAvatar === avatar
-                      ? "border-blue-500"
+                      ? "border-theme"
                       : "border-transparent hover:border-gray-300 grayscale hover:grayscale-0"
                   }`}
                 />
@@ -192,11 +343,9 @@ const ProfilePage = () => {
             </div>
           </div>
 
-
-
           {/* WARNING MESSAGE */}
           <div
-            className={` ${isClose ? " translate-x-[1000px] transition-transform duration-250 " : " translate-x-0 "} absolute top-0 right-0 w-2/5 md:w-2/5 lg:w-[30%] bg-[#1691FF]/85 text-white p-2 rounded-md shadow-md z-30`}
+            className={` ${isClose ? " translate-x-[1000px] transition-transform duration-250 " : " translate-x-0 "} absolute top-0 right-0 w-2/5 md:w-2/5 lg:w-[30%] bg-theme bg-opacity-80 text-Primary p-2 rounded-md shadow-md z-30`}
           >
             <div className="flex justify-between">
               <h4>Note!</h4>
@@ -213,8 +362,8 @@ const ProfilePage = () => {
         </div>
 
         {showCropper && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white p-6 rounded shadow-lg">
+          <div className="fixed inset-0 bg-Third bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-Primary p-6 rounded shadow-lg">
               <h2 className="text-lg font-semibold mb-4">Crop Your Image</h2>
               <div className="relative w-96 h-96">
                 <Cropper
@@ -230,13 +379,13 @@ const ProfilePage = () => {
               <div className="mt-4 flex justify-end">
                 <button
                   onClick={() => setShowCropper(false)}
-                  className="mr-2 bg-gray-500 text-white px-4 py-2 rounded"
+                  className="mr-2 bg-textColor2 text-Primary px-4 py-2 rounded"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleCropConfirm}
-                  className="bg-blue-500 text-white px-4 py-2 rounded"
+                  className="bg-theme text-Primary px-4 py-2 rounded"
                 >
                   Set as Avatar
                 </button>
@@ -244,6 +393,17 @@ const ProfilePage = () => {
             </div>
           </div>
         )}
+
+        <div className="flex flex-col gap-7">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-10 py-7 lg:mt-20 text-start">
+            Themes
+          </h2>
+          <div className="flex flex-wrap gap-[20px]">
+            {themes.map((theme, index) => (
+              <Card key={index} theme={theme} />
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );

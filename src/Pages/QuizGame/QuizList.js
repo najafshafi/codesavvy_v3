@@ -102,7 +102,7 @@ const QuizList = () => {
       </div>
       <PageContainer>
         <h2 className="text-4xl uppercase m-5">
-          <span className="font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <span className="font-bold text-theme">
             All Quizzes
           </span>
         </h2>

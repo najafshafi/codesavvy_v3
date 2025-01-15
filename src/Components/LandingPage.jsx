@@ -72,18 +72,18 @@ const LandingPage = () => {
                 <div className="flex flex-col gap-4 md:gap-7 lg:gap-10 smd:w-[75%] md:w-[45%] justify-center">
                   <h1 className="text-4xl md:text-4xl lg:text-5xl xl:text-6xl">
                     {item.title}{" "}
-                    <span className=" font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+                    <span className=" font-bold bg-gradient-to-r from-gradColor3 to-gradColor1 bg-clip-text text-transparent">
                       {item.subtitle}
                     </span>
                   </h1>
                   <p className="text-base md:text-lg">{item.description}</p>
                   <div className="flex gap-3">
                     <a href={item.btnLink} className="group">
-                      <button class="overflow-hidden relative w-56 p-2 h-12 bg-slate-900 text-white border-none rounded-md text-base md:text-lg font-bold cursor-pointer z-10">
+                      <button class="overflow-hidden relative w-56 p-2 h-12 bg-Third text-Primary border-none rounded-md text-base md:text-lg font-bold cursor-pointer z-10">
                         {item.btnText}
-                        <span class="absolute w-60 h-32 -top-8 -left-2 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
-                        <span class="absolute w-60 h-32 -top-8 -left-2 bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
-                        <span class="absolute w-60 h-32 -top-8 -left-2 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                        <span class="absolute w-60 h-32 -top-8 -left-2 bg-Primary transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                        <span class="absolute w-60 h-32 -top-8 -left-2 bg-gradColor2 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                        <span class="absolute w-60 h-32 -top-8 -left-2 bg-gradColor1 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
                         <span class="group-hover:!opacity-100 group-hover:duration-1000 duration-100 z-20 opacity-0 absolute top-[10px] left-10">
                           {item.btnText}
                         </span>

@@ -53,7 +53,7 @@
 *::-webkit-scrollbar-thumb {
   border: 0px solid;
   border-radius: 40px;
-  background-color: #1691FF;
+  background-color: var(--theme);
 }
 
 .avatarScroll::-webkit-scrollbar{
@@ -65,5 +65,5 @@
 }
 
 .avatarScroll::-webkit-scrollbar-thumb{
-  background-image: linear-gradient(to right, #007BFF, rgba(196,7,185));
+  background-image: linear-gradient(to right, var(--gradColor1), var(--gradColor2));
 }

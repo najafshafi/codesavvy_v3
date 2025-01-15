@@ -15,3 +15,70 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+:root{
+  --Primary: #daecfd;
+  --Secondary: #aad2f6;  
+  --Third: #0f172a;
+  --gradColor1: #4FACFE;
+  --gradColor2: #1691FF;
+  --gradColor3: #1265ae;
+  --theme: #1691FF;
+  --textColor1:#111827;
+  --textColor2:#67727d;
+  --font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+.light {
+  --Primary: #daecfd;
+  --Secondary: #aad2f6; 
+  --Third: #0f172a;
+  --gradColor1: #4FACFE;
+  --gradColor2: #1691FF;
+  --gradColor3: #1265ae;
+  --textColor1: #111827;
+  --textColor2: #67727d;
+  --theme: #1691FF;
+  --font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+.green {
+  --Primary: #E8F5E9;
+  --Secondary: #A5D6A7;
+  --Third: #0f172a;
+  --gradColor1: #66BB6A;
+  --gradColor2: #43A047;
+  --gradColor3: #2E7D32;
+  --textColor1: #111827;
+  --textColor2: #67727d;
+  --theme: #66BB6A;
+  --font-family: "Poppins", sans-serif;
+}
+
+.brown {
+  --Primary: #FAF4EB;
+  --Secondary: #D7CCC8;
+  --Third: #0f172a;
+  --gradColor1: #BCAAA4;
+  --gradColor2: #8D6E63;
+  --gradColor3: #5D4037;
+  --textColor1: #111827;
+  --textColor2: #67727d;
+  --theme: #8D6E63;
+  --font-family: "Georgia", serif;
+}
+
+.retro {
+  --Primary: #FFF8E1;
+  --Secondary: #FFECB3;
+  --Third: #0f172a;
+  --gradColor1: #FF8A80;
+  --gradColor2: #FF5252;
+  --gradColor3: #FF1744;
+  --textColor1: #111827;
+  --textColor2: #67727d;
+  --theme: #FF8A80;
+  --font-family: "Courier New", monospace;
+}
+
+
