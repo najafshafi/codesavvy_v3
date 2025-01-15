@@ -59,7 +59,7 @@
 
 .mybuton {
   text-decoration: none;
-  color: greenyellow;
+  color: var(--theme);
 }
 
 /* 
@@ -74,7 +74,7 @@ img.flex.object-cover.w-full.h-full.transition-opacity.\!duration-500.opacity-0.
 
 .ring-default {
   --tw-ring-opacity: 1;
-  --tw-ring-color: #def248;
+  --tw-ring-color: var(--theme);
 }
 
 .nav-link {

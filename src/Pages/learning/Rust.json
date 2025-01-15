@@ -1,0 +1,42 @@
+[
+    {
+        "question": "What is Rust, and what is it used for?",
+        "solution": "Rust is a systems programming language focused on safety, speed, and concurrency. It is commonly used for building performance-critical applications, like operating systems, game engines, and web services."
+    },
+    {
+        "question": "What is ownership in Rust?",
+        "solution": "Ownership is a core concept in Rust that ensures memory safety without a garbage collector. Each value in Rust has a single owner, and when the owner goes out of scope, the value is dropped."
+    },
+    {
+        "question": "What are Rust's borrowing rules?",
+        "solution": "Rust's borrowing rules are: 1) At any time, you can have either one mutable reference or multiple immutable references, but not both. 2) References must always be valid."
+    },
+    {
+        "question": "How do you declare a variable in Rust?",
+        "solution": "You can declare a variable using the `let` keyword. Example: `let x = 5;` For mutable variables, use `let mut x = 5;`."
+    },
+    {
+        "question": "What is a trait in Rust?",
+        "solution": "A trait in Rust is a way to define shared behavior. It is similar to interfaces in other languages. Example: `trait Greet { fn say_hello(&self); }`"
+    },
+    {
+        "question": "What is the difference between `String` and `&str` in Rust?",
+        "solution": "`String` is a growable, heap-allocated data type, while `&str` is an immutable string slice typically referencing data stored elsewhere."
+    },
+    {
+        "question": "How does pattern matching work in Rust?",
+        "solution": "Pattern matching in Rust is done using the `match` keyword. It allows you to branch code based on the structure of values. Example: `match x { 1 => println!(\"One\"), _ => println!(\"Other\") }`"
+    },
+    {
+        "question": "What are Rust lifetimes?",
+        "solution": "Lifetimes in Rust ensure that references are valid as long as needed. They are denoted with `'a`, `'b`, etc., and are often used in function signatures to describe reference scopes."
+    },
+    {
+        "question": "How do you handle errors in Rust?",
+        "solution": "Rust uses the `Result` and `Option` enums for error handling. You can use methods like `unwrap`, `expect`, or pattern matching to handle these enums."
+    },
+    {
+        "question": "What is the `Cargo` tool in Rust?",
+        "solution": "`Cargo` is Rust's build system and package manager. It handles project creation, dependency management, and builds. Example: `cargo new project_name` and `cargo build`."
+    }
+]

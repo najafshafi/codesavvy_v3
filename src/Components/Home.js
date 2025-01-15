@@ -31,8 +31,8 @@ const Home = ({ user }) => {
       imageSrc: "./images/game.png",
       buttonText: "Play Games",
       buttonLink: "/coding-games",
-      color1: " bg-[#fab364] ",
-      color2: " bg-[#F79425] ",
+      color1: " bg-[#3EB8BC] ",
+      color2: " bg-[#35A0A4] ",
     },
   ];
 
@@ -66,16 +66,16 @@ const Home = ({ user }) => {
               />
               <div className="flex font-sans">
                 <a href={section.buttonLink} className="group">
-                  <button class="overflow-hidden relative w-56 p-2 h-12 bg-slate-900 text-white border-none rounded-full text-base md:text-lg font-bold cursor-pointer z-10">
+                  <button class="overflow-hidden relative w-56 p-2 h-12 bg-Third text-Primary border-none rounded-full text-base md:text-lg font-bold cursor-pointer z-10">
                     {section.buttonText}
-                    <span class="absolute w-60 h-32 -top-8 -left-2 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                    <span class="absolute w-60 h-32 -top-8 -left-2 bg-Primary transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
                     <span
                       class={`absolute w-60 h-32 -top-8 -left-2 ${section.color1} transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left`}
                     ></span>
                     <span
                       class={`absolute w-60 h-32 -top-8 -left-2 ${section.color2} transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left`}
                     ></span>
-                    <span class="group-hover:!opacity-100 group-hover:duration-1000 duration-100 z-20 opacity-0 absolute top-[10px] left-10">
+                    <span class="group-hover:!opacity-100 group-hover:duration-1000 duration-100 z-20 opacity-0 absolute top-[10px] left-14">
                       {section.buttonText}
                     </span>
                   </button>

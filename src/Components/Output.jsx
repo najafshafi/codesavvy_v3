@@ -51,7 +51,7 @@ const Output = ({ editorRef, language }) => {
       <button
         onClick={runCode}
         disabled={isLoading}
-        className="w-[150px] bg-slate-900 h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]"
+        className="w-[150px] bg-Third h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-gradColor1 before:to-gradColor2 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]"
       >
         {isLoading ? "Running..." : "Run Code"}
       </button>
@@ -60,7 +60,7 @@ const Output = ({ editorRef, language }) => {
       <div
         id="output-container"
         className={`h-[65vh] overflow-y-auto p-4 bg-white/45 border-2 rounded-md ${
-          isError ? "border-red-500 text-red-600" : "border-gray-600"
+          isError ? "border-red-500 text-red-600" : "border-textColor2"
         }`}
       >
         {output

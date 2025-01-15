@@ -51,7 +51,7 @@ export default function App({ avatar, setAvatar }) {
       case "SavvyAIDashboardPage":
         return <DashboardPage />;
       case "SavvyAIPage":
-        return <DashboardPage />;
+        return <QueryDash />;
       case "PostPage":
         return <QueryPost />;
       case "WorkspacePage":
@@ -134,7 +134,7 @@ export default function App({ avatar, setAvatar }) {
               <Button
                 style={{
                   background:
-                    "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)",
+                    "linear-gradient(135deg, var(--gradColor1) 0%, var(--gradColor2) 100%)",
                   color: "#fff",
                   fontWeight: "600",
                   display: "flex",
@@ -235,16 +235,6 @@ export default function App({ avatar, setAvatar }) {
                         onPress={handleLogout}
                       >
                         Logout
-                      </DropdownItem>
-
-                      <DropdownItem key="Primary" color="danger">
-                        <Link
-                          to={{
-                            pathname: "/themes",
-                          }}
-                        >
-                          Themes
-                        </Link>
                       </DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
@@ -365,7 +355,7 @@ export default function App({ avatar, setAvatar }) {
 
           {/* Sidebar */}
           <aside
-            className={`fixed top-[4rem] left-0 w-[15rem] xl:w-[17rem] 2xl:w-[19rem] h-[calc(100vh-4rem)] lg:h-[calc(100vh-3rem)] shadow-[rgba(0,_0,_0,_0.4)_0px_4px_8px] bg-white z-30 border-t-4 border-[#1691FF] transform ${
+            className={`fixed top-[4rem] left-0 w-[15rem] xl:w-[17rem] 2xl:w-[19rem] h-[calc(100vh-4rem)] lg:h-[calc(100vh-3rem)] shadow-[rgba(0,_0,_0,_0.4)_0px_4px_8px] bg-Primary z-30 border-t-4 border-theme transform ${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"
             } transition-transform lg:translate-x-0`}
           >

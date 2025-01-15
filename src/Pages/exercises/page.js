@@ -107,9 +107,9 @@ const Page = () => {
   };
 
   return (
-    <div className="relative flex flex-col border-8 border-gray-800 bg-[#f4f4f4] overflow-hidden">
+    <div className="relative flex flex-col border-8 border-textColor1 bg-Secondary overflow-hidden">
       {/* Top Bar */}
-      <div className="bg-gray-800 h-[4rem] text-white p-3 flex justify-start space-x-2 overflow-x-auto LearnTopbar">
+      <div className="bg-gray-800 h-[4rem] text-Primary p-3 flex justify-start space-x-2 overflow-x-auto LearnTopbar">
         {Object.keys(files)
           .slice(0, 50)
           .map((fileName) => (
@@ -117,7 +117,7 @@ const Page = () => {
               key={fileName}
               onClick={() => handleFileSelection(fileName)}
               className={`px-4 py-1 rounded  ${
-                fileName === selectedFile ? "bg-[#1691FF]" : "bg-gray-500"
+                fileName === selectedFile ? "bg-theme" : "bg-textColor2"
               }`}
             >
               {fileName}
@@ -125,13 +125,13 @@ const Page = () => {
           ))}
       </div>
 
-      <div className="lg:hidden bg-gray-800 h-full absolute top-14 z-40 left-0 w-5 md:w-8 text-lg text-white flex items-center justify-center">
+      <div className="lg:hidden bg-textColor1 h-full absolute top-14 z-40 left-0 w-5 md:w-8 text-lg text-Primary flex items-center justify-center">
         <button
           onClick={handleMenuOpen}
           className="focus:outline-none shadow-lg"
         >
           <IoMdArrowDropright
-            className={`size-7 md:size-10 text-white transition-transform duration-500 ${isOpen ? "rotate-180" : ""}`}
+            className={`size-7 md:size-10 text-primary transition-transform duration-500 ${isOpen ? "rotate-180" : ""}`}
           />
         </button>
       </div>
@@ -139,7 +139,7 @@ const Page = () => {
       <div className="flex flex-col md:flex-row">
         {/* Sidebar Desktop */}
         <div
-          className={`hidden lg:block left-0 w-full md:w-64 bg-gray-800 text-white p-4 overflow-y-scroll h-[calc(100vh-9rem)] md:h-[calc(100vh-3rem)] lg:h-[calc(100vh-9rem)] LearnSidebar`}
+          className={`hidden lg:block left-0 w-full md:w-64 bg-textColor1 text-Primary p-4 overflow-y-scroll h-[calc(100vh-9rem)] md:h-[calc(100vh-3rem)] lg:h-[calc(100vh-9rem)] LearnSidebar`}
         >
           <h2 className="text-xl font-bold mb-4">{selectedFile} Topics</h2>
           <ul className="space-y-2">
@@ -148,14 +148,14 @@ const Page = () => {
               files[selectedFile].map((topic, index) => (
                 <li
                   key={index}
-                  className="cursor-pointer hover:bg-gray-600 p-2 rounded"
+                  className="cursor-pointer hover:bg-textColor2 p-2 rounded"
                   onClick={() => handleSidebarSelection(topic, index)}
                 >
                   <span className="text-lg">Question {index + 1}</span>
                 </li>
               ))
             ) : (
-              <li className="text-gray-400">No topics available</li>
+              <li className="text-textColor2">No topics available</li>
             )}
           </ul>
         </div>
@@ -171,14 +171,14 @@ const Page = () => {
               files[selectedFile].map((topic, index) => (
                 <li
                   key={index}
-                  className="cursor-pointer hover:bg-gray-600 p-2 rounded"
+                  className="cursor-pointer hover:bg-textColor2 p-2 rounded"
                   onClick={() => handleSidebarSelection(topic, index)}
                 >
                   <span className="text-lg">Question {index + 1}</span>
                 </li>
               ))
             ) : (
-              <li className="text-gray-400">No topics available</li>
+              <li className="text-textColor2">No topics available</li>
             )}
           </ul>
         </div>
@@ -193,7 +193,7 @@ const Page = () => {
               <>
                 {visibleAnswer === null ? (
                   <button
-                    className="text-blue-500 hover:underline"
+                    className="text-theme hover:underline"
                     onClick={() =>
                       toggleAnswerVisibility(selectedTopic.question)
                     }
@@ -202,14 +202,14 @@ const Page = () => {
                   </button>
                 ) : (
                   <>
-                    <pre className="bg-gray-900 text-white p-4 rounded-md overflow-x-auto">
+                    <pre className="bg-textColor1 text-Primary p-4 rounded-md overflow-x-auto">
                       <code>
                         {selectedTopic.solution ||
                           "// No code example available"}
                       </code>
                     </pre>
                     <button
-                      className="text-blue-500 hover:underline mt-2"
+                      className="text-theme hover:underline mt-2"
                       onClick={() => toggleAnswerVisibility(null)}
                     >
                       Hide Answer

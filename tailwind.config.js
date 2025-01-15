@@ -10,13 +10,25 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        smd: "500px", // Custom breakpoint at 500px
-        mdl: "600px", // Custom breakpoint at 600px
-        xxxl: "2000px", // Custom breakpoint at 2000px
+        smd: "500px",
+        mdl: "600px",
+        xxxl: "2000px",
       },
       colors: {
-        background: "var(--background)", // Variable-based colors
-        foreground: "var(--foreground)",
+        Primary: "var(--Primary)",
+        Secondary: "var(--Secondary)",
+        Third: "var(--Third)",
+        gradColor1: "var(--gradColor1)",
+        gradColor2: "var(--gradColor2)",
+        gradColor3: "var(--gradColor3)",
+        textColor1: "var(--textColor1)",
+        textColor2: "var(--textColor2)",
+        theme: "var(--theme)",
+      },
+      fontFamily: {
+        sans: "var(--fontSans), sans-serif",
+        serif: "var(--fontSerif), serif",
+        mono: "var(--fontMono), monospace",
       },
       animation: {
         "spin-slow": "spin 50s linear infinite",
