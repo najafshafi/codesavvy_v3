@@ -125,11 +125,11 @@ const Page = () => {
       <div className="relative bg-Primary h-[60vh] overflow-hidden flex flex-col items-center justify-center text-center">
         {/* Title and Subtitle */}
         <div className="z-10">
-          <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-gradColor1 via-gradColor2 to-gradColor3 text-transparent bg-clip-text">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-gradColor1 via-gradColor2 to-gradColor3 text-transparent bg-clip-text">
             CODE GAMES
           </h1>
 
-          <p className="text-xl md:text-2xl font-medium text-textColor2 mt-4">
+          <p className="text-xl md:text-2xl lg:text-3xl font-medium text-textColor2 mt-4">
             &lt;Play&gt;&lt;Code&gt;&lt;Master&gt;
           </p>
         </div>
@@ -175,7 +175,7 @@ const Page = () => {
           {codegames.map((item) => (
             <div
               key={item.id}
-              className="relative flex flex-col border-1 border-theme w-72 md:w-80 rounded-xl bg-Primary text-textColor2 shadow-md mx-4 my-14 group transform transition-transform duration-500 hover:scale-95"
+              className="relative flex flex-col border-1 border-theme w-72 md:w-80 rounded-xl bg-white text-textColor2 shadow-md mx-4 my-14 group transform transition-transform duration-500 hover:scale-95"
             >
               {/* Image Section with Zoom Effect */}
               <div className="relative mx-4 -mt-10 h-40 overflow-hidden rounded-xl border-2 border-textColor1">
@@ -199,7 +199,7 @@ const Page = () => {
               {/* Button Section */}
               <div className="p-6 pt-0 flex justify-center">
                 <a href={item.url} target="_blank" rel="noopener noreferrer">
-                  <button class="w-[200px] bg-Primary text-theme hover:text-Primary border-1 border-theme h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-gradColor1 before:to-gradColor2 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0">
+                  <button class="w-[230px] bg-Primary text-gradColor3 hover:text-Primary border-1 border-theme h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-gradColor1 before:to-gradColor2 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0">
                     Play Game
                   </button>
                 </a>

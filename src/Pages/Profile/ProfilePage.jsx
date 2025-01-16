@@ -25,7 +25,7 @@ const avatars = [
 
 const themes = [
   {
-    name: "Light Theme",
+    name: "Light",
     colors: {
       primary: "#e2effb",
       secondary: "#acd2f4",
@@ -37,7 +37,7 @@ const themes = [
     },
   },
   {
-    name: "Green Theme",
+    name: "Green",
     colors: {
       primary: "#E8F5E9", // Light green background
       secondary: "#A5D6A7", // Pastel green accent
@@ -49,7 +49,7 @@ const themes = [
     },
   },
   {
-    name: "Brown Theme",
+    name: "Brown",
     colors: {
       primary: "#FAF4EB", // Beige background
       secondary: "#D7CCC8", // Soft brown accent
@@ -61,7 +61,7 @@ const themes = [
     },
   },
   {
-    name: "Retro Theme",
+    name: "Retro",
     colors: {
       primary: "#FFF8E1", // Creamy retro background
       secondary: "#FFECB3", // Soft yellow accent
@@ -74,55 +74,22 @@ const themes = [
   },
 ];
 
-function ThemeBtn() {
-  const { switchTheme } = useTheme();
-
-  // Define an array of theme objects (each with a name and a value)
-  const themes = [
-    { name: "Default", value: "light", color: "#1691FF" },
-    { name: "Brown", value: "brown", color: "#654321" },
-    { name: "Green", value: "green", color: "#38A169" },
-    { name: "Retro", value: "retro", color: "#fdf1d6" },
-  ];
-
-  return (
-    <div className="flex flex-col justify-start items-center">
-      <div className="grid grid-cols-3 gap-4 w-full items-center justify-center ">
-        {themes.map((theme, index) => (
-          // <button
-          //   key={index}
-          //   className="w-full px-6 py-3 text-white"
-          //   style={{ backgroundColor: theme.color }}
-          //   onClick={() => switchTheme(theme.value)}
-          // >
-          //   {theme.name}
-          // </button>
-
-          <button
-            key={index}
-            onClick={() => switchTheme(theme.value)}
-            class={`w-[150px] bg-black h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-${theme.gradColor1} before:to-${theme.gradColor2} before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]`}
-          >
-            {theme.name}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 const Card = ({ theme }) => {
   const { colors } = theme;
   const { switchTheme } = useTheme(); // Access theme switch function
 
   return (
-    <div className="card font-sans" style={{ fontFamily: colors.fontFamily }}>
+    <button
+      onClick={() => switchTheme(theme.name.toLowerCase())}
+      className="card font-sans scale-95 hover:scale-105 transition-transform duration-300 hover:shadow-md"
+      style={{ fontFamily: colors.fontFamily }}
+    >
       <div className="title text-center" style={{ color: colors.third }}>
-        <p className="heading font-bold p-4 tracking-[7px] text-[1.5rem] relative">
-          {theme.name}
+        <p className="heading font-bold p-4 tracking-[7px] text-xl relative">
+          {theme.name} Theme
         </p>
       </div>
-      <div className="wrapper w-fulltext-sm">
+      <div className="wrapper w-full text-sm">
         {Object.keys(colors).map((key, index) => {
           if (key !== "fontFamily") {
             const colorName = key.charAt(0).toUpperCase() + key.slice(1);
@@ -153,7 +120,7 @@ const Card = ({ theme }) => {
       </div>
 
       {/* Dynamic button to change theme */}
-      <div className="flex justify-center mt-2">
+      {/* <div className="flex justify-center mt-2">
         <button
           className="w-full px-6 py-3 text-white grayscale hover:grayscale-0 rounded-full m-2"
           style={{ backgroundColor: colors.theme }}
@@ -161,7 +128,7 @@ const Card = ({ theme }) => {
         >
           Change to {theme.name}
         </button>
-      </div>
+      </div> */}
 
       {/* <button
         onClick={() => switchTheme(theme.name.toLowerCase())}
@@ -169,7 +136,7 @@ const Card = ({ theme }) => {
       >
         {theme.name}
       </button> */}
-    </div>
+    </button>
   );
 };
 
@@ -345,18 +312,18 @@ const ProfilePage = () => {
 
           {/* WARNING MESSAGE */}
           <div
-            className={` ${isClose ? " translate-x-[1000px] transition-transform duration-250 " : " translate-x-0 "} absolute top-0 right-0 w-2/5 md:w-2/5 lg:w-[30%] bg-theme bg-opacity-80 text-Primary p-2 rounded-md shadow-md z-30`}
+            className={` ${isClose ? " translate-x-[1000px] transition-transform duration-250 " : " translate-x-0 "} absolute top-0 right-0 w-2/5 md:w-2/5 lg:w-[30%] bg-Primary bg-opacity-80 text-gradColor3 p-3 rounded-md shadow-lg z-30`}
           >
             <div className="flex justify-between">
               <h4>Note!</h4>
               <MdClose
-                className="size-5 hover:text-gray-100"
+                className="size-5 hover:text-gradColor1"
                 onClick={NoticeClose}
               />
             </div>
             <p>
               Please refresh the page to see the changes after updating Username
-              or Avatar
+              or Avatar. Click on Theme to activate it.
             </p>
           </div>
         </div>
@@ -398,7 +365,7 @@ const ProfilePage = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-10 py-7 lg:mt-20 text-start">
             Themes
           </h2>
-          <div className="flex flex-wrap gap-[20px]">
+          <div className="flex flex-wrap gap-4">
             {themes.map((theme, index) => (
               <Card key={index} theme={theme} />
             ))}

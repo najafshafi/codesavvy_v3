@@ -5,7 +5,7 @@ import { IoLogoGitlab } from "react-icons/io5";
 
 const Lectures = () => {
   return (
-    <div className="flex justify-center items-center bg-Primary">
+    <div className="flex justify-center items-center bg-white">
       <div className="relative flex flex-col-reverse justify-between lg:flex-row max-w-7xl gap-10 px-6 sm:px-10 lg:px-16 py-10 lg:py-16">
         {/* Text Section */}
         <div className="flex flex-col justify-evenly gap-8 w-full md:w-[75%] lg:w-1/2 text-center lg:text-left">

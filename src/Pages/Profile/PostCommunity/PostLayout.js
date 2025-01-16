@@ -25,7 +25,8 @@ const PostLayout = () => {
   const user = useUser();
 
   const handleClearPosts = () => {
-    localStorage.removeItem("posts"); // Clears the posts from localStorage
+    // localStorage.removeItem("posts"); // Clears the posts from localStorage
+    localStorage.clear();
     setPosts([]); // Optionally clear the state too
   };
 
@@ -256,6 +257,9 @@ const PostLayout = () => {
                 onChange={(e) => setPostType(e.target.value)}
                 className="w-full border p-2 mb-4 rounded"
               >
+                <option value="" disabled>
+                  Select Post Type
+                </option>
                 <option value="Job">Job</option>
                 <option value="Query">Query</option>
                 <option value="Other">Other</option>

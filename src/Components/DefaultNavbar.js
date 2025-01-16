@@ -35,6 +35,7 @@ import QuizAllData from "../Pages/Profile/QuizGame/QuizAllData";
 import QuizList from "../Pages/Profile/QuizGame/QuizList";
 import QueryPost from "../Pages/Profile/PostCommunity/QueryPost";
 import Workspace from "../Pages/Profile/workspace/page";
+import PrivateRoute from "../../src/Auth/PrivateRoute";
 
 export default function App({ avatar, setAvatar }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -47,7 +48,7 @@ export default function App({ avatar, setAvatar }) {
   const renderPage = () => {
     switch (currentPage) {
       case "SettingsPage":
-        return <Profile user={user} />;
+        return <PrivateRoute element={<Profile />} user={user} />;
       case "SavvyAIDashboardPage":
         return <DashboardPage />;
       case "SavvyAIPage":
@@ -69,7 +70,7 @@ export default function App({ avatar, setAvatar }) {
       case "LoginAIPage":
         return <Loginpage />;
       default:
-        return <Profile user={user} />;
+        return <PrivateRoute element={<Profile />} user={user} />;
     }
   };
 
@@ -86,7 +87,7 @@ export default function App({ avatar, setAvatar }) {
         setUser(JSON.parse(savedUser));
       } catch (error) {
         console.error("Failed to parse saved user data:", error);
-        setUser(null); // Reset to prevent errors
+        setUser("https://mighty.tools/mockmind-api/content/human/41.jpg"); // Reset to prevent errors
       }
     }
   }, []);

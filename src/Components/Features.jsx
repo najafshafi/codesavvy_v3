@@ -62,7 +62,7 @@ export default function Features() {
                 key={feature.id}
                 onClick={() => setVisibleCard(feature.id)}
                 className={`w-12 h-2 rounded-lg transition-colors duration-200 ${
-                  visibleCard === feature.id ? "bg-theme" : "bg-textColor2"
+                  visibleCard === feature.id ? "bg-theme" : "bg-gray-200"
                 }`}
               ></button>
             ))}
@@ -76,7 +76,7 @@ export default function Features() {
               key={feature.id}
               className={`flex flex-col gap-7 items-start justify-center p-5 w-60 h-72 md:w-72 md:h-72 text-2xl rounded-xl font-bold transition-transform duration-300 ${
                 index === 0
-                  ? "transform scale-110 shadow-md shadow-theme bg-Primary border-2 text-textColor2 border-theme"
+                  ? "transform scale-110 shadow-md shadow-theme bg-white border-2 text-textColor2 border-theme"
                   : "opacity-70 bg-Primary filter grayscale text-textColor2"
               }`}
             >
