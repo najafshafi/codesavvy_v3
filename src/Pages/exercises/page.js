@@ -107,7 +107,7 @@ const Page = () => {
   };
 
   return (
-    <div className="relative flex flex-col border-8 border-textColor1 bg-Secondary overflow-hidden">
+    <div className="relative flex flex-col border-8 border-textColor1 bg-gray-100 overflow-hidden">
       {/* Top Bar */}
       <div className="bg-gray-800 h-[4rem] text-Primary p-3 flex justify-start space-x-2 overflow-x-auto LearnTopbar">
         {Object.keys(files)

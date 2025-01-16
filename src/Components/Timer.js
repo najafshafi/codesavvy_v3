@@ -165,7 +165,7 @@ const Timer = () => {
 
             {timerRunning && (
               <div className="">
-                <p className="font-semibold">
+                <p className="font-semibold text-Primary">
                   Time remaining: {formatTime(remainingTime)}
                 </p>
               </div>

@@ -4,7 +4,7 @@ import { Image } from "react-bootstrap";
 
 const Workspace = () => {
   return (
-    <div className="flex justify-center items-center bg-Primary overflow-x-hidden">
+    <div className="flex justify-center items-center bg-white overflow-x-hidden">
       <div className="relative max-w-7xl gap-10 flex flex-col md:flex-row justify-between items-center px-8 md:px-16 py-16 ">
         {/* Left Section (Image) */}
         <div className="w-full md:w-[45%] lg:w-1/2 h-auto flex justify-center lg:justify-start">
