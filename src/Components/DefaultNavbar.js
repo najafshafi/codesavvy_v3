@@ -250,10 +250,26 @@ export default function App({ avatar, setAvatar }) {
                         changetheme();
                       }}
                     >
-                      <Link className="mybuton hover-active-link" to="/signup">
-                        Sign up
+                      <Link to="/signup">
+                        <span className="text-textColor1 hover:text-theme">
+                          Sign Up
+                        </span>
                       </Link>
                     </Button>
+{/* 
+                    <Button
+                      color="warning"
+                      variant="faded"
+                      onPress={() => {
+                        changetheme();
+                      }}
+                    >
+                      <Link to="/login">
+                        <span className="text-textColor1 hover:text-theme">
+                          Log In
+                        </span>
+                      </Link>
+                    </Button> */}
                     <SignInModel setUser={setUser}>Login</SignInModel>
                   </div>
                 </div>

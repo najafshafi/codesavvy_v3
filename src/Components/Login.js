@@ -78,7 +78,11 @@ const Login = ({ setUser }) => {
       {/* <img src="./images/loginlogo.png" alt="logo" style={{ height: "100px" }} /> */}
       <h1 style={{ fontFamily: "'Aeonik', sans-serif" }}>Login</h1>
       <p style={{ fontFamily: "'Aeonik', sans-serif" }} className="text-center">
-        Don't have an account? Sign up as a <Link to="/signUp">Student</Link>.
+        Don't have an account? Sign up as a{" "}
+        <Link to="/signUp">
+          <span className="underline hover:text-theme">Student</span>
+        </Link>
+        .
       </p>
       <div className="p-4" style={{ width: "100%", maxWidth: "400px" }}>
         <form onSubmit={handleSubmit}>
@@ -135,8 +139,8 @@ const Login = ({ setUser }) => {
             <Checkbox classNames={{ label: "text-small" }} className="w-80">
               Remember me
             </Checkbox>
-            <Link color="primary" href="#" size="md">
-              {/* Forgot password? */}
+            <Link color="primary" to="/forgot-password" size="md">
+              Forgot password
             </Link>
           </div>
           <Button
