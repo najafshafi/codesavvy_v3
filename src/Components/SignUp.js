@@ -29,7 +29,11 @@ const SignUp = () => {
   // Validate email and password
   const validateEmail = (value) =>
     /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value);
-  const validatePassword = (value) => value.length >= 6;
+  const validatePassword = (value) => {
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?`~]).{6,}$/;
+    return passwordRegex.test(value);
+  };
 
   const isEmailInvalid = useMemo(() => email && !validateEmail(email), [email]);
   const isPasswordInvalid = useMemo(
@@ -47,7 +51,7 @@ const SignUp = () => {
         formData
       );
 
-      // console.log(res.data); 
+      // console.log(res.data);
 
       // Navigate to login or home page after successful signup
       navigate("/login"); // Or navigate('/home') if you want to log the user in right after signup
@@ -76,9 +80,9 @@ const SignUp = () => {
       <div>
         <img
           className="mt-5"
-          src="./images/loginlogo.png"
+          src="./codesavvy.png"
           alt="logo"
-          style={{ height: "120px" }}
+          style={{ height: "130px" }}
         />
         <h1 className="mt-5" style={{ fontFamily: "'Aeonik', sans-serif" }}>
           Sign Up
@@ -87,7 +91,11 @@ const SignUp = () => {
           style={{ fontFamily: "'Aeonik', sans-serif" }}
           className="text-center"
         >
-          Already have an account? Log in here <Link to="/login">Login</Link>.
+          Already have an account? Log in here{" "}
+          <Link to="/login">
+            <span className="underline hover:text-theme">Login</span>
+          </Link>
+          .
         </p>
         <div className="maincontainer">
           <Form onSubmit={onSubmit}>
@@ -143,7 +151,7 @@ const SignUp = () => {
                 }
                 errorMessage={
                   isPasswordInvalid
-                    ? "Password must be at least 6 characters"
+                    ? "Password must be at least 6 characters and must contain 1 Capital Letter, 1 number and a special character"
                     : errors.password
                 }
                 endContent={
@@ -173,7 +181,7 @@ const SignUp = () => {
             <Button
               radius="full"
               color="success"
-              className="mt-3 w-40"
+              className="mt-3 w-40 text-white"
               type="submit"
             >
               Sign Up

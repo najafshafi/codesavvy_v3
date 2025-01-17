@@ -49,6 +49,9 @@ import CodeGames from "./Pages/codegames/page";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { ThemeProvider } from "./context/themeContext";
+import ForgotPassword from "./Components/forgetPassword";
+import ResetPassword from "./Components/resetPassword";
+import VerifyCode from "./Components/verifyCode";
 
 const queryClient = new QueryClient();
 
@@ -98,6 +101,9 @@ function App() {
             />
             <Routes>
               <Route path="/" element={<Home user={user} />} />
+              <Route path="/forgot-password" element={<ForgotPassword/>} />
+              <Route path="/verify-code" element={<VerifyCode/>} />
+              <Route path="/reset-password" element={<ResetPassword/>} />
               <Route path="/login" element={<Login setUser={setUser} />} />
               {/* <Route
                 path="/profile/savvyai"
@@ -118,6 +124,7 @@ function App() {
               /> */}
               <Route path="/getCertified" element={<GetCertified />} />
               <Route path="/signUp" element={<SignUp />} />
+
               <Route path="/login" element={<Login setUser={setUser} />} />
               <Route path="/learn-coding" element={<Cards />} />
               <Route path="/colorpicker" element={<ColorPicker />} />
